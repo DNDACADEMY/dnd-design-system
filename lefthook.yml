@@ -1,0 +1,38 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: "**/*.{js,ts,tsx,jsx}"
+      run: pnpm lint
+    format:
+      glob: "**/*.{js,ts,tsx,jsx,json,md}"
+      run: pnpm format
+    type-check:
+      glob: "**/*.{ts,tsx}"
+      run: pnpm check-types
+
+pre-push:
+  parallel: true
+  commands:
+    lint:
+      run: pnpm lint
+    format:
+      run: pnpm format
+    type-check:
+      run: pnpm check-types
+    build:
+      run: pnpm build
+
+post-merge:
+  commands:
+    auto-install:
+      files: "git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD"
+      glob: "pnpm-lock.yaml"
+      run: pnpm install
+
+post-checkout:
+  commands:
+    auto-install:
+      files: "git diff-tree -r --name-only --no-commit-id $1 $2"
+      glob: "pnpm-lock.yaml"
+      run: pnpm install

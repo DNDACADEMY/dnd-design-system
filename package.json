@@ -1,0 +1,37 @@
+{
+  "name": "dnd-design-system",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "build:p": "turbo build --filter='./packages/**/*'",
+    "build:packages": "pnpm build:p",
+    "build:t": "turbo build --filter='./tools/**/*'",
+    "build:tools": "pnpm build:t",
+    "build:all": "turbo build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "check-types": "turbo run check-types",
+    "clean": "turbo run clean && rm -rf .turbo",
+    "postinstall": "command -v lefthook >/dev/null 2>&1 && lefthook install || true"
+  },
+  "devDependencies": {
+    "eslint": "9",
+    "prettier": "^3.7.4",
+    "tslib": "^2.8.1",
+    "turbo": "^2.8.3",
+    "typescript": "5.9.2"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "7.1.5",
+      "vitest": "4.0.18",
+      "react": "^19.2.0",
+      "react-dom": "^19.2.0"
+    }
+  },
+  "packageManager": "pnpm@9.15.9"
+}
