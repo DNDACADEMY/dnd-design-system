@@ -19,8 +19,8 @@
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
-    "@dnd-frontend/eslint-config": "workspace:*",
-    "@dnd-frontend/typescript-config": "workspace:*",
+    "@dds/eslint-config": "workspace:*",
+    "@dds/typescript-config": "workspace:*",
     "@types/node": "^22.15.3",
     "eslint": "^9.39.1",
     "typescript": "5.9.2"

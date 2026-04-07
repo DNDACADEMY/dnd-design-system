@@ -31,8 +31,8 @@ pnpm clean            # 캐시 제거
 | ------------------------- | --------------------------------- | ---------------------- |
 | `packages/dds-token`      | `@dds/token`                      | 디자인 토큰            |
 | `packages/dds-desktop`    | `@dds/desktop`                    | UI 컴포넌트 라이브러리 |
-| `tools/eslint-config`     | `@dnd-frontend/eslint-config`     | 공유 ESLint 설정       |
-| `tools/typescript-config` | `@dnd-frontend/typescript-config` | 공유 TypeScript 설정   |
+| `tools/eslint-config`     | `@dds/eslint-config`     | 공유 ESLint 설정       |
+| `tools/typescript-config` | `@dds/typescript-config` | 공유 TypeScript 설정   |
 
 각 패키지의 상세 내용은 해당 디렉토리의 `CLAUDE.md` 참고.
 
