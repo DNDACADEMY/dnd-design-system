@@ -1,0 +1,99 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+export declare const color: {
+  cyan50: string
+  cyan100: string
+  cyan200: string
+  cyan300: string
+  cyan400: string
+  cyan500: string
+  cyan600: string
+  cyan700: string
+  cyan800: string
+  cyan900: string
+  purple50: string
+  purple100: string
+  purple200: string
+  purple300: string
+  purple400: string
+  purple500: string
+  purple600: string
+  purple700: string
+  purple800: string
+  purple900: string
+  cider50: string
+  cider100: string
+  cider200: string
+  cider300: string
+  cider400: string
+  cider500: string
+  cider600: string
+  cider700: string
+  cider800: string
+  cider900: string
+  gray50: string
+  gray100: string
+  gray200: string
+  gray300: string
+  gray400: string
+  gray500: string
+  gray600: string
+  gray700: string
+  gray800: string
+  gray900: string
+  gray00: string
+  orange50: string
+  orange100: string
+  orange200: string
+  orange300: string
+  orange400: string
+  orange500: string
+  orange600: string
+  orange700: string
+  orange800: string
+  orange900: string
+  green50: string
+  green100: string
+  green200: string
+  green300: string
+  green400: string
+  green500: string
+  green600: string
+  green700: string
+  green800: string
+  green900: string
+  red50: string
+  red100: string
+  red200: string
+  red300: string
+  red400: string
+  red500: string
+  red600: string
+  red700: string
+  red800: string
+  red900: string
+  mono900: string
+  mono000: string
+}
+
+export declare const number: {
+  0: string
+  1: string
+  2: string
+  3: string
+  4: string
+  5: string
+  6: string
+  7: string
+  8: string
+  9: string
+  10: string
+  11: string
+  12: string
+  13: string
+  14: string
+  15: string
+  max: string
+}
