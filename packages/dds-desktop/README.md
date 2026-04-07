@@ -4,9 +4,6 @@
 
 DDS Desktop은 일관된 UI/UX와 확장 가능한 스타일 아키텍처를 목표로 한 디자인 시스템 패키지입니다. Vanilla Extract를 기반으로 한 Recipe 패턴을 사용해 **타입 안정성**, **재사용성**, **유지보수성**을 높였습니다.
 
-> [!NOTE]
-> 본 패키지는 추후 독립 패키지로 분리될 예정입니다.
-
 > [!IMPORTANT]
 > 컴포넌트 개발 및 기여 전, 반드시 **[Component Guidelines](./docs/COMPONENT_GUIDELINES.md)** 문서를 확인해주세요.
 

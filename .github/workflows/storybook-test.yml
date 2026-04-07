@@ -1,0 +1,49 @@
+name: Storybook Test
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'packages/dds-desktop/src/**/*.spec.stories.tsx'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: pnpm --filter @dds/desktop exec playwright install --with-deps chromium
+
+      - name: Build packages
+        run: pnpm build:packages
+
+      - name: Build Storybook
+        run: pnpm --filter @dds/desktop build-storybook --quiet
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+
+      - name: Serve Storybook and run tests
+        run: |
+          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+            "npx http-server packages/dds-desktop/storybook-static --port 6006 --silent" \
+            "npx wait-on tcp:6006 && pnpm --filter @dds/desktop test-storybook --url http://localhost:6006 --ci"
+        env:
+          CI: true
