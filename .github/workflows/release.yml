@@ -58,6 +58,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
           PR_NUMBER: ${{ steps.changesets.outputs.pullRequestNumber }}
+          REPO: ${{ github.repository }}
         run: |
           ASSIGNEE=$(gh api user --jq .login)
-          gh pr edit "$PR_NUMBER" --add-assignee "$ASSIGNEE"
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/$REPO/issues/$PR_NUMBER/assignees" \
+            -f "assignees[]=$ASSIGNEE"
