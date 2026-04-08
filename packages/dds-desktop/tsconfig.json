@@ -1,5 +1,5 @@
 {
-  "extends": "@dds-lab/typescript-config/react-library.json",
+  "extends": "@dnd-lab/typescript-config/react-library.json",
   "compilerOptions": {
     "outDir": "dist"
   },

@@ -1,4 +1,4 @@
-# @dds-lab/desktop
+# @dnd-lab/desktop
 
 ## 0.0.1
 
@@ -12,4 +12,4 @@
   hasn't changed.
 - d9426d5: Initial public release of the DND Academy design system packages.
 - Updated dependencies [d9426d5]
-  - @dds-lab/token@0.0.1
+  - @dnd-lab/token@0.0.1

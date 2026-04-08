@@ -32,7 +32,7 @@ git add .
 ```
 🔍 Staged 변경사항 분석 중...
 
-📦 워크스페이스: @dds-lab/token
+📦 워크스페이스: @dnd-lab/token
 📁 변경된 파일: 5개
   • src/tokens/colors.json (추가)
   • src/tokens/typography.json (추가)

@@ -1,5 +1,5 @@
 {
-  "name": "@dds-lab/typescript-config",
+  "name": "@dnd-lab/typescript-config",
   "version": "0.0.0",
   "private": true,
   "publishConfig": {

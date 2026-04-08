@@ -83,7 +83,7 @@ export const ComponentName = Object.assign(ComponentNameImpl, {
 
 ```ts
 import { recipe } from '@vanilla-extract/recipes'
-import { primitive, semantic } from '@dds-lab/token'
+import { primitive, semantic } from '@dnd-lab/token'
 
 export const componentCss = recipe({
   base: {
@@ -105,7 +105,7 @@ export const componentCss = recipe({
 })
 ```
 
-토큰은 반드시 `@dds-lab/token`에서 import: `primitive.color.*`, `semantic.color.*`
+토큰은 반드시 `@dnd-lab/token`에서 import: `primitive.color.*`, `semantic.color.*`
 
 ### Context (`context.tsx`)
 

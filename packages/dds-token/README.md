@@ -1,4 +1,4 @@
-# @dds-lab/token
+# @dnd-lab/token
 
 디자인 토큰 패키지 - Figma Token Studio와 연동하여 디자인 시스템의 색상, 간격, 타이포그래피 등을 관리합니다.
 

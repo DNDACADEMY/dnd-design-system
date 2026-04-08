@@ -1,4 +1,4 @@
-import { semantic } from '@dds-lab/token'
+import { semantic } from '@dnd-lab/token'
 import { recipe } from '@vanilla-extract/recipes'
 import { CSSProperties } from 'react'
 

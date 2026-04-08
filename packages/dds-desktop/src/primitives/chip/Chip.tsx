@@ -1,4 +1,4 @@
-import { semantic } from '@dds-lab/token'
+import { semantic } from '@dnd-lab/token'
 import { ElementType, HTMLAttributes, ReactNode } from 'react'
 
 import { Txt } from '../txt'

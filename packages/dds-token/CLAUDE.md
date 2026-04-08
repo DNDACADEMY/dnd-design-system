@@ -24,12 +24,12 @@ scripts/
 
 ```ts
 // JS/TS — .css.ts 파일에서 사용
-import { primitive, semantic } from '@dds-lab/token'
+import { primitive, semantic } from '@dnd-lab/token'
 primitive.color.blue500
 semantic.color.labelTitle
 
 // CSS 변수 — 런타임 테마
-import '@dds-lab/token/css'
+import '@dnd-lab/token/css'
 ```
 
 토큰 이름 변환: Figma `Color/Cyan/500` → 코드 `primitive.color.cyan500`

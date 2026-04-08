@@ -1,4 +1,4 @@
-# @dds-lab/token
+# @dnd-lab/token
 
 ## 0.0.1
 

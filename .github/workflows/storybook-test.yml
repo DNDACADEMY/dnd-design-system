@@ -30,13 +30,13 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Install Playwright browsers
-        run: pnpm --filter @dds-lab/desktop exec playwright install --with-deps chromium
+        run: pnpm --filter @dnd-lab/desktop exec playwright install --with-deps chromium
 
       - name: Build packages
         run: pnpm build:packages
 
       - name: Build Storybook
-        run: pnpm --filter @dds-lab/desktop build-storybook --quiet
+        run: pnpm --filter @dnd-lab/desktop build-storybook --quiet
         env:
           NODE_OPTIONS: --max_old_space_size=4096
 
@@ -44,6 +44,6 @@ jobs:
         run: |
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
             "npx http-server packages/dds-desktop/storybook-static --port 6006 --silent" \
-            "npx wait-on tcp:6006 && pnpm --filter @dds-lab/desktop test-storybook --url http://localhost:6006 --ci"
+            "npx wait-on tcp:6006 && pnpm --filter @dnd-lab/desktop test-storybook --url http://localhost:6006 --ci"
         env:
           CI: true

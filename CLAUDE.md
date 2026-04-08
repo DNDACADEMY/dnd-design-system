@@ -27,12 +27,12 @@ pnpm clean            # 캐시 제거
 
 ## 워크스페이스
 
-| 경로                      | 패키지                   | 설명                   |
-| ------------------------- | ------------------------ | ---------------------- |
-| `packages/dds-token`      | `@dds-lab/token`             | 디자인 토큰            |
-| `packages/dds-desktop`    | `@dds-lab/desktop`           | UI 컴포넌트 라이브러리 |
-| `tools/eslint-config`     | `@dds-lab/eslint-config`     | 공유 ESLint 설정       |
-| `tools/typescript-config` | `@dds-lab/typescript-config` | 공유 TypeScript 설정   |
+| 경로                      | 패키지                       | 설명                   |
+| ------------------------- | ---------------------------- | ---------------------- |
+| `packages/dds-token`      | `@dnd-lab/token`             | 디자인 토큰            |
+| `packages/dds-desktop`    | `@dnd-lab/desktop`           | UI 컴포넌트 라이브러리 |
+| `tools/eslint-config`     | `@dnd-lab/eslint-config`     | 공유 ESLint 설정       |
+| `tools/typescript-config` | `@dnd-lab/typescript-config` | 공유 TypeScript 설정   |
 
 각 패키지의 상세 내용은 해당 디렉토리의 `CLAUDE.md` 참고.
 
