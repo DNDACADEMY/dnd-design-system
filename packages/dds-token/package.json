@@ -32,12 +32,10 @@
   "devDependencies": {
     "@dnd-lab/eslint-config": "workspace:*",
     "@dnd-lab/typescript-config": "workspace:*",
+    "@tokens-studio/sd-transforms": "^2.0.3",
     "@types/node": "^22.15.3",
     "eslint": "^9.39.1",
+    "style-dictionary": "^5.1.1",
     "typescript": "5.9.2"
-  },
-  "dependencies": {
-    "@tokens-studio/sd-transforms": "^2.0.3",
-    "style-dictionary": "^5.1.1"
   }
 }
