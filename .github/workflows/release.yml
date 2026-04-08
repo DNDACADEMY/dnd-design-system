@@ -52,3 +52,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
+
+      - name: Assign release PR to token owner
+        if: steps.changesets.outputs.pullRequestNumber != ''
+        env:
+          GH_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+          PR_NUMBER: ${{ steps.changesets.outputs.pullRequestNumber }}
+        run: |
+          ASSIGNEE=$(gh api user --jq .login)
+          gh pr edit "$PR_NUMBER" --add-assignee "$ASSIGNEE"

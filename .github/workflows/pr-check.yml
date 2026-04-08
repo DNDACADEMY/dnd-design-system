@@ -46,4 +46,5 @@ jobs:
         run: pnpm turbo lint --filter='./packages/*'
 
       - name: Verify changeset
+        if: ${{ !startsWith(github.head_ref, 'changeset-release/') }}
         run: pnpm changeset status --since=origin/main
