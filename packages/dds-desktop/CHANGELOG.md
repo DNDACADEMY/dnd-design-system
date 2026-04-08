@@ -1,5 +1,12 @@
 # @dnd-lab/desktop
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`b4ec2b0`](https://github.com/DNDACADEMY/dnd-design-system/commit/b4ec2b0500e6d0307a6555c28f206cc0de920b26)]:
+  - @dnd-lab/token@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes
