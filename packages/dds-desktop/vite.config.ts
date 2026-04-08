@@ -13,13 +13,9 @@ import pkg from './package.json' with { type: 'json' }
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const externalPackages = [
-  ...Object.keys(pkg.dependencies ?? {}),
-  ...Object.keys(pkg.peerDependencies ?? {})
-]
+const externalPackages = [...Object.keys(pkg.dependencies ?? {}), ...Object.keys(pkg.peerDependencies ?? {})]
 
-const isExternal = (id: string) =>
-  externalPackages.some((name) => id === name || id.startsWith(`${name}/`))
+const isExternal = (id: string) => externalPackages.some((name) => id === name || id.startsWith(`${name}/`))
 
 export default defineConfig({
   // 1. 공통 플러그인

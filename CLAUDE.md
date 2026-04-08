@@ -27,10 +27,10 @@ pnpm clean            # 캐시 제거
 
 ## 워크스페이스
 
-| 경로                      | 패키지                            | 설명                   |
-| ------------------------- | --------------------------------- | ---------------------- |
-| `packages/dds-token`      | `@dds/token`                      | 디자인 토큰            |
-| `packages/dds-desktop`    | `@dds/desktop`                    | UI 컴포넌트 라이브러리 |
+| 경로                      | 패키지                   | 설명                   |
+| ------------------------- | ------------------------ | ---------------------- |
+| `packages/dds-token`      | `@dds/token`             | 디자인 토큰            |
+| `packages/dds-desktop`    | `@dds/desktop`           | UI 컴포넌트 라이브러리 |
 | `tools/eslint-config`     | `@dds/eslint-config`     | 공유 ESLint 설정       |
 | `tools/typescript-config` | `@dds/typescript-config` | 공유 TypeScript 설정   |
 

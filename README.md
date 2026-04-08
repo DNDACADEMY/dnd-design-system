@@ -6,12 +6,12 @@ DND Academy 디자인 시스템 모노레포. UI 컴포넌트(`@dds/desktop`)와
 
 ## 워크스페이스
 
-| 경로                      | 패키지                    | 설명                            |
-| ------------------------- | ------------------------- | ------------------------------- |
-| `packages/dds-token`      | `@dds/token`              | Style Dictionary 디자인 토큰    |
-| `packages/dds-desktop`    | `@dds/desktop`            | Vanilla Extract UI 컴포넌트     |
-| `tools/eslint-config`     | `@dds/eslint-config`      | 공유 ESLint preset              |
-| `tools/typescript-config` | `@dds/typescript-config`  | 공유 tsconfig preset            |
+| 경로                      | 패키지                   | 설명                         |
+| ------------------------- | ------------------------ | ---------------------------- |
+| `packages/dds-token`      | `@dds/token`             | Style Dictionary 디자인 토큰 |
+| `packages/dds-desktop`    | `@dds/desktop`           | Vanilla Extract UI 컴포넌트  |
+| `tools/eslint-config`     | `@dds/eslint-config`     | 공유 ESLint preset           |
+| `tools/typescript-config` | `@dds/typescript-config` | 공유 tsconfig preset         |
 
 빌드 의존: `dds-token` → `dds-desktop` (Turborepo 가 강제).
 
