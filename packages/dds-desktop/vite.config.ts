@@ -8,8 +8,18 @@ import { playwright } from '@vitest/browser-playwright'
 import dts from 'vite-plugin-dts'
 import { defineConfig } from 'vitest/config'
 
+import pkg from './package.json' with { type: 'json' }
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+
+const externalPackages = [
+  ...Object.keys(pkg.dependencies ?? {}),
+  ...Object.keys(pkg.peerDependencies ?? {})
+]
+
+const isExternal = (id: string) =>
+  externalPackages.some((name) => id === name || id.startsWith(`${name}/`))
 
 export default defineConfig({
   // 1. 공통 플러그인
@@ -30,7 +40,7 @@ export default defineConfig({
       fileName: () => 'index.js'
     },
     rollupOptions: {
-      external: ['react', 'react-dom']
+      external: isExternal
     },
     sourcemap: true
   },
