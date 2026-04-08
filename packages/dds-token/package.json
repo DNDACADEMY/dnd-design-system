@@ -1,6 +1,6 @@
 {
-  "name": "@dds/token",
-  "version": "0.0.0",
+  "name": "@dds-lab/token",
+  "version": "0.0.1",
   "type": "module",
   "license": "MIT",
   "repository": {
@@ -30,8 +30,8 @@
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
-    "@dds/eslint-config": "workspace:*",
-    "@dds/typescript-config": "workspace:*",
+    "@dds-lab/eslint-config": "workspace:*",
+    "@dds-lab/typescript-config": "workspace:*",
     "@types/node": "^22.15.3",
     "eslint": "^9.39.1",
     "typescript": "5.9.2"

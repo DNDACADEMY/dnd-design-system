@@ -1,6 +1,6 @@
 # dnd-design-system
 
-DND Academy 디자인 시스템 모노레포. UI 컴포넌트(`@dds/desktop`)와 디자인 토큰(`@dds/token`)을 한 곳에서 빌드·배포한다.
+DND Academy 디자인 시스템 모노레포. UI 컴포넌트(`@dds-lab/desktop`)와 디자인 토큰(`@dds-lab/token`)을 한 곳에서 빌드·배포한다.
 
 > pnpm 9 + Turborepo 기반. Node 22.21.1 (mise 로 고정).
 
@@ -8,10 +8,10 @@ DND Academy 디자인 시스템 모노레포. UI 컴포넌트(`@dds/desktop`)와
 
 | 경로                      | 패키지                   | 설명                         |
 | ------------------------- | ------------------------ | ---------------------------- |
-| `packages/dds-token`      | `@dds/token`             | Style Dictionary 디자인 토큰 |
-| `packages/dds-desktop`    | `@dds/desktop`           | Vanilla Extract UI 컴포넌트  |
-| `tools/eslint-config`     | `@dds/eslint-config`     | 공유 ESLint preset           |
-| `tools/typescript-config` | `@dds/typescript-config` | 공유 tsconfig preset         |
+| `packages/dds-token`      | `@dds-lab/token`             | Style Dictionary 디자인 토큰 |
+| `packages/dds-desktop`    | `@dds-lab/desktop`           | Vanilla Extract UI 컴포넌트  |
+| `tools/eslint-config`     | `@dds-lab/eslint-config`     | 공유 ESLint preset           |
+| `tools/typescript-config` | `@dds-lab/typescript-config` | 공유 tsconfig preset         |
 
 빌드 의존: `dds-token` → `dds-desktop` (Turborepo 가 강제).
 
@@ -52,15 +52,15 @@ pnpm check-types                          # 전체 타입 체크
 pnpm format                               # Prettier
 pnpm clean                                # turbo 캐시 제거
 
-pnpm --filter @dds/desktop storybook      # Storybook 개발 서버 (포트 6006)
-pnpm --filter @dds/desktop build-storybook
-pnpm --filter @dds/desktop test-storybook # 인터랙션/접근성 테스트
+pnpm --filter @dds-lab/desktop storybook      # Storybook 개발 서버 (포트 6006)
+pnpm --filter @dds-lab/desktop build-storybook
+pnpm --filter @dds-lab/desktop test-storybook # 인터랙션/접근성 테스트
 ```
 
 ### 4. 컴포넌트 추가
 
 ```bash
-pnpm --filter @dds/desktop generate:component
+pnpm --filter @dds-lab/desktop generate:component
 ```
 
 또는 Claude Code 에서 `/dds-component` 스킬을 호출하면 구현 + 접근성 spec 까지 한 번에 만든다. 기존 컴포넌트에 spec 만 추가하려면 `/a11y-spec-writer`.
@@ -69,7 +69,7 @@ pnpm --filter @dds/desktop generate:component
 
 ```bash
 # 의존성 추가/업데이트
-pnpm --filter @dds/desktop add <pkg>
+pnpm --filter @dds-lab/desktop add <pkg>
 pnpm install
 
 # 락파일을 커밋
@@ -101,7 +101,7 @@ git commit -m "chore: bump <pkg>"
 - **커밋**: Conventional Commits (`feat:`, `fix:`, `chore:`, `refactor:`, `docs:`, `ci:`, ...)
 - **ESLint import 순서**: builtin → external → internal → parent/sibling, 그룹 간 빈 줄
 - **Prettier**: 세미콜론 없음, single quote, `printWidth: 150`
-- **Vanilla Extract**: 토큰은 `@dds/token` 의 `primitive` / `semantic` 만 사용
+- **Vanilla Extract**: 토큰은 `@dds-lab/token` 의 `primitive` / `semantic` 만 사용
 
 ## 디렉토리 구조
 

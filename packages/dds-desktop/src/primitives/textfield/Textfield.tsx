@@ -1,4 +1,4 @@
-import { semantic } from '@dds/token'
+import { semantic } from '@dds-lab/token'
 import { ChangeEventHandler, ComponentPropsWithRef, ReactNode } from 'react'
 
 import { Fieldbox } from '../fieldbox'

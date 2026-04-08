@@ -1,4 +1,4 @@
-import { semantic } from '@dds/token'
+import { semantic } from '@dds-lab/token'
 
 import { Icon, IconProps } from '../../icon'
 import { useChipContext } from '../context'

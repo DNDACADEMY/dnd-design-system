@@ -1,4 +1,4 @@
-import { semantic } from '@dds/token'
+import { semantic } from '@dds-lab/token'
 import { useState } from 'react'
 
 import { Textfield } from './Textfield'

@@ -1,4 +1,4 @@
-import { primitive } from '@dds/token'
+import { primitive } from '@dds-lab/token'
 import { CSSProperties, ElementType, HTMLAttributes } from 'react'
 
 import { typographyCss } from './styles.css'

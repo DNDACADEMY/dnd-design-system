@@ -1,4 +1,4 @@
-import { primitive, semantic } from '@dds/token'
+import { primitive, semantic } from '@dds-lab/token'
 import { recipe } from '@vanilla-extract/recipes'
 import { CSSProperties } from 'react'
 

@@ -58,8 +58,8 @@ cat .github/PULL_REQUEST_TEMPLATE.md
 ### Auto-detect from file paths:
 
 ```
-packages/dds-token/       → @dds/token → scope: token
-packages/dds-desktop/     → @dds/desktop → scope: desktop
+packages/dds-token/       → @dds-lab/token → scope: token
+packages/dds-desktop/     → @dds-lab/desktop → scope: desktop
 services/admin-web/       → admin-web → scope: admin-web
 services/passboard/       → passboard → scope: passboard
 tools/xxx/                → scope: tools
@@ -70,7 +70,7 @@ root config files         → scope: root
 ### Scope extraction priority:
 
 1. **Read package.json** if exists in changed directory
-   - Extract name field: `"name": "@dds/token"` → scope: `token`
+   - Extract name field: `"name": "@dds-lab/token"` → scope: `token`
    - Remove `@dds/` or `@scope/` prefix
 2. **Fallback to directory name** if no package.json
    - `services/admin-web` → scope: `admin-web`
@@ -161,7 +161,7 @@ Output format:
 🔍 변경사항 분석
 
 📦 변경된 워크스페이스:
-  • packages/dds-token (@dds/token)
+  • packages/dds-token (@dds-lab/token)
   • services/admin-web
 
 📁 변경된 파일: 12개
@@ -352,7 +352,7 @@ gh pr create --draft \
 Generate title suggestions without creating PR:
 
 ```
-🔍 변경된 워크스페이스: @dds/token
+🔍 변경된 워크스페이스: @dds-lab/token
 
 🏷️  권장 제목:
 feat(token): 디자인 토큰 시스템 구축
@@ -370,7 +370,7 @@ Analyze changes without creating PR:
 📊 변경사항 분석
 
 📦 워크스페이스:
-  • packages/dds-token (@dds/token)
+  • packages/dds-token (@dds-lab/token)
 
 📁 파일: 8개 (추가 5, 수정 3)
 

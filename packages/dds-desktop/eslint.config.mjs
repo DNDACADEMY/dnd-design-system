@@ -1,4 +1,4 @@
-import { config as reactInternalConfig } from '@dds/eslint-config/react-internal'
+import { config as reactInternalConfig } from '@dds-lab/eslint-config/react-internal'
 import storybook from 'eslint-plugin-storybook'
 
 /** @type {import("eslint").Linter.Config} */

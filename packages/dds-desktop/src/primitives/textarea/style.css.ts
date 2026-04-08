@@ -1,4 +1,4 @@
-import { semantic } from '@dds/token'
+import { semantic } from '@dds-lab/token'
 import { style } from '@vanilla-extract/css'
 
 export const contentCss = style({
