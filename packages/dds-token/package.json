@@ -1,8 +1,19 @@
 {
   "name": "@dds/token",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.1",
   "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zero-1016/dnd-design-system.git",
+    "directory": "packages/dds-token"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
   "exports": {
     ".": "./dist/tokens.js",
     "./tokens": "./dist/tokens.js",
