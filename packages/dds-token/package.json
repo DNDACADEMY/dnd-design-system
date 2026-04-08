@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Zero-1016/dnd-design-system.git",
+    "url": "https://github.com/DNDACADEMY/dnd-design-system.git",
     "directory": "packages/dds-token"
   },
   "publishConfig": {
