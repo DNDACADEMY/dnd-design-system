@@ -1,5 +1,13 @@
 # @dnd-lab/desktop
 
+## 0.0.3
+
+### Patch Changes
+
+- [#6](https://github.com/DNDACADEMY/dnd-design-system/pull/6) [`f0beb19`](https://github.com/DNDACADEMY/dnd-design-system/commit/f0beb19e2e0ceda3a1065f372e17946a0f153e22) Thanks [@Zero-1016](https://github.com/Zero-1016)! - **Txt**
+
+  개행 문자(`\n`)가 올바르게 인식되지 않던 버그를 수정해요.
+
 ## 0.0.2
 
 ### Patch Changes
