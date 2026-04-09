@@ -1,5 +1,13 @@
 # @dnd-lab/desktop
 
+## 0.0.4
+
+### Patch Changes
+
+- [#8](https://github.com/DNDACADEMY/dnd-design-system/pull/8) [`6b4151b`](https://github.com/DNDACADEMY/dnd-design-system/commit/6b4151b2ddc690210e9406890badba76730d4bcc) Thanks [@Zero-1016](https://github.com/Zero-1016)! - **Txt**
+
+  이스케이프 문자(`\n`)와 조합 문자(`\\n`) 모두 줄바꿈이 올바르게 동작하도록 수정해요.
+
 ## 0.0.3
 
 ### Patch Changes
