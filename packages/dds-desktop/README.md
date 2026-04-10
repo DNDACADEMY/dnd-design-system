@@ -4,10 +4,9 @@
 
 DDS Desktop은 일관된 UI/UX와 확장 가능한 스타일 아키텍처를 목표로 한 디자인 시스템 패키지입니다. Vanilla Extract를 기반으로 한 Recipe 패턴을 사용해 **타입 안정성**, **재사용성**, **유지보수성**을 높였습니다.
 
-> [!IMPORTANT]
-> 컴포넌트 개발 및 기여 전, 반드시 **[Component Guidelines](./docs/COMPONENT_GUIDELINES.md)** 문서를 확인해주세요.
+**컴포넌트 개발 및 기여 전, 반드시 [Component Guidelines](./docs/COMPONENT_GUIDELINES.md) 문서를 확인해주세요.**
 
-### 설치 방법
+## 설치 방법
 
 DDS Desktop을 사용하려면 아래 명령어를 통해 패키지를 설치하세요.
 
@@ -19,28 +18,29 @@ npm install @dnd-lab/desktop
 yarn add @dnd-lab/desktop
 ```
 
-#### 의존성 설치
+### 의존성 설치
 
 `@dnd-lab/desktop`은 아래 패키지를 peer dependency로 사용합니다.
 
 - `react`: `^18.0.0 || ^19.0.0`
 - `react-dom`: `^18.0.0 || ^19.0.0`
 - `framer-motion`: `^12.0.0`
-- `vanilla-extract`: `^1.0.0`
+- `@vanilla-extract/css`: `^1.0.0`
+- `lucide-react`: `^0.562.0` — `Icon` 컴포넌트 사용 시 필요
 
 프로젝트에 설치되어 있지 않다면 함께 설치해주세요.
 
 ```bash
 # npm 사용 시
-npm install react react-dom framer-motion vanilla-extract
+npm install react react-dom framer-motion @vanilla-extract/css lucide-react
 
 # yarn 사용 시
-yarn add react react-dom framer-motion vanilla-extract
+yarn add react react-dom framer-motion @vanilla-extract/css lucide-react
 ```
 
-### 사용 방법
+## 사용 방법
 
-#### 1. 전역 CSS import
+### 1. 전역 CSS import
 
 Vanilla Extract로 빌드된 CSS 결과물을 애플리케이션 엔트리 포인트에서 한 번만 import 해주세요.
 
@@ -58,7 +58,7 @@ createRoot(document.getElementById('root') as HTMLElement).render(
 )
 ```
 
-#### 2. 컴포넌트 사용
+### 2. 컴포넌트 사용
 
 패키지에서 제공하는 컴포넌트를 import하여 바로 사용할 수 있습니다.
 
@@ -70,7 +70,7 @@ export function Example() {
 }
 ```
 
-### 문서
+## 문서
 
 - 📘 [Component Guidelines](./docs/COMPONENT_GUIDELINES.md)
   - 컴포넌트 설계 원칙
@@ -88,7 +88,7 @@ npm run storybook
 yarn storybook
 ```
 
-### 기여 방법
+## 기여 방법
 
 기여를 환영합니다 🙌
 
