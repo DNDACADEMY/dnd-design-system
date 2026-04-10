@@ -15,6 +15,9 @@ coverage
 build
 dist
 
+# [Pack]
+**/*.tgz
+
 # [Debug]
 npm-debug.log*
 pnpm-debug.log*
