@@ -1,5 +1,19 @@
 # @dnd-lab/desktop
 
+## 0.1.0
+
+### Minor Changes
+
+- [#13](https://github.com/DNDACADEMY/dnd-design-system/pull/13) [`4e7a325`](https://github.com/DNDACADEMY/dnd-design-system/commit/4e7a32550234f4db25e7d3f349b513945b1600fc) Thanks [@Zero-1016](https://github.com/Zero-1016)! - **Icon**
+
+  `lucide-react`를 `dependencies`에서 `peerDependencies`로 이동해요. 이제 `lucide-react`를 프로젝트에 직접 설치해야 해요.
+
+### Patch Changes
+
+- [#10](https://github.com/DNDACADEMY/dnd-design-system/pull/10) [`1fd385d`](https://github.com/DNDACADEMY/dnd-design-system/commit/1fd385d547f532c659e321127b1365dd6345d9cf) Thanks [@Zero-1016](https://github.com/Zero-1016)! - 라이브러리 빌드 설정을 개선하고 하위 경로 import를 지원해요.
+  - `@dnd-lab/desktop/primitives/button` 같은 개별 컴포넌트 import가 가능해요.
+  - CJS/ESM 동시 출력을 지원해요.
+
 ## 0.0.4
 
 ### Patch Changes
