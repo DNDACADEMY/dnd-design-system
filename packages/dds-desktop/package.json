@@ -22,6 +22,11 @@
       "import": "./dist/primitives/index.mjs",
       "require": "./dist/primitives/index.js"
     },
+    "./primitives/*": {
+      "types": "./dist/primitives/*/index.d.ts",
+      "import": "./dist/primitives/*/index.mjs",
+      "require": "./dist/primitives/*/index.js"
+    },
     "./desktop.css": "./dist/desktop.css"
   },
   "scripts": {
