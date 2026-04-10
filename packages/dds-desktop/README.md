@@ -26,16 +26,17 @@ yarn add @dnd-lab/desktop
 - `react`: `^18.0.0 || ^19.0.0`
 - `react-dom`: `^18.0.0 || ^19.0.0`
 - `framer-motion`: `^12.0.0`
-- `vanilla-extract`: `^1.0.0`
+- `@vanilla-extract/css`: `^1.0.0`
+- `lucide-react`: `^0.562.0` — `Icon` 컴포넌트 사용 시 필요
 
 프로젝트에 설치되어 있지 않다면 함께 설치해주세요.
 
 ```bash
 # npm 사용 시
-npm install react react-dom framer-motion vanilla-extract
+npm install react react-dom framer-motion @vanilla-extract/css lucide-react
 
 # yarn 사용 시
-yarn add react react-dom framer-motion vanilla-extract
+yarn add react react-dom framer-motion @vanilla-extract/css lucide-react
 ```
 
 ### 사용 방법
