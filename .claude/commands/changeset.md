@@ -1,8 +1,3 @@
----
-name: changeset
-description: changeset 파일을 작성한다. 코드 변경 후 "changeset 작성해줘", "changeset 만들어줘", "변경사항 정리해줘" 같은 요청이 있을 때 이 스킬을 사용하라.
----
-
 # changeset
 
 코드 변경 후 changeset 파일(`.changeset/*.md`)을 작성하는 워크플로우.
@@ -125,6 +120,15 @@ prop 이름, 타입, 기본값 등이 변경되면 Before/After 도표로 정리
 변경된 부분이 있으면 Before/After 도표로 정리해요.
 ```
 
-## 스텝 6: 사용자 확인
+## 스텝 6: changeset 파일만 커밋
 
-작성한 changeset 내용을 보여주고 수정이 필요한지 확인한다.
+생성한 changeset 파일만 stage하고 `docs: changeset` 메시지로 커밋한다.
+
+```bash
+git add .changeset/<생성한-파일>.md
+git commit -m "docs: changeset"
+```
+
+## 스텝 7: 사용자 확인
+
+작성한 changeset 내용과 커밋 결과를 보여주고 수정이 필요한지 확인한다.
