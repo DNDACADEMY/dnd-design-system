@@ -15,8 +15,11 @@
     "**/*.css"
   ],
   "exports": {
-    ".": "./dist/tokens.js",
-    "./tokens": "./dist/tokens.js",
+    ".": {
+      "types": "./dist/tokens.d.ts",
+      "import": "./dist/tokens.js",
+      "default": "./dist/tokens.js"
+    },
     "./css": "./dist/variables.css"
   },
   "types": "./dist/tokens.d.ts",
