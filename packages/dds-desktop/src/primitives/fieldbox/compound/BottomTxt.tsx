@@ -1,4 +1,4 @@
-import { semantic } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 import { HTMLAttributes, ReactNode } from 'react'
 
 import { cx } from '../../../utils/cx'
@@ -21,7 +21,7 @@ export const FieldboxBottomTxt = (props: FieldboxBottomTxtProps) => {
     <Txt
       as='p'
       typography='caption1'
-      color={error ? semantic.color.badgeRed : semantic.color.labelSubtitle}
+      color={error ? color.semantic.text.error.primary : color.semantic.text.neutral.secondary}
       className={cx(bottomTxtCss, classNameFromProps)}
       {...restProps}>
       {children}

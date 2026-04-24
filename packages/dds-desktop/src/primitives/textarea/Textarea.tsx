@@ -1,4 +1,4 @@
-import { semantic } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 import { ChangeEventHandler, HTMLAttributes, ReactNode } from 'react'
 
 import { Fieldbox } from '../fieldbox'
@@ -134,7 +134,7 @@ const TextareaImpl = (props: TextareaProps) => {
             as='textarea'
             className={cx(TextareaCss, classNameFromProps)}
             typography={typographyBySize[size]}
-            color={semantic.color.labelTitle}
+            color={color.semantic.text.neutral.primary}
             value={value}
             onChange={onChange}
             rows={rows}

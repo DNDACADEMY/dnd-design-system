@@ -1,4 +1,4 @@
-import { primitive } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 import { HTMLAttributes } from 'react'
 
 import { Txt } from '../../txt'
@@ -30,7 +30,7 @@ export const FieldboxLabel = (props: FieldboxLabelProps) => {
       htmlFor={id}
       typography={'body2'}
       fontWeight={'medium'}
-      color={primitive.color.gray900}
+      color={color.primitive.slate['900']}
       {...restProps}>
       {children}
       {required && <span className={requiredStyleCss}>*</span>}

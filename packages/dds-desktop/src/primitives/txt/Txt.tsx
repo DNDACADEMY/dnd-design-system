@@ -1,4 +1,4 @@
-import { primitive } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 import { CSSProperties, ElementType, HTMLAttributes } from 'react'
 
 import { typographyCss } from './styles.css'
@@ -36,7 +36,7 @@ export const Txt = forwardRefWithAs<ElementType, TxtProps>((props, ref) => {
     typography = 'body1',
     fontWeight = 'regular',
     children,
-    color: colorFromProps = primitive.color.mono900,
+    color: colorFromProps = color.primitive.mono.black,
     className: classNameFromProps,
     style: styleFromProps,
     ...restProps

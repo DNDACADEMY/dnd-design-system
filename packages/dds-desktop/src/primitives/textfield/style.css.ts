@@ -1,4 +1,4 @@
-import { semantic } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 import { recipe } from '@vanilla-extract/recipes'
 import { CSSProperties } from 'react'
 
@@ -14,7 +14,7 @@ export const TextfieldCss = recipe({
 
     selectors: {
       '&::placeholder': {
-        color: semantic.color.labelSubtitle
+        color: color.semantic.text.neutral.secondary
       }
     }
   },

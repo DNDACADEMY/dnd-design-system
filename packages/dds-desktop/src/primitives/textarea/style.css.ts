@@ -1,4 +1,4 @@
-import { semantic } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 import { style } from '@vanilla-extract/css'
 
 export const contentCss = style({
@@ -12,11 +12,11 @@ export const TextareaCss = style({
   padding: 0,
   border: 'none',
   outline: 'none',
-  color: semantic.color.labelTitle,
+  color: color.semantic.text.neutral.primary,
 
   selectors: {
     '&::placeholder': {
-      color: semantic.color.labelSubtitle
+      color: color.semantic.text.neutral.secondary
     }
   }
 })

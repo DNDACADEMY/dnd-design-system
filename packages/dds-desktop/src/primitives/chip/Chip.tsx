@@ -1,4 +1,4 @@
-import { semantic } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 import { ElementType, HTMLAttributes, ReactNode } from 'react'
 
 import { Txt } from '../txt'
@@ -49,7 +49,7 @@ export const ChipImpl = forwardRefWithAs<ElementType, ChipProps>((props, ref) =>
         <Txt
           typography='body2'
           fontWeight='bold'
-          color={colorByStatusMap[status]}
+          color={textColorByStatus[status]}
           as='span'>
           {children}
         </Txt>
@@ -59,9 +59,9 @@ export const ChipImpl = forwardRefWithAs<ElementType, ChipProps>((props, ref) =>
   )
 })
 
-const colorByStatusMap: Record<ChipStatus, string> = {
-  default: semantic.color.labelSubtitle,
-  selected: semantic.color.labelInverse
+const textColorByStatus: Record<ChipStatus, string> = {
+  default: color.semantic.text.neutral.secondary,
+  selected: color.semantic.text.neutral.inverse
 }
 
 export const Chip = Object.assign(ChipImpl, {

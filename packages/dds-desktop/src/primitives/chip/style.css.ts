@@ -1,4 +1,4 @@
-import { primitive, semantic } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 import { recipe } from '@vanilla-extract/recipes'
 import { CSSProperties } from 'react'
 
@@ -18,10 +18,10 @@ export const containerCss = recipe({
   variants: {
     status: {
       default: {
-        backgroundColor: primitive.color.gray100
+        backgroundColor: color.primitive.slate['100']
       },
       selected: {
-        backgroundColor: semantic.color.buttonSecondary
+        backgroundColor: color.semantic.background.neutral.secondary
       }
     } satisfies Record<ChipStatus, CSSProperties>
   }

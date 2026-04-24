@@ -1,4 +1,4 @@
-import { semantic } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 import { ChangeEventHandler, ComponentPropsWithRef, ReactNode } from 'react'
 
 import { Fieldbox } from '../fieldbox'
@@ -138,7 +138,7 @@ export const TextfieldImpl = (props: TextfieldProps) => {
             disabled={disabled}
             className={cx(TextfieldCss({ size }), classNameFromProps)}
             typography={typographyBySize[size]}
-            color={semantic.color.labelTitle}
+            color={color.semantic.text.neutral.primary}
             value={value}
             onChange={onChange}
             {...restProps}

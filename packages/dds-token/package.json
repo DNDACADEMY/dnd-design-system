@@ -15,8 +15,11 @@
     "**/*.css"
   ],
   "exports": {
-    ".": "./dist/tokens.js",
-    "./tokens": "./dist/tokens.js",
+    ".": {
+      "types": "./dist/tokens.d.ts",
+      "import": "./dist/tokens.js",
+      "default": "./dist/tokens.js"
+    },
     "./css": "./dist/variables.css"
   },
   "types": "./dist/tokens.d.ts",
@@ -26,16 +29,13 @@
   "scripts": {
     "build": "npm run build:tokens",
     "build:tokens": "node scripts/build-tokens.js",
-    "lint": "eslint . --max-warnings 0",
-    "check-types": "tsc --noEmit"
+    "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
     "@dnd-lab/eslint-config": "workspace:*",
     "@dnd-lab/typescript-config": "workspace:*",
     "@tokens-studio/sd-transforms": "^2.0.3",
-    "@types/node": "^22.15.3",
     "eslint": "^9.39.1",
-    "style-dictionary": "^5.1.1",
-    "typescript": "5.9.2"
+    "style-dictionary": "^5.1.1"
   }
 }

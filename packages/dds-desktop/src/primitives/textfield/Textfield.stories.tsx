@@ -1,4 +1,4 @@
-import { semantic } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 import { useState } from 'react'
 
 import { Textfield } from './Textfield'
@@ -123,7 +123,7 @@ export const Sizes: Story = {
               leftAddon={
                 <Textfield.Icon
                   name='mail'
-                  color={semantic.color.labelSubtitle}
+                  color={color.semantic.text.neutral.secondary}
                   aria-hidden
                 />
               }
@@ -168,7 +168,7 @@ export const ControlledWithExternalState: Story = {
           leftAddon={
             <Textfield.Icon
               name='mail'
-              color={semantic.color.labelSubtitle}
+              color={color.semantic.text.neutral.secondary}
               aria-hidden
             />
           }
@@ -211,7 +211,7 @@ export const UncontrolledWithDefaultValue: Story = {
         leftAddon={
           <Textfield.Icon
             name='mail'
-            color={semantic.color.labelSubtitle}
+            color={color.semantic.text.neutral.secondary}
             aria-hidden
           />
         }
