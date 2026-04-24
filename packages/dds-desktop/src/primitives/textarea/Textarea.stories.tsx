@@ -1,4 +1,4 @@
-import { semantic } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 import { useState } from 'react'
 
 import { Textarea } from './Textarea'
@@ -129,7 +129,7 @@ export const Sizes: Story = {
               leftAddon={
                 <Textarea.Icon
                   name='edit'
-                  color={semantic.color.labelSubtitle}
+                  color={color.semantic.text.neutral.secondary}
                   aria-hidden
                 />
               }
@@ -176,7 +176,7 @@ export const ControlledWithExternalState: Story = {
           leftAddon={
             <Textarea.Icon
               name='edit'
-              color={semantic.color.labelSubtitle}
+              color={color.semantic.text.neutral.secondary}
               aria-hidden
             />
           }
@@ -221,7 +221,7 @@ export const UncontrolledWithDefaultValue: Story = {
         leftAddon={
           <Textarea.Icon
             name='edit'
-            color={semantic.color.labelSubtitle}
+            color={color.semantic.text.neutral.secondary}
             aria-hidden
           />
         }

@@ -1,4 +1,4 @@
-import { primitive } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 
 import { Txt } from './Txt'
 
@@ -51,7 +51,7 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   args: {
     fontWeight: 'regular',
-    color: primitive.color.mono900
+    color: color.primitive.mono.black
   }
 }
 
@@ -59,7 +59,7 @@ export const Playground: Story = {
 export const TypographyScale: Story = {
   args: {
     fontWeight: 'regular',
-    color: primitive.color.mono900
+    color: color.primitive.mono.black
   },
   parameters: {
     controls: {
@@ -87,7 +87,7 @@ export const AsHeading: Story = {
     as: 'h2',
     typography: 'h5',
     fontWeight: 'medium',
-    color: primitive.color.mono900,
+    color: color.primitive.mono.black,
     children: '섹션 제목 텍스트'
   }
 }

@@ -75,7 +75,7 @@ Vanilla Extract recipes로 variant 기반 스타일 작성:
 ```ts
 // style.css.ts
 import { recipe } from '@vanilla-extract/recipes'
-import { primitive, semantic } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 
 export const buttonCss = recipe({
   base: { ... },
@@ -86,7 +86,9 @@ export const buttonCss = recipe({
 })
 ```
 
-토큰은 `@dnd-lab/token`에서 import: `primitive.color.blue500`, `semantic.color.labelTitle` 등
+토큰은 `@dnd-lab/token`에서 import. `color` / `typography` 두 네임스페이스가 있고,
+각각 `primitive` / `semantic` / `component` 3단 계층 (예: `color.primitive.slate['500']`,
+`color.semantic.text.neutral.primary`, `typography.semantic.body['1'].size`).
 
 ## 테스트
 

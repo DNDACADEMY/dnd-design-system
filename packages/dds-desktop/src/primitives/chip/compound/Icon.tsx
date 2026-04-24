@@ -1,4 +1,4 @@
-import { semantic } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 
 import { Icon, IconProps } from '../../icon'
 import { useChipContext } from '../context'
@@ -9,12 +9,12 @@ export type ChipIconProps = IconProps
 export const ChipIcon = (props: ChipIconProps) => {
   const { size = 12, color: colorFromProps, ...restProps } = props
   const { status } = useChipContext('Chip.Icon')
-  const color = colorFromProps ?? IconColorByStatusMap[status]
+  const iconColor = colorFromProps ?? iconColorByStatus[status]
 
   return (
     <Icon
       size={size}
-      color={color}
+      color={iconColor}
       {...restProps}
     />
   )
@@ -22,7 +22,7 @@ export const ChipIcon = (props: ChipIconProps) => {
 
 ChipIcon.displayName = 'Chip.Icon'
 
-const IconColorByStatusMap: Record<ChipStatus, string> = {
-  default: semantic.color.labelSubtitle,
-  selected: semantic.color.labelInverse
+const iconColorByStatus: Record<ChipStatus, string> = {
+  default: color.semantic.text.neutral.secondary,
+  selected: color.semantic.text.neutral.inverse
 } as const

@@ -1,4 +1,4 @@
-import { semantic } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 
 import { Icon } from '../icon'
 import { Txt } from '../txt'
@@ -45,7 +45,7 @@ const CustomInput = ({ fieldboxProps, id, placeholder }: { fieldboxProps: Fieldb
       fontWeight='regular'
       readOnly={readonly}
       disabled={disabled}
-      color={semantic.color.labelSubtitle}
+      color={color.semantic.text.neutral.secondary}
       placeholder={placeholder ?? 'example@dnd.com'}
       style={{
         flex: 1,
@@ -84,7 +84,7 @@ export const Playground: Story = {
             <Icon
               name='mail'
               size={16}
-              color={semantic.color.labelSubtitle}
+              color={color.semantic.text.neutral.secondary}
             />
           }>
           <CustomInput
@@ -122,7 +122,7 @@ export const Sizes: Story = {
                   <Icon
                     name='mail'
                     size={16}
-                    color={semantic.color.labelSubtitle}
+                    color={color.semantic.text.neutral.secondary}
                   />
                 }>
                 <CustomInput
@@ -156,7 +156,7 @@ export const ErrorState: Story = {
             <Icon
               name='mail'
               size={16}
-              color={semantic.color.labelSubtitle}
+              color={color.semantic.text.neutral.secondary}
             />
           }>
           <CustomInput
@@ -187,7 +187,7 @@ export const DisabledState: Story = {
             <Icon
               name='mail'
               size={16}
-              color={semantic.color.labelSubtitle}
+              color={color.semantic.text.neutral.secondary}
             />
           }>
           <CustomInput

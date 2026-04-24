@@ -1,4 +1,4 @@
-import { primitive, semantic } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 import { createVar } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 
@@ -32,7 +32,7 @@ export const buttonCss = recipe({
       },
       '&:disabled': {
         backgroundColor: buttonVariants.disabledBackgroundColor,
-        color: semantic.color.labelDisable
+        color: color.semantic.text.neutral.disabled
       }
     }
   },
@@ -62,35 +62,35 @@ export const buttonCss = recipe({
     variant: {
       primary: {
         vars: {
-          [buttonVariants.backgroundColor]: semantic.color.buttonPrimary,
-          [buttonVariants.hoverBackgroundColor]: semantic.color.buttonPrimaryHover,
-          [buttonVariants.disabledBackgroundColor]: semantic.color.buttonSecondary,
-          [buttonVariants.color]: semantic.color.labelTitle
+          [buttonVariants.backgroundColor]: color.semantic.background.brand.primary,
+          [buttonVariants.hoverBackgroundColor]: color.semantic.background.brand.hover,
+          [buttonVariants.disabledBackgroundColor]: color.semantic.background.brand.disabled,
+          [buttonVariants.color]: color.semantic.text.brand.onBrand
         }
       },
       secondary: {
         vars: {
-          [buttonVariants.backgroundColor]: semantic.color.buttonSecondary,
-          [buttonVariants.hoverBackgroundColor]: semantic.color.buttonSecondaryHover,
-          [buttonVariants.disabledBackgroundColor]: semantic.color.buttonSecondary,
-          [buttonVariants.color]: semantic.color.labelInverse
+          [buttonVariants.backgroundColor]: color.semantic.background.neutral.secondary,
+          [buttonVariants.hoverBackgroundColor]: color.semantic.background.neutral.hover,
+          [buttonVariants.disabledBackgroundColor]: color.semantic.background.neutral.disabled,
+          [buttonVariants.color]: color.semantic.text.neutral.primary
         }
       },
       assistive: {
         vars: {
-          [buttonVariants.backgroundColor]: semantic.color.buttonPrimary,
-          [buttonVariants.hoverBackgroundColor]: primitive.color.gray100,
-          [buttonVariants.disabledBackgroundColor]: semantic.color.backgroundSeconday,
-          [buttonVariants.color]: semantic.color.labelTitle
+          [buttonVariants.backgroundColor]: color.semantic.background.neutral.primary,
+          [buttonVariants.hoverBackgroundColor]: color.primitive.slate['100'],
+          [buttonVariants.disabledBackgroundColor]: color.semantic.background.neutral.secondary,
+          [buttonVariants.color]: color.semantic.text.neutral.primary
         }
       },
       outline: {
         vars: {
-          [buttonVariants.backgroundColor]: primitive.color.mono000,
-          [buttonVariants.hoverBackgroundColor]: semantic.color.backgroundPrimary,
-          [buttonVariants.disabledBackgroundColor]: semantic.color.backgroundSeconday,
-          [buttonVariants.color]: semantic.color.labelTitle,
-          [buttonVariants.boxShadow]: `0 0 0 1px ${semantic.color.borderDefault}`
+          [buttonVariants.backgroundColor]: color.primitive.mono.white,
+          [buttonVariants.hoverBackgroundColor]: color.semantic.background.neutral.primary,
+          [buttonVariants.disabledBackgroundColor]: color.semantic.background.neutral.secondary,
+          [buttonVariants.color]: color.semantic.text.neutral.primary,
+          [buttonVariants.boxShadow]: `0 0 0 1px ${color.semantic.border.neutral.medium}`
         }
       }
     }

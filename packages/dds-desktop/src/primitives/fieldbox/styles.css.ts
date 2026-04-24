@@ -1,4 +1,4 @@
-import { primitive, semantic } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 import { createVar, style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 
@@ -28,13 +28,13 @@ export const fieldboxContentCss = recipe({
     border: `1px solid ${fieldBoxContentVariants.borderColor}`,
     transition: 'border-color 0.2s ease-in-out',
     vars: {
-      [fieldBoxContentVariants.backgroundColor]: primitive.color.mono000,
-      [fieldBoxContentVariants.borderColor]: semantic.color.borderStrong
+      [fieldBoxContentVariants.backgroundColor]: color.primitive.mono.white,
+      [fieldBoxContentVariants.borderColor]: color.semantic.border.neutral.strong
     },
     selectors: {
       '&:focus-within': {
         vars: {
-          [fieldBoxContentVariants.borderColor]: primitive.color.cyan400
+          [fieldBoxContentVariants.borderColor]: color.primitive.cyan['400']
         }
       }
     }
@@ -66,7 +66,7 @@ export const fieldboxContentCss = recipe({
     error: {
       true: {
         vars: {
-          [fieldBoxContentVariants.borderColor]: semantic.color.badgeRed
+          [fieldBoxContentVariants.borderColor]: color.semantic.border.error.medium
         }
       }
     },
@@ -74,16 +74,16 @@ export const fieldboxContentCss = recipe({
       true: {
         pointerEvents: 'none',
         vars: {
-          [fieldBoxContentVariants.backgroundColor]: primitive.color.gray100,
-          [fieldBoxContentVariants.borderColor]: primitive.color.gray300
+          [fieldBoxContentVariants.backgroundColor]: color.primitive.slate['100'],
+          [fieldBoxContentVariants.borderColor]: color.primitive.slate['300']
         }
       }
     },
     readonly: {
       true: {
         vars: {
-          [fieldBoxContentVariants.backgroundColor]: semantic.color.backgroundPrimary,
-          [fieldBoxContentVariants.borderColor]: primitive.color.gray100
+          [fieldBoxContentVariants.backgroundColor]: color.semantic.background.neutral.primary,
+          [fieldBoxContentVariants.borderColor]: color.primitive.slate['100']
         }
       }
     }
@@ -96,5 +96,5 @@ export const bottomTxtCss = style({
 
 export const requiredStyleCss = style({
   marginLeft: '2px',
-  color: semantic.color.badgeRed
+  color: color.semantic.text.error.primary
 })

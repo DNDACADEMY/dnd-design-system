@@ -1,4 +1,4 @@
-import { semantic } from '@dnd-lab/token'
+import { color } from '@dnd-lab/token'
 import { createVar, style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 
@@ -13,7 +13,7 @@ export const containerStyle = recipe({
   base: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: semantic.color.backgroundSeconday,
+    backgroundColor: color.semantic.background.neutral.secondary,
     height: '100vh',
     paddingTop: containerVariants.verticalPadding,
     paddingBottom: containerVariants.verticalPadding
@@ -103,7 +103,7 @@ export const scrollAreaScrollbarStyle = style({
 export const scrollAreaThumbStyle = style({
   flex: 1,
   borderRadius: 9999,
-  backgroundColor: semantic.color.borderDefault
+  backgroundColor: color.semantic.border.neutral.medium
 })
 
 export const collapsedHiddenStyle = style({
@@ -141,10 +141,10 @@ export const itemStyle = recipe({
   variants: {
     isActive: {
       true: {
-        color: semantic.color.badgePrimary
+        color: color.semantic.text.brand.primary
       },
       false: {
-        color: semantic.color.labelTitle
+        color: color.semantic.text.neutral.primary
       }
     },
     hasIcon: {
@@ -173,7 +173,7 @@ export const itemStyle = recipe({
 
 export const groupLabelContainerStyle = style({
   padding: `${DEFAULT_ITEM_HORIZONTAL_PADDING}px ${DEFAULT_HORIZONTAL_PADDING}px`,
-  color: semantic.color.labelDisable
+  color: color.semantic.text.neutral.disabled
 })
 
 export const groupListStyle = style({
