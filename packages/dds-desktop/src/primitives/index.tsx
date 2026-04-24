@@ -1,5 +1,4 @@
 export * from './button'
-export * from './fieldbox'
 export * from './txt'
 export * from './icon'
 export * from './textfield'

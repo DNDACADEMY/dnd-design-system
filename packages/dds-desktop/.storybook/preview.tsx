@@ -1,3 +1,5 @@
+import '@dnd-lab/token/css'
+
 import type { Preview } from '@storybook/react-vite'
 
 const preview: Preview = {
@@ -15,7 +17,16 @@ const preview: Preview = {
       // 'off' - skip a11y checks entirely
       test: 'todo'
     }
-  }
+  },
+  decorators: [
+    (Story) => {
+      return (
+        <>
+          <Story />
+        </>
+      )
+    }
+  ]
 }
 
 export default preview
