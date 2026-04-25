@@ -1,4 +1,4 @@
-# dds-desktop
+# @dnd-lab/desktop
 
 DND Academy 디자인 시스템 컴포넌트 라이브러리. Vanilla Extract 기반의 타입 안전한 UI 프리미티브를 제공한다.
 
@@ -16,16 +16,25 @@ pnpm lint               # ESLint
 ## 컴포넌트 구조
 
 ```
-src/primitives/
-└── button/
-    ├── Button.tsx           # 메인 컴포넌트
-    ├── style.css.ts         # Vanilla Extract 스타일
-    ├── context.tsx          # Context Provider
-    ├── type.ts              # 타입 정의
-    ├── compound/            # 서브컴포넌트 (Button.Icon 등)
-    ├── Button.stories.tsx   # Storybook 문서
-    └── Button.spec.stories.tsx  # 접근성/인터랙션 테스트
+src/
+├── primitives/
+│   ├── index.tsx                # 모든 primitive 재export
+│   └── button/
+│       ├── index.tsx                # 외부 export 진입점
+│       ├── Button.tsx               # 메인 컴포넌트
+│       ├── style.css.ts             # Vanilla Extract 스타일
+│       ├── context.tsx              # Context Provider
+│       ├── type.ts                  # 타입 정의
+│       ├── compound/                # 서브컴포넌트 (Button.Icon 등)
+│       ├── Button.stories.tsx       # Storybook 문서
+│       └── Button.spec.stories.tsx  # 접근성/인터랙션 테스트
+├── hooks/                       # 공용 훅 (useControllableState, useId 등)
+└── utils/                       # 공용 유틸 (forwardRefWithAs, cx 등)
 ```
+
+각 primitive 는 `index.tsx` 를 통해 컴포넌트와 Props 타입을 export 하며,
+`primitives/index.tsx` 가 이를 다시 묶어 `@dnd-lab/desktop` 의 최상위 API 가 된다.
+`@dnd-lab/desktop/primitives/<name>` 형태의 서브경로 import 도 지원한다.
 
 ## 컴포넌트 작성 규칙
 
@@ -119,11 +128,14 @@ pnpm test-storybook     # headless 실행
 
 **`/a11y-spec-writer`**: 컴포넌트 코드를 읽고 WCAG 기준에 맞는 `spec.stories.tsx`를 자동 생성한다. ARIA, 키보드, 폼 접근성 규칙 레퍼런스(`references/rules/`)도 포함되어 있다.
 
-## 유틸리티
+## 유틸리티 / 훅
 
-| 유틸                      | 용도                    |
-| ------------------------- | ----------------------- |
-| `utils/forwardRefWithAs`  | polymorphic ref 지원    |
-| `utils/cx`                | className 합성          |
-| `utils/createCtxProvider` | Context + Provider 생성 |
-| `utils/composeHandler`    | 이벤트 핸들러 합성      |
+| 모듈                          | 용도                         |
+| ----------------------------- | ---------------------------- |
+| `utils/forwardRefWithAs`      | polymorphic ref 지원         |
+| `utils/cx`                    | className 합성               |
+| `utils/createCtxProvider`     | Context + Provider 생성      |
+| `utils/composeHandler`        | 이벤트 핸들러 합성           |
+| `utils/toPascalCase`          | 문자열 PascalCase 변환       |
+| `hooks/useControllableState`  | controlled/uncontrolled 상태 |
+| `hooks/useId`                 | SSR-safe 고유 id 생성        |
