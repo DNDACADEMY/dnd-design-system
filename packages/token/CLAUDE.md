@@ -29,10 +29,10 @@ scripts/
 // JS/TS — .css.ts 파일에서 사용
 import { color, typography } from '@dnd-lab/token'
 
-color.primitive.blue['500']               // 원시 색상 (var(--color-blue-500))
-color.semantic.text.neutral.primary       // 의미 색상
-color.component.radio.border.default      // 컴포넌트 전용 색상
-typography.semantic.body['1'].size        // 타이포그래피 (number)
+color.primitive.blue['500'] // 원시 색상 (var(--color-blue-500))
+color.semantic.text.neutral.primary // 의미 색상
+color.component.radio.border.default // 컴포넌트 전용 색상
+typography.semantic.body['1'].size // 타이포그래피 (number)
 
 // CSS 변수 — 런타임 테마. color 토큰만 export 됨
 import '@dnd-lab/token/css'

@@ -130,12 +130,12 @@ pnpm test-storybook     # headless 실행
 
 ## 유틸리티 / 훅
 
-| 모듈                          | 용도                         |
-| ----------------------------- | ---------------------------- |
-| `utils/forwardRefWithAs`      | polymorphic ref 지원         |
-| `utils/cx`                    | className 합성               |
-| `utils/createCtxProvider`     | Context + Provider 생성      |
-| `utils/composeHandler`        | 이벤트 핸들러 합성           |
-| `utils/toPascalCase`          | 문자열 PascalCase 변환       |
-| `hooks/useControllableState`  | controlled/uncontrolled 상태 |
-| `hooks/useId`                 | SSR-safe 고유 id 생성        |
+| 모듈                         | 용도                         |
+| ---------------------------- | ---------------------------- |
+| `utils/forwardRefWithAs`     | polymorphic ref 지원         |
+| `utils/cx`                   | className 합성               |
+| `utils/createCtxProvider`    | Context + Provider 생성      |
+| `utils/composeHandler`       | 이벤트 핸들러 합성           |
+| `utils/toPascalCase`         | 문자열 PascalCase 변환       |
+| `hooks/useControllableState` | controlled/uncontrolled 상태 |
+| `hooks/useId`                | SSR-safe 고유 id 생성        |

@@ -80,15 +80,15 @@ import { Button } from '@dnd-lab/desktop/primitives/button'
 
 ### 제공 컴포넌트
 
-| 컴포넌트                         | 설명                                  |
-| -------------------------------- | ------------------------------------- |
-| `Button`                         | 버튼 + Compound `Button.Icon`         |
-| `Txt`                            | 의미 기반 텍스트 컴포넌트             |
-| `Icon`                           | `lucide-react` 기반 아이콘 래퍼       |
-| `Textfield`                      | 단일 라인 텍스트 입력                 |
-| `Textarea`                       | 다중 라인 텍스트 입력                 |
-| `Chip`                           | 태그/필터용 칩                        |
-| `Popover`                        | Radix UI 기반 팝오버                  |
+| 컴포넌트    | 설명                            |
+| ----------- | ------------------------------- |
+| `Button`    | 버튼 + Compound `Button.Icon`   |
+| `Txt`       | 의미 기반 텍스트 컴포넌트       |
+| `Icon`      | `lucide-react` 기반 아이콘 래퍼 |
+| `Textfield` | 단일 라인 텍스트 입력           |
+| `Textarea`  | 다중 라인 텍스트 입력           |
+| `Chip`      | 태그/필터용 칩                  |
+| `Popover`   | Radix UI 기반 팝오버            |
 
 전체 변형(variant) 과 인터랙션은 [Storybook](https://main--6961111a96f838d3ba78064b.chromatic.com/) 참고.
 

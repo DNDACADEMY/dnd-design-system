@@ -77,9 +77,9 @@ pnpm build           # Style Dictionary 로 토큰 빌드
 
 빌드 후 `dist/` 에 생성되는 산출물:
 
-| 파일                  | 용도                       |
-| --------------------- | -------------------------- |
-| `tokens.js` / `.d.ts` | JS/TS import 용 객체       |
+| 파일                  | 용도                        |
+| --------------------- | --------------------------- |
+| `tokens.js` / `.d.ts` | JS/TS import 용 객체        |
 | `variables.css`       | `:root` CSS 커스텀 프로퍼티 |
 
 빌드 시 `.tokens-cache.json` 과 비교해 추가·삭제·변경된 토큰만 콘솔에 표시한다.
