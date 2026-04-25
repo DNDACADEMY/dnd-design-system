@@ -7,5 +7,5 @@ storybook-static
 pnpm-lock.yaml
 
 # Tokens Studio 에서 export 되는 원본 파일 — 수동 포맷 금지
-packages/dds-token/tokens/
-packages/dds-token/.tokens-cache.json
+packages/token/tokens/
+packages/token/.tokens-cache.json

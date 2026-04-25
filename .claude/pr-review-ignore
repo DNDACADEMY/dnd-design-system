@@ -16,7 +16,7 @@ out/**
 *.generated.tsx
 
 # 스타일 토큰 (자동 생성)
-packages/dds-token/src/**
+packages/token/src/**
 
 # 테스트 스냅샷
 **/__snapshots__/**

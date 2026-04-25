@@ -218,7 +218,7 @@ Number / 4px   (단위 포함)
 
 ### 방법 2: GitHub 직접 업로드
 
-1. GitHub 저장소 → [`packages/dds-token/tokens/`](https://github.com/DNDACADEMY/dnd-design-system/tree/main/packages/dds-token)
+1. GitHub 저장소 → [`packages/token/tokens/`](https://github.com/DNDACADEMY/dnd-design-system/tree/main/packages/token)
 2. **"Add file"** → **"Upload files"**
 3. `core.json` 드래그 & 드롭
 4. Commit 메시지:
