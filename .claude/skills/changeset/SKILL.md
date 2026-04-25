@@ -188,7 +188,7 @@ Breaking 으로 확정되면 컴포넌트명 옆에 `⚠️ Breaking` 마커를 
 
 **좋은 예 (major, Breaking)**
 
-~~~md
+````md
 **Button** ⚠️ Breaking
 
 `variant` prop 의 값을 더 명확하게 정리해요.
@@ -206,7 +206,7 @@ Breaking 으로 확정되면 컴포넌트명 옆에 `⚠️ Breaking` 마커를 
 // After
 <Button variant="solid" />
 ```
-~~~
+````
 
 #### 🐛 버그 수정 — `@dnd-lab/desktop` 또는 `@dnd-lab/token`
 
