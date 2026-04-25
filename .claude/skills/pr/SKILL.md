@@ -1,6 +1,11 @@
+---
+name: pr
+description: dnd-design-system 모노레포에서 현재 브랜치 변경사항을 분석해 GitHub Pull Request 를 자동 생성한다. "PR 만들어줘", "PR 생성", "풀 리퀘스트 작성", "pull request 만들어", "main 으로 PR 올려줘" 같은 요청이나 작업 완료 후 PR 이 필요할 때 반드시 이 스킬을 사용하라. .github/PULL_REQUEST_TEMPLATE.md 의 섹션 구조(📝 변경사항 / 🔗 관련 링크)를 정확히 따르며 conventional commit 형식의 한국어 제목을 생성한다. AI 코드 리뷰까지 자동으로 받고 싶다면 pr-with-review 스킬을 사용하라.
+---
+
 # Claude Code PR Auto-Creator
 
-## /pr - Automatically Create GitHub Pull Request
+## Automatically Create GitHub Pull Request
 
 Analyze current branch changes and automatically create a GitHub Pull Request with title and description in Korean following conventional commit format.
 
@@ -60,9 +65,6 @@ cat .github/PULL_REQUEST_TEMPLATE.md
 ```
 packages/dds-token/       → @dnd-lab/token → scope: token
 packages/dds-desktop/     → @dnd-lab/desktop → scope: desktop
-services/admin-web/       → admin-web → scope: admin-web
-services/passboard/       → passboard → scope: passboard
-tools/xxx/                → scope: tools
 .github/                  → scope: ci
 root config files         → scope: root
 ```
@@ -81,7 +83,7 @@ root config files         → scope: root
 ### Multiple workspaces changed:
 
 - **1 workspace + root files**: Use workspace scope `feat(desktop):` (root 제외)
-- **2- workspaces**: List all `feat(token,desktop):`
+- **2+ workspaces**: List all `feat(token,desktop):`
 - **Root files only**: Only then use `chore:`
 
 **⚠️ Root를 scope에 포함하지 않음:**
@@ -334,92 +336,22 @@ git push -u origin $(git branch --show-current)
 
 ---
 
-## Additional Commands
-
-### `/pr-draft` - Create Draft PR
-
-Same as `/pr` but creates a draft pull request:
-
-```bash
-gh pr create --draft \
-  --assignee @me \
-  --title "..." \
-  --body "..."
-```
-
-### `/pr-title` - Quick Title Suggestion
-
-Generate title suggestions without creating PR:
-
-```
-🔍 변경된 워크스페이스: @dnd-lab/token
-
-🏷️  권장 제목:
-feat(token): 디자인 토큰 시스템 구축
-
-또는:
-1. feat(token): Style Dictionary 기반 토큰 자동화
-2. chore(token): 토큰 빌드 설정 추가
-```
-
-### `/pr-analyze` - Analyze Only
-
-Analyze changes without creating PR:
-
-```
-📊 변경사항 분석
-
-📦 워크스페이스:
-  • packages/dds-token (@dnd-lab/token)
-
-📁 파일: 8개 (추가 5, 수정 3)
-
-🔧 타입: feat
-📝 주요 변경:
-  - Style Dictionary 설정
-  - 토큰 JSON 구조화
-  - 빌드 자동화
-```
-
----
-
 ## Workflow Examples
 
 ### Example 1: Simple PR Creation
 
-```bash
-# User types:
-/pr
-
-# Assistant does:
 1. Analyzes git diff main
 2. Reads package.json files
 3. Generates title and body
 4. Pushes branch (if needed)
 5. Creates PR with gh pr create
 6. Returns PR URL
-```
-
-### Example 2: Draft PR
-
-```bash
-/pr-draft
-# Creates draft PR for review before marking ready
-```
-
-### Example 3: Title Only
-
-```bash
-/pr-title
-# Just shows title suggestions, no PR creation
-```
 
 ---
 
 ## Tips
 
-- **Always commit first** before running `/pr`
-- Use `/pr-analyze` to preview changes
-- Use `/pr-draft` for work-in-progress
+- **Always commit first** before creating a PR
 - PR body can be edited on GitHub after creation
 - Add reviewers and labels manually on GitHub
+- AI 인라인 코드 리뷰까지 받고 싶다면 `pr-with-review` 스킬 사용

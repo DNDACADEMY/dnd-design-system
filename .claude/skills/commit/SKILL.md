@@ -1,12 +1,11 @@
+---
+name: commit
+description: dnd-design-system 모노레포에서 staged 변경사항을 분석해 conventional commit 형식의 메시지를 자동 생성·커밋한다. "커밋해줘", "커밋 메시지 만들어줘", "auto commit", "feat/fix 메시지 작성", "스코프 자동 감지" 같은 요청이나 사용자가 `git add` 후 커밋을 요청할 때 반드시 이 스킬을 사용하라. 워크스페이스(packages/dds-token, packages/dds-desktop, tools/, services/) 기반 scope 자동 감지와 root 파일 처리 규칙(yarn.lock, .gitignore 등은 커밋에 포함하되 scope 에서 제외)을 따른다.
+---
+
 # Auto-Generate Commit Message
 
 현재 staged 변경사항을 분석하여 conventional commit 형식의 커밋 메시지를 자동 생성하고 커밋합니다.
-
-## Usage
-
-```bash
-/commit
-```
 
 ## What it does
 
@@ -24,7 +23,7 @@
 git add .
 
 # 2. 커밋 메시지 자동 생성 및 커밋
-/commit
+# (이 스킬을 트리거)
 ```
 
 ## Output Example
@@ -227,10 +226,10 @@ git commit --amend
 ```bash
 # 기능별로 나눠서 stage
 git add src/feature1/
-/commit
+# (커밋 트리거)
 
 git add src/feature2/
-/commit
+# (커밋 트리거)
 ```
 
 ## Examples
@@ -238,11 +237,7 @@ git add src/feature2/
 ### Example 1: New Feature
 
 ```bash
-# 새 기능 추가
 git add packages/dds-token/src/
-
-/commit
-
 # 출력:
 # feat(token): 디자인 토큰 자동화 시스템 추가
 #
@@ -254,11 +249,7 @@ git add packages/dds-token/src/
 ### Example 2: Bug Fix
 
 ```bash
-# 버그 수정
 git add packages/dds-desktop/src/ipc/
-
-/commit
-
 # 출력:
 # fix(desktop): IPC 메시지 처리 오류 해결
 #
@@ -269,11 +260,7 @@ git add packages/dds-desktop/src/ipc/
 ### Example 3: Multiple Workspaces
 
 ```bash
-# 여러 패키지 동시 수정
 git add packages/dds-token/ packages/dds-desktop/
-
-/commit
-
 # 출력:
 # feat(token,desktop): 디자인 토큰 통합
 #
@@ -284,11 +271,7 @@ git add packages/dds-token/ packages/dds-desktop/
 ### Example 4: Config Changes
 
 ```bash
-# 설정 파일만 변경
 git add turbo.json .github/
-
-/commit
-
 # 출력:
 # chore(root): Turbo 빌드 설정 최적화
 #
@@ -301,15 +284,15 @@ git add turbo.json .github/
 💡 **빠른 커밋 워크플로우**
 
 ```bash
-git add . && /commit
+git add .
+# (커밋 트리거)
 ```
 
 💡 **부분 커밋**
 
 ```bash
-# 특정 파일만 stage
 git add src/feature.ts
-/commit
+# (커밋 트리거)
 ```
 
 💡 **커밋 전 변경사항 확인**
@@ -321,12 +304,11 @@ git diff --staged
 💡 **커밋 메시지 수정**
 
 ```bash
-# 마지막 커밋 메시지 수정
 git commit --amend
 ```
 
-## Related Commands
+## Related Skills
 
-- `/pr` - PR 자동 생성 (커밋 후 사용)
-- `/pr-title` - PR 제목 미리보기
-- `/commit-msg` - 커밋 메시지만 생성 (커밋 X)
+- `pr` — PR 자동 생성 (커밋 후 사용)
+- `pr-with-review` — PR 생성 + AI 코드 리뷰
+- `changeset` — 패키지 변경 시 changeset 본문 작성
