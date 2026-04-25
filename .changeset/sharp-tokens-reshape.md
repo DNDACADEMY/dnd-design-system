@@ -1,5 +1,5 @@
 ---
-'@dnd-lab/token': major
+'@dnd-lab/token': minor
 ---
 
 **@dnd-lab/token**
