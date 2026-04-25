@@ -1,11 +1,11 @@
 ---
 name: dds-component
-description: dds-desktop 디자인 시스템에 새 컴포넌트를 추가한다. "컴포넌트 만들어줘", "새 컴포넌트 추가", "dds-desktop에 추가", "프리미티브 만들어줘" 같은 요청이나 dds-desktop 패키지에서 컴포넌트 파일을 새로 생성할 때 반드시 이 스킬을 사용하라. 컴포넌트 구현 후 a11y-spec-writer 스킬로 접근성 스펙까지 자동 생성한다.
+description: @dnd-lab/desktop 디자인 시스템에 새 컴포넌트를 추가한다. "컴포넌트 만들어줘", "새 컴포넌트 추가", "desktop에 추가", "프리미티브 만들어줘" 같은 요청이나 @dnd-lab/desktop 패키지에서 컴포넌트 파일을 새로 생성할 때 반드시 이 스킬을 사용하라. 컴포넌트 구현 후 a11y-spec-writer 스킬로 접근성 스펙까지 자동 생성한다.
 ---
 
 # dds-component
 
-dds-desktop 패키지에 새 컴포넌트를 추가하는 전체 워크플로우.
+@dnd-lab/desktop 패키지에 새 컴포넌트를 추가하는 전체 워크플로우.
 구현 완료 후 `a11y-spec-writer` 스킬로 접근성 스펙을 자동 생성한다.
 
 ## 스텝 1: 요구사항 파악

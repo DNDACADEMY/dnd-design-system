@@ -29,8 +29,8 @@ pnpm clean            # 캐시 제거
 
 | 경로                      | 패키지                       | 설명                   |
 | ------------------------- | ---------------------------- | ---------------------- |
-| `packages/dds-token`      | `@dnd-lab/token`             | 디자인 토큰            |
-| `packages/dds-desktop`    | `@dnd-lab/desktop`           | UI 컴포넌트 라이브러리 |
+| `packages/token`          | `@dnd-lab/token`             | 디자인 토큰            |
+| `packages/desktop`        | `@dnd-lab/desktop`           | UI 컴포넌트 라이브러리 |
 | `tools/eslint-config`     | `@dnd-lab/eslint-config`     | 공유 ESLint 설정       |
 | `tools/typescript-config` | `@dnd-lab/typescript-config` | 공유 TypeScript 설정   |
 
@@ -38,7 +38,7 @@ pnpm clean            # 캐시 제거
 
 ## 빌드 순서
 
-`dds-token` → `dds-desktop` (Turborepo 가 강제)
+`token` → `desktop` (Turborepo 가 강제)
 
 ## 특수 설정
 

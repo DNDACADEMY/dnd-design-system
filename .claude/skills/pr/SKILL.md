@@ -23,7 +23,7 @@ git diff main...HEAD --name-only
 git log main..HEAD --oneline
 ```
 
-워크스페이스 감지 규칙은 `commit` 스킬과 동일하다 (`packages/dds-token` → `token`, `packages/dds-desktop` → `desktop`, `tools/*` → `tools`).
+워크스페이스 감지 규칙은 `commit` 스킬과 동일하다 (`packages/token` → `token`, `packages/desktop` → `desktop`, `tools/*` → `tools`).
 
 ## 스텝 3: 제목 생성
 

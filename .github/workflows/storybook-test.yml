@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'packages/dds-desktop/src/**/*.spec.stories.tsx'
+      - 'packages/desktop/src/**/*.spec.stories.tsx'
 
 jobs:
   test:
@@ -43,7 +43,7 @@ jobs:
       - name: Serve Storybook and run tests
         run: |
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-            "npx http-server packages/dds-desktop/storybook-static --port 6006 --silent" \
+            "npx http-server packages/desktop/storybook-static --port 6006 --silent" \
             "npx wait-on tcp:6006 && pnpm --filter @dnd-lab/desktop test-storybook --url http://localhost:6006 --ci"
         env:
           CI: true

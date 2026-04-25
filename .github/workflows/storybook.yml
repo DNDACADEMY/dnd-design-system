@@ -9,7 +9,7 @@ on:
       - labeled
 
 jobs:
-  # Main 브랜치에서 dds-desktop 변경 여부 체크
+  # Main 브랜치에서 desktop 변경 여부 체크
   check-desktop-main:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
@@ -21,16 +21,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check if dds-desktop has changes
+      - name: Check if desktop has changes
         id: check_changes
         run: |
-          # 직전 커밋과 현재 커밋 사이에서 dds-desktop 변경사항 확인
-          if git diff --name-only HEAD^ HEAD | grep -q "^packages/dds-desktop/"; then
+          # 직전 커밋과 현재 커밋 사이에서 desktop 변경사항 확인
+          if git diff --name-only HEAD^ HEAD | grep -q "^packages/desktop/"; then
             echo "has_changes=true" >> $GITHUB_OUTPUT
-            echo "✅ dds-desktop에 변경사항이 있습니다."
+            echo "✅ desktop에 변경사항이 있습니다."
           else
             echo "has_changes=false" >> $GITHUB_OUTPUT
-            echo "ℹ️ dds-desktop에 변경사항이 없습니다. 배포를 건너뜁니다."
+            echo "ℹ️ desktop에 변경사항이 없습니다. 배포를 건너뜁니다."
           fi
 
   # Main 브랜치 자동 배포
@@ -65,7 +65,7 @@ jobs:
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_MAIN_PROJECT_TOKEN }}
-          workingDir: packages/dds-desktop
+          workingDir: packages/desktop
           buildScriptName: build-storybook
           autoAcceptChanges: true
 
@@ -106,7 +106,7 @@ jobs:
         continue-on-error: true
         with:
           projectToken: ${{ secrets.CHROMATIC_ALPHA_PROJECT_TOKEN }}
-          workingDir: packages/dds-desktop
+          workingDir: packages/desktop
           buildScriptName: build-storybook
           autoAcceptChanges: false
 

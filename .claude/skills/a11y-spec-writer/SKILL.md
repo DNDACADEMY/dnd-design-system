@@ -1,11 +1,11 @@
 ---
 name: a11y-spec-writer
-description: dds-desktop 컴포넌트의 접근성 테스트 스펙(spec.stories.tsx)을 생성한다. 컴포넌트 파일을 보여주거나 "접근성 스펙 만들어줘", "a11y 테스트 작성해줘", "spec.stories 생성해줘", "키보드 테스트 작성", "ARIA 테스트", WAI-ARIA 패턴 관련 스펙이 필요할 때 반드시 이 스킬을 사용하라.
+description: @dnd-lab/desktop 컴포넌트의 접근성 테스트 스펙(spec.stories.tsx)을 생성한다. 컴포넌트 파일을 보여주거나 "접근성 스펙 만들어줘", "a11y 테스트 작성해줘", "spec.stories 생성해줘", "키보드 테스트 작성", "ARIA 테스트", WAI-ARIA 패턴 관련 스펙이 필요할 때 반드시 이 스킬을 사용하라.
 ---
 
 # a11y-spec-writer
 
-dds-desktop 컴포넌트의 접근성(Accessibility) 테스트 스펙 파일을 생성한다.
+@dnd-lab/desktop 컴포넌트의 접근성(Accessibility) 테스트 스펙 파일을 생성한다.
 출력물은 Storybook의 `play` 함수를 활용한 `*.spec.stories.tsx` 파일이다.
 
 ## 레퍼런스 구조

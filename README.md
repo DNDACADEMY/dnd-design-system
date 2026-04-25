@@ -8,12 +8,12 @@ DND Academy 디자인 시스템 모노레포. UI 컴포넌트(`@dnd-lab/desktop`
 
 | 경로                      | 패키지                       | 설명                         |
 | ------------------------- | ---------------------------- | ---------------------------- |
-| `packages/dds-token`      | `@dnd-lab/token`             | Style Dictionary 디자인 토큰 |
-| `packages/dds-desktop`    | `@dnd-lab/desktop`           | Vanilla Extract UI 컴포넌트  |
+| `packages/token`          | `@dnd-lab/token`             | Style Dictionary 디자인 토큰 |
+| `packages/desktop`        | `@dnd-lab/desktop`           | Vanilla Extract UI 컴포넌트  |
 | `tools/eslint-config`     | `@dnd-lab/eslint-config`     | 공유 ESLint preset           |
 | `tools/typescript-config` | `@dnd-lab/typescript-config` | 공유 tsconfig preset         |
 
-빌드 의존: `dds-token` → `dds-desktop` (Turborepo 가 강제).
+빌드 의존: `token` → `desktop` (Turborepo 가 강제).
 
 ## 시작하기
 
@@ -110,8 +110,8 @@ dnd-design-system/
 ├── .claude/                # Claude Code skills, commands, hooks
 ├── .github/workflows/      # CI
 ├── packages/
-│   ├── dds-token/          # 디자인 토큰 (Style Dictionary)
-│   └── dds-desktop/        # UI 컴포넌트 (Vanilla Extract + Storybook)
+│   ├── token/              # 디자인 토큰 (Style Dictionary)
+│   └── desktop/            # UI 컴포넌트 (Vanilla Extract + Storybook)
 ├── tools/
 │   ├── eslint-config/      # 공유 ESLint preset
 │   └── typescript-config/  # 공유 tsconfig preset

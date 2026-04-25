@@ -1,6 +1,6 @@
 ---
 name: changeset
-description: dnd-design-system 모노레포에서 changeset 파일(.changeset/*.md)을 작성한다. "changeset 만들어줘", "changeset 작성해줘", "변경사항 정리해줘", "버전업 노트 작성", "릴리즈 노트 초안", "패키지 변경 정리" 같은 요청이나 packages/dds-token, packages/dds-desktop 변경 후 CHANGELOG/슬랙 공지용 본문이 필요할 때 반드시 이 스킬을 사용하라. 변경 유형(🎨 토큰 / ✨ 새 컴포넌트 / 🔧 API 변경 / 🐛 버그 수정) 카탈로그에 맞춰 사용자 관점·해요체 본문을 작성한다.
+description: dnd-design-system 모노레포에서 changeset 파일(.changeset/*.md)을 작성한다. "changeset 만들어줘", "changeset 작성해줘", "변경사항 정리해줘", "버전업 노트 작성", "릴리즈 노트 초안", "패키지 변경 정리" 같은 요청이나 packages/token, packages/desktop 변경 후 CHANGELOG/슬랙 공지용 본문이 필요할 때 반드시 이 스킬을 사용하라. 변경 유형(🎨 토큰 / ✨ 새 컴포넌트 / 🔧 API 변경 / 🐛 버그 수정) 카탈로그에 맞춰 사용자 관점·해요체 본문을 작성한다.
 ---
 
 # changeset
@@ -22,10 +22,10 @@ git diff --stat                 # staged/unstaged 까지 포함
 
 변경된 파일 경로로 패키지를 판단한다.
 
-| 경로 패턴                 | 패키지             |
-| ------------------------- | ------------------ |
-| `packages/dds-token/**`   | `@dnd-lab/token`   |
-| `packages/dds-desktop/**` | `@dnd-lab/desktop` |
+| 경로 패턴             | 패키지             |
+| --------------------- | ------------------ |
+| `packages/token/**`   | `@dnd-lab/token`   |
+| `packages/desktop/**` | `@dnd-lab/desktop` |
 
 `tools/`, 루트 설정, CI 변경만 있다면 changeset 대상이 아니다. 이때는 changeset 이 불필요함을 사용자에게 알린다.
 
@@ -67,12 +67,12 @@ diff 분석 결과 가장 가능성이 높은 옵션을 첫 번째에 두고 라
 
 diff 시그널로 후보 유형을 좁힌 뒤, **`AskUserQuestion`** 으로 확정한다. 복합 변경에 대비해 `multiSelect: true` 로 묻는다.
 
-| diff 시그널                                              | 유형           |
-| -------------------------------------------------------- | -------------- |
-| `packages/dds-token/**` 의 토큰 값/키 변경               | 🎨 토큰 변경   |
-| `packages/dds-desktop/src/<NewComponent>/` 신규 디렉토리 | ✨ 새 컴포넌트 |
-| 기존 컴포넌트의 props·variant·타입 시그니처 변경         | 🔧 API 변경    |
-| 동작·조건문·이벤트·파싱 로직 수정                        | 🐛 버그 수정   |
+| diff 시그널                                          | 유형           |
+| ---------------------------------------------------- | -------------- |
+| `packages/token/**` 의 토큰 값/키 변경               | 🎨 토큰 변경   |
+| `packages/desktop/src/<NewComponent>/` 신규 디렉토리 | ✨ 새 컴포넌트 |
+| 기존 컴포넌트의 props·variant·타입 시그니처 변경     | 🔧 API 변경    |
+| 동작·조건문·이벤트·파싱 로직 수정                    | 🐛 버그 수정   |
 
 질문 형식:
 
