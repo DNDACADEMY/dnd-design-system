@@ -1,5 +1,5 @@
 ---
-'@dnd-lab/desktop': major
+'@dnd-lab/desktop': minor
 ---
 
 **@dnd-lab/desktop**
