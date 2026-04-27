@@ -147,7 +147,7 @@ const TextareaImpl = (props: TextareaProps) => {
 }
 
 const typographyBySize: Record<TextareaSize, Typography> = {
-  medium: 'caption1',
+  medium: 'body3',
   large: 'body2'
 }
 

@@ -2,7 +2,7 @@ import { color } from '@dnd-lab/token'
 import { CSSProperties, ElementType, HTMLAttributes } from 'react'
 
 import { typographyCss } from './styles.css'
-import { FontWeight, Typography } from './types'
+import { Typography } from './types'
 import { withLineBreaks } from './utils/formatTxt'
 import { cx } from '../../utils/cx'
 import { forwardRefWithAs } from '../../utils/forwardRefWithAs'
@@ -11,21 +11,21 @@ export interface TxtProps extends HTMLAttributes<HTMLSpanElement> {
   /**
    * 텍스트 스타일을 설정해요.
    *
-   * @default body1
+   * @default body2
    */
   typography?: Typography
 
   /**
-   * 텍스트 굵기를 설정해요.
+   * 텍스트 강조 여부를 설정해요.
    *
-   * @default regular
+   * @default false
    */
-  fontWeight?: FontWeight
+  emphasized?: boolean
 
   /**
    * 텍스트 색상을 설정해요.
    *
-   * @default color.mono900
+   * @default color.semantic.text.neutral.primary
    */
   color?: string
 }
@@ -33,10 +33,10 @@ export interface TxtProps extends HTMLAttributes<HTMLSpanElement> {
 export const Txt = forwardRefWithAs<ElementType, TxtProps>((props, ref) => {
   const {
     as = 'span',
-    typography = 'body1',
-    fontWeight = 'regular',
+    typography = 'body2',
     children,
-    color: colorFromProps = color.primitive.mono.black,
+    emphasized = false,
+    color: colorFromProps = color.semantic.text.neutral.primary,
     className: classNameFromProps,
     style: styleFromProps,
     ...restProps
@@ -45,7 +45,6 @@ export const Txt = forwardRefWithAs<ElementType, TxtProps>((props, ref) => {
   const Component = as
 
   const style: CSSProperties = {
-    fontWeight,
     color: colorFromProps,
     ...styleFromProps
   }
@@ -53,7 +52,7 @@ export const Txt = forwardRefWithAs<ElementType, TxtProps>((props, ref) => {
   return (
     <Component
       ref={ref}
-      className={cx(typographyCss({ typography }), classNameFromProps)}
+      className={cx(typographyCss({ typography, emphasized }), classNameFromProps)}
       style={style}
       {...restProps}>
       {typeof children === 'string' ? withLineBreaks(children) : children}

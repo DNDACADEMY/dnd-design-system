@@ -48,7 +48,7 @@ export const ChipImpl = forwardRefWithAs<ElementType, ChipProps>((props, ref) =>
         {leftAddon}
         <Txt
           typography='body2'
-          fontWeight='bold'
+          emphasized
           color={textColorByStatus[status]}
           as='span'>
           {children}

@@ -52,7 +52,7 @@ const ButtonImpl = (props: ButtonProps) => {
           <Txt
             color='inherit'
             typography='body2'
-            fontWeight='bold'>
+            emphasized>
             {children}
           </Txt>
           {rightAddon}
