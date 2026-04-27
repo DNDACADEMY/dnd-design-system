@@ -53,15 +53,15 @@ type PolymorphicComponentPropsWithRef<T extends ElementType, Props = object> = P
  * }
  *
  * const Txt = forwardRefWithAs<'span', TxtProps>((props, ref) => {
- *   const { as, typography, fontWeight, classNameFromProps, ...restProps } = props
+ *   const { as, typography, emphasized, classNameFromProps, ...restProps } = props
  *   const Component = as ?? 'span'
- *   return <Component ref={ref} className={cx(typography, fontWeight, classNameFromProps)} {...restProps} />
+ *   return <Component ref={ref} className={cx(typography, emphasized, classNameFromProps)} {...restProps} />
  * })
  *
  * @example
  * // 사용 예시
  * <Txt as="button" type="submit" onClick={handleSubmit}>버튼</Txt>
- * <Txt as="a" typography="body" fontWeight="normal" href="/home">링크</Txt>
+ * <Txt as="a" typography="body1" emphasized href="/home">링크</Txt>
  */
 export const forwardRefWithAs = <DefaultElement extends ElementType, OwnProps = object>(
   render: <T extends ElementType = DefaultElement>(props: PolymorphicComponentProps<T, OwnProps>, ref: PolymorphicRef<T>) => ReactElement | null

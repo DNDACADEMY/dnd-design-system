@@ -42,7 +42,6 @@ const CustomInput = ({ fieldboxProps, id, placeholder }: { fieldboxProps: Fieldb
       as='input'
       id={id}
       typography='body2'
-      fontWeight='regular'
       readOnly={readonly}
       disabled={disabled}
       color={color.semantic.text.neutral.secondary}

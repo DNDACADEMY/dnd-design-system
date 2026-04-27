@@ -150,7 +150,7 @@ export const TextfieldImpl = (props: TextfieldProps) => {
 }
 
 const typographyBySize: Record<TextfieldSize, Typography> = {
-  small: 'caption1',
+  small: 'body3',
   medium: 'body2',
   large: 'body2'
 }

@@ -20,7 +20,7 @@ export const FieldboxBottomTxt = (props: FieldboxBottomTxtProps) => {
   return (
     <Txt
       as='p'
-      typography='caption1'
+      typography='body3'
       color={error ? color.semantic.text.error.primary : color.semantic.text.neutral.secondary}
       className={cx(bottomTxtCss, classNameFromProps)}
       {...restProps}>

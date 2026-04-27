@@ -26,8 +26,7 @@ export const SidebarGroup = (props: SidebarGroupProps) => {
           {hasLabel ? (
             <Txt
               color='inherit'
-              typography='body2'
-              fontWeight='medium'>
+              typography='label1'>
               {label}
             </Txt>
           ) : null}

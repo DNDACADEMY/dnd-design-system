@@ -68,8 +68,7 @@ export const SidebarItem = forwardRefWithAs<ElementType, SidebarItemProps>((prop
       ) : null}
       <Txt
         color='inherit'
-        typography={open ? 'body2' : 'caption1'}
-        fontWeight='medium'
+        typography={open ? 'label1' : 'label2'}
         className={itemTextStyle}>
         {children}
       </Txt>
