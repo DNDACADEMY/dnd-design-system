@@ -67,8 +67,8 @@ export const Playground: Story = {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginTop: 20, marginBottom: 40 }}>
               <Chip status='selected'>개발</Chip>
               <Txt
-                typography='h5'
-                fontWeight='bold'>
+                typography='title1'
+                emphasized>
                 손현곤
               </Txt>
             </div>
@@ -125,8 +125,8 @@ export const Controlled: Story = {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginTop: 20, marginBottom: 40 }}>
                 <Chip status='selected'>개발</Chip>
                 <Txt
-                  typography='h5'
-                  fontWeight='bold'>
+                  typography='title1'
+                  emphasized>
                   손현곤
                 </Txt>
               </div>

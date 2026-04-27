@@ -28,9 +28,8 @@ export const FieldboxLabel = (props: FieldboxLabelProps) => {
     <Txt
       as='label'
       htmlFor={id}
-      typography={'body2'}
-      fontWeight={'medium'}
-      color={color.primitive.slate['900']}
+      typography='label1'
+      color={color.semantic.text.neutral.primary}
       {...restProps}>
       {children}
       {required && <span className={requiredStyleCss}>*</span>}
