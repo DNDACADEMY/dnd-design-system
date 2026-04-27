@@ -163,6 +163,50 @@ export const typographyCss = recipe({
   compoundVariants: [
     {
       variants: {
+        typography: 'display1',
+        emphasized: true
+      },
+      style: {
+        vars: {
+          [TYPOGRAPHY_VARIANTS.fontWeight]: `${typography.semantic.display['1'].fontWeightEmphasized}`
+        }
+      }
+    },
+    {
+      variants: {
+        typography: 'display2',
+        emphasized: true
+      },
+      style: {
+        vars: {
+          [TYPOGRAPHY_VARIANTS.fontWeight]: `${typography.semantic.display['2'].fontWeightEmphasized}`
+        }
+      }
+    },
+    {
+      variants: {
+        typography: 'display3',
+        emphasized: true
+      },
+      style: {
+        vars: {
+          [TYPOGRAPHY_VARIANTS.fontWeight]: `${typography.semantic.display['3'].fontWeightEmphasized}`
+        }
+      }
+    },
+    {
+      variants: {
+        typography: 'display4',
+        emphasized: true
+      },
+      style: {
+        vars: {
+          [TYPOGRAPHY_VARIANTS.fontWeight]: `${typography.semantic.display['4'].fontWeightEmphasized}`
+        }
+      }
+    },
+    {
+      variants: {
         typography: 'title1',
         emphasized: true
       },
