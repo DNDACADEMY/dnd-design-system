@@ -181,7 +181,7 @@
           "com.figma.hiddenFromPublishing": false
         },
         "$type": "number",
-        "$value": 44
+        "$value": 48
       },
       "12": {
         "$extensions": {
@@ -201,7 +201,7 @@
           "com.figma.hiddenFromPublishing": false
         },
         "$type": "number",
-        "$value": 72
+        "$value": 80
       },
       "01": {
         "$extensions": {
@@ -211,7 +211,7 @@
           "com.figma.hiddenFromPublishing": false
         },
         "$type": "number",
-        "$value": 12
+        "$value": 14
       },
       "02": {
         "$extensions": {
@@ -221,7 +221,7 @@
           "com.figma.hiddenFromPublishing": false
         },
         "$type": "number",
-        "$value": 14
+        "$value": 16
       },
       "03": {
         "$extensions": {
@@ -231,7 +231,7 @@
           "com.figma.hiddenFromPublishing": false
         },
         "$type": "number",
-        "$value": 16
+        "$value": 18
       },
       "04": {
         "$extensions": {
@@ -251,7 +251,7 @@
           "com.figma.hiddenFromPublishing": false
         },
         "$type": "number",
-        "$value": 24
+        "$value": 22
       },
       "06": {
         "$extensions": {
@@ -261,7 +261,7 @@
           "com.figma.hiddenFromPublishing": false
         },
         "$type": "number",
-        "$value": 26
+        "$value": 24
       },
       "07": {
         "$extensions": {
@@ -716,7 +716,7 @@
             "com.figma.hiddenFromPublishing": false
           },
           "$type": "number",
-          "$value": "{primitive.size.12}"
+          "$value": "{primitive.size.13}"
         },
         "line-height": {
           "$extensions": {
@@ -1038,7 +1038,7 @@
             "com.figma.hiddenFromPublishing": false
           },
           "$type": "number",
-          "$value": "{primitive.line-height.05}"
+          "$value": "{primitive.line-height.06}"
         },
         "paragraph-spacing": {
           "$extensions": {
@@ -1290,7 +1290,7 @@
             "com.figma.hiddenFromPublishing": false
           },
           "$type": "number",
-          "$value": "{primitive.line-height.05}"
+          "$value": "{primitive.line-height.06}"
         },
         "paragraph-spacing": {
           "$extensions": {
@@ -1666,7 +1666,7 @@
             "com.figma.hiddenFromPublishing": false
           },
           "$type": "number",
-          "$value": "{primitive.line-height.03}"
+          "$value": "{primitive.line-height.02}"
         },
         "paragraph-spacing": {
           "$extensions": {
@@ -1728,7 +1728,7 @@
             "com.figma.hiddenFromPublishing": false
           },
           "$type": "number",
-          "$value": "{primitive.line-height.02}"
+          "$value": "{primitive.line-height.01}"
         },
         "paragraph-spacing": {
           "$extensions": {
