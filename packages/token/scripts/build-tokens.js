@@ -4,14 +4,49 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { register } from '@tokens-studio/sd-transforms'
 import StyleDictionary from 'style-dictionary'
 
+const TOKEN_SOURCE_GLOB = 'tokens/**/*.json'
+const DIST_PATH = 'dist/'
 const CACHE_PATH = '.tokens-cache.json'
-const ANSI = { green: '\x1b[32m', red: '\x1b[31m', yellow: '\x1b[33m', dim: '\x1b[2m', reset: '\x1b[0m' }
+const HEADER = '/**\n * Do not edit directly, this file was auto-generated.\n */\n\n'
+const IDENTIFIER_REGEX = /^[A-Za-z_$][\w$]*$/
+const REFERENCE_REGEX = /^\{(.+)\}$/
+const NUMBER_REGEX = /^\d+$/
+
+const ANSI = {
+  green: '\x1b[32m',
+  red: '\x1b[31m',
+  yellow: '\x1b[33m',
+  reset: '\x1b[0m'
+}
+
+const TOKEN_EXPORTS = {
+  color: {
+    sourceFile: 'color.json',
+    valueType: 'string',
+    cssVariablePrefix: '--color-'
+  },
+  typography: {
+    sourceFile: 'typography.json',
+    valueType: 'number'
+  }
+}
+
+const EXPORT_NAMES = Object.keys(TOKEN_EXPORTS)
+const NAMESPACES = ['primitive', 'semantic', 'component']
+
+const FORMAT_NAMES = {
+  css: 'css/namespaced',
+  javascript: 'javascript/namespaced',
+  typescript: 'typescript/namespaced'
+}
+
+const OUTPUT_FILES = {
+  css: 'variables.css',
+  javascript: 'tokens.js',
+  typescript: 'tokens.d.ts'
+}
 
 register(StyleDictionary)
-
-const HEADER = '/**\n * Do not edit directly, this file was auto-generated.\n */\n\n'
-const IDENT = /^[A-Za-z_$][\w$]*$/
-const NAMESPACES = ['primitive', 'semantic', 'component']
 
 const camel = (s) =>
   s
@@ -21,20 +56,26 @@ const camel = (s) =>
 
 const kebab = (s) => s.replace(/[-_\s]+/g, '-').toLowerCase()
 const capitalize = (s) => s[0].toUpperCase() + s.slice(1)
-const jsKey = (s) => (/^\d+$/.test(s) ? s : camel(s))
-const formatKey = (k) => (IDENT.test(k) ? k : JSON.stringify(k))
-const accessor = (parts) => parts.map((p) => (IDENT.test(p) ? `.${p}` : `[${JSON.stringify(p)}]`)).join('')
+const jsKey = (s) => (NUMBER_REGEX.test(s) ? s : camel(s))
+const formatKey = (k) => (IDENTIFIER_REGEX.test(k) ? k : JSON.stringify(k))
+const accessor = (parts) =>
+  parts.map((part) => (IDENTIFIER_REGEX.test(part) ? `.${part}` : `[${JSON.stringify(part)}]`)).join('')
 
-const exportOf = (token) => (token.filePath.includes('color.json') ? 'color' : 'typography')
-const rootVar = (exportName, ns) => exportName + capitalize(ns)
+function getExportName(token) {
+  const match = EXPORT_NAMES.find((exportName) => token.filePath.includes(TOKEN_EXPORTS[exportName].sourceFile))
+  return match ?? 'typography'
+}
+
+const rootVar = (exportName, namespace) => exportName + capitalize(namespace)
 const tokenValue = (token) => token.$value ?? token.value
 const originalValue = (token) => token.original?.$value ?? token.original?.value
 
 function parseRef(token) {
-  const v = originalValue(token)
-  if (typeof v !== 'string') return null
-  const m = v.trim().match(/^\{(.+)\}$/)
-  return m ? m[1].split('.') : null
+  const value = originalValue(token)
+  if (typeof value !== 'string') return null
+
+  const match = value.trim().match(REFERENCE_REGEX)
+  return match ? match[1].split('.') : null
 }
 
 class Ref {
@@ -46,9 +87,38 @@ class Ref {
 }
 
 function setNested(root, path, value) {
-  let cur = root
-  for (let i = 0; i < path.length - 1; i++) cur = cur[path[i]] ??= {}
-  cur[path.at(-1)] = value
+  let current = root
+  for (let i = 0; i < path.length - 1; i++) current = current[path[i]] ??= {}
+  current[path.at(-1)] = value
+}
+
+function createEmptyNamespaceTree() {
+  return Object.fromEntries(NAMESPACES.map((namespace) => [namespace, {}]))
+}
+
+function createInitialGroups() {
+  return Object.fromEntries(EXPORT_NAMES.map((exportName) => [exportName, createEmptyNamespaceTree()]))
+}
+
+function getColorCssVar(pathParts) {
+  return `${TOKEN_EXPORTS.color.cssVariablePrefix}${pathParts.map(kebab).join('-')}`
+}
+
+function createReferenceValue(exportName, refPath) {
+  const [refNamespace, ...refRestPath] = refPath
+  return new Ref(rootVar(exportName, refNamespace), refRestPath.map(jsKey), TOKEN_EXPORTS[exportName].valueType)
+}
+
+function resolveTokenValue(token, exportName, namespace, refPath) {
+  if (refPath && namespace !== 'primitive') {
+    return createReferenceValue(exportName, refPath)
+  }
+
+  if (exportName === 'color') {
+    return `var(${getColorCssVar(token.path.slice(1))})`
+  }
+
+  return tokenValue(token)
 }
 
 function serialize(obj, d = 0) {
@@ -70,28 +140,16 @@ function declareType(obj, d = 0) {
 }
 
 function buildTrees(allTokens) {
-  const groups = {
-    color: Object.fromEntries(NAMESPACES.map((ns) => [ns, {}])),
-    typography: Object.fromEntries(NAMESPACES.map((ns) => [ns, {}]))
-  }
+  const groups = createInitialGroups()
 
   for (const token of allTokens) {
-    const exportName = exportOf(token)
-    const [ns, ...rest] = token.path
-    const jsPath = rest.map(jsKey)
-    const ref = parseRef(token)
+    const exportName = getExportName(token)
+    const [namespace, ...restPath] = token.path
+    const jsPath = restPath.map(jsKey)
+    const refPath = parseRef(token)
+    const value = resolveTokenValue(token, exportName, namespace, refPath)
 
-    let value
-    if (ref && ns !== 'primitive') {
-      const valueType = exportName === 'color' ? 'string' : 'number'
-      value = new Ref(rootVar(exportName, ref[0]), ref.slice(1).map(jsKey), valueType)
-    } else if (exportName === 'color') {
-      value = `var(--color-${token.path.slice(1).map(kebab).join('-')})`
-    } else {
-      value = tokenValue(token)
-    }
-
-    setNested(groups[exportName][ns], jsPath, value)
+    setNested(groups[exportName][namespace], jsPath, value)
   }
 
   return groups
@@ -99,25 +157,26 @@ function buildTrees(allTokens) {
 
 function emitJs(groups, exportName) {
   const trees = groups[exportName]
-  const decls = NAMESPACES.map((ns) => `const ${rootVar(exportName, ns)} = ${serialize(trees[ns])}`)
-  const members = NAMESPACES.map((ns) => `  ${ns}: ${rootVar(exportName, ns)}`).join(',\n')
-  return `${decls.join('\n\n')}\n\nexport const ${exportName} = {\n${members}\n}\n`
+  const declarations = NAMESPACES.map((namespace) => `const ${rootVar(exportName, namespace)} = ${serialize(trees[namespace])}`)
+  const members = NAMESPACES.map((namespace) => `  ${namespace}: ${rootVar(exportName, namespace)}`).join(',\n')
+  return `${declarations.join('\n\n')}\n\nexport const ${exportName} = {\n${members}\n}\n`
 }
 
 function emitDts(groups, exportName) {
-  const members = NAMESPACES.map((ns) => `  readonly ${ns}: ${declareType(groups[exportName][ns], 1)}`).join('\n')
+  const members = NAMESPACES.map((namespace) => `  readonly ${namespace}: ${declareType(groups[exportName][namespace], 1)}`).join('\n')
   return `export declare const ${exportName}: {\n${members}\n}\n`
 }
 
 StyleDictionary.registerFormat({
-  name: 'css/namespaced',
+  name: FORMAT_NAMES.css,
   format: ({ dictionary }) => {
     const lines = []
     for (const token of dictionary.allTokens) {
-      if (!token.filePath.includes('color.json')) continue
-      const name = '--color-' + token.path.slice(1).map(kebab).join('-')
+      if (!token.filePath.includes(TOKEN_EXPORTS.color.sourceFile)) continue
+
+      const name = getColorCssVar(token.path.slice(1))
       const ref = parseRef(token)
-      const value = ref ? `var(--color-${ref.slice(1).map(kebab).join('-')})` : tokenValue(token)
+      const value = ref ? `var(${getColorCssVar(ref.slice(1))})` : tokenValue(token)
       lines.push(`  ${name}: ${value};`)
     }
     return `${HEADER}:root {\n${lines.join('\n')}\n}\n`
@@ -133,7 +192,7 @@ function captureSnapshot(allTokens) {
 }
 
 StyleDictionary.registerFormat({
-  name: 'javascript/namespaced',
+  name: FORMAT_NAMES.javascript,
   format: ({ dictionary }) => {
     captureSnapshot(dictionary.allTokens)
     const groups = buildTrees(dictionary.allTokens)
@@ -142,7 +201,7 @@ StyleDictionary.registerFormat({
 })
 
 StyleDictionary.registerFormat({
-  name: 'typescript/namespaced',
+  name: FORMAT_NAMES.typescript,
   format: ({ dictionary }) => {
     const groups = buildTrees(dictionary.allTokens)
     return `${HEADER}${emitDts(groups, 'color')}\n${emitDts(groups, 'typography')}`
@@ -150,23 +209,23 @@ StyleDictionary.registerFormat({
 })
 
 const sd = new StyleDictionary({
-  source: ['tokens/**/*.json'],
+  source: [TOKEN_SOURCE_GLOB],
   preprocessors: ['tokens-studio'],
   platforms: {
     css: {
       transformGroup: 'tokens-studio',
-      buildPath: 'dist/',
-      files: [{ destination: 'variables.css', format: 'css/namespaced' }]
+      buildPath: DIST_PATH,
+      files: [{ destination: OUTPUT_FILES.css, format: FORMAT_NAMES.css }]
     },
     js: {
       transformGroup: 'tokens-studio',
-      buildPath: 'dist/',
-      files: [{ destination: 'tokens.js', format: 'javascript/namespaced' }]
+      buildPath: DIST_PATH,
+      files: [{ destination: OUTPUT_FILES.javascript, format: FORMAT_NAMES.javascript }]
     },
     ts: {
       transformGroup: 'tokens-studio',
-      buildPath: 'dist/',
-      files: [{ destination: 'tokens.d.ts', format: 'typescript/namespaced' }]
+      buildPath: DIST_PATH,
+      files: [{ destination: OUTPUT_FILES.typescript, format: FORMAT_NAMES.typescript }]
     }
   }
 })
@@ -181,9 +240,9 @@ function logDiff(curr) {
     return
   }
   const prev = JSON.parse(readFileSync(CACHE_PATH, 'utf8'))
-  const added = [],
-    removed = [],
-    changed = []
+  const added = []
+  const removed = []
+  const changed = []
   for (const k of Object.keys(curr)) {
     if (!(k in prev)) added.push(k)
     else if (JSON.stringify(prev[k]) !== JSON.stringify(curr[k])) changed.push(k)
