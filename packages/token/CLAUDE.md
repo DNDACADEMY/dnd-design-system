@@ -47,10 +47,16 @@ import '@dnd-lab/token/css'
 ## 토큰 업데이트 워크플로우
 
 ```bash
-# 1. tokens/*.json 파일 수정 (Tokens Studio에서 export)
+# 1. tokens/*.json 파일 수정 (Tokens Studio에서 export — 보통 복붙)
 # 2. 빌드
 pnpm build
 
 # 3. 의존 패키지 재빌드 (루트에서)
 pnpm build:packages
+```
+
+Tokens Studio export 결과에는 `$extensions.com.figma.*` 메타가 자동으로 붙는다. 이 메타는 빌드에 영향이 없고 diff 노이즈만 만들기 때문에, lefthook pre-commit 이 `pnpm tokens:clean` 을 자동 실행해 staged token json 에서 제거한다. 수동으로 정리하려면:
+
+```bash
+pnpm --filter @dnd-lab/token tokens:clean
 ```
