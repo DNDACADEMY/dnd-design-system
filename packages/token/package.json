@@ -29,6 +29,7 @@
   "scripts": {
     "build": "npm run build:tokens",
     "build:tokens": "node scripts/build-tokens.js",
+    "tokens:clean": "node scripts/strip-figma-meta.js",
     "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
