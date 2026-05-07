@@ -170,3 +170,9 @@ URL 리스트를 보여준 뒤:
 ## 가드 — Storybook 인프라가 없을 때
 
 `packages/desktop/.storybook/` 디렉터리 자체가 없는 환경이면 (이론상 있음) 미리보기를 .css.ts diff 로 대체한다. preview.md 본문에 `[Storybook 미설치]` 마커를 박고 영향 파일의 코드 블록만 첨부.
+
+## 절차 개선 — 막히는 지점이 있었다면
+
+이 스킬을 쓰다가 절차가 부족하거나 룰이 모호하다고 느낀 부분이 있으면 짧게 메모해두자. 흐름은 그대로 진행하고, 세션 종료 후 `workflow-admin` 으로 SSOT(`docs/AGENTS.md`)와 본 스킬을 함께 갱신한다 (§5-5).
+
+메모 위치: `.claude/workflow/<id>/notes.md` (gitignore) 또는 채팅 "메모:" 한 줄.

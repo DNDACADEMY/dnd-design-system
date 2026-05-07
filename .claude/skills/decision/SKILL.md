@@ -156,3 +156,9 @@ description: dnd-design-system 모노레포에서 5단계 디자인 변경 워�
   - `취소`
 
 결정을 바꾸면 `state.status` 도 함께 갱신.
+
+## 절차 개선 — 막히는 지점이 있었다면
+
+이 스킬을 쓰다가 절차가 부족하거나 룰이 모호하다고 느낀 부분이 있으면 짧게 메모해두자. 흐름은 그대로 진행하고, 세션 종료 후 `workflow-admin` 으로 SSOT(`docs/AGENTS.md`)와 본 스킬을 함께 갱신한다 (§5-5).
+
+메모 위치: `.claude/workflow/<id>/notes.md` (gitignore) 또는 채팅 "메모:" 한 줄.
