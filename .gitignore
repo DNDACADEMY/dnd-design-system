@@ -41,3 +41,5 @@ node_modules/
 # [Claude Local settings]
 CLAUDE.local.md
 .claude/settings.local.json
+.claude/workflow/*
+!.claude/workflow/README.md
