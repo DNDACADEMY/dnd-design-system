@@ -9,14 +9,14 @@ description: dnd-design-system 모노레포의 모든 프로젝트 스킬 SKILL.
 
 ## 책임 범위
 
-| 대상                                                   | 처리                                                                  |
-| ------------------------------------------------------ | --------------------------------------------------------------------- |
-| `.claude/skills/changeset/SKILL.md`                    | 본문 절차·표현·예시 갱신                                              |
-| `.claude/skills/commit/SKILL.md`                       | 동일                                                                  |
-| `.claude/skills/pr/SKILL.md`                           | 동일                                                                  |
-| `.claude/skills/pr-with-review/SKILL.md`               | 동일                                                                  |
-| `.claude/skills/dds-component/SKILL.md`                | 동일                                                                  |
-| `.claude/skills/a11y-spec-writer/SKILL.md`             | 동일 (참조 자료 `references/` 갱신 포함)                              |
+| 대상                                                              | 처리                                                    |
+| ----------------------------------------------------------------- | ------------------------------------------------------- |
+| `.claude/skills/changeset/SKILL.md`                               | 본문 절차·표현·예시 갱신                                |
+| `.claude/skills/commit/SKILL.md`                                  | 동일                                                    |
+| `.claude/skills/pr/SKILL.md`                                      | 동일                                                    |
+| `.claude/skills/pr-with-review/SKILL.md`                          | 동일                                                    |
+| `.claude/skills/dds-component/SKILL.md`                           | 동일                                                    |
+| `.claude/skills/a11y-spec-writer/SKILL.md`                        | 동일 (참조 자료 `references/` 갱신 포함)                |
 | `.claude/skills/proposal/impact/preview/review/decision/SKILL.md` | 본문 표현만. 룰(R#)·단계 구조·입출력 계약 변경이면 위임 |
 
 다음은 책임 밖이다 (위임):
@@ -72,12 +72,12 @@ skill-admin 에서는 나머지만 처리하고, workflow-admin 호출은 사용
 
 남은 메모를 4 가지 카테고리로 분류한다.
 
-| 카테고리           | 예시                                                                   |
-| ------------------ | ---------------------------------------------------------------------- |
-| 절차 누락          | "이 단계 다음에 X 를 해야 했는데 안내가 없었음"                        |
-| 표현 모호          | "Recommended 표기의 의미가 모호", "옵션 라벨이 헷갈림"                 |
-| 예시 부족          | "이런 경우의 예시가 있으면 좋겠음"                                     |
-| 옵션 보강          | "AskUserQuestion 옵션을 추가하면 좋을 것 같음"                         |
+| 카테고리  | 예시                                                   |
+| --------- | ------------------------------------------------------ |
+| 절차 누락 | "이 단계 다음에 X 를 해야 했는데 안내가 없었음"        |
+| 표현 모호 | "Recommended 표기의 의미가 모호", "옵션 라벨이 헷갈림" |
+| 예시 부족 | "이런 경우의 예시가 있으면 좋겠음"                     |
+| 옵션 보강 | "AskUserQuestion 옵션을 추가하면 좋을 것 같음"         |
 
 자동 분류가 어려운 메모는 `AskUserQuestion` 으로 사용자에게 분류 요청.
 

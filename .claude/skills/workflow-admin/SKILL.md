@@ -186,10 +186,10 @@ SSOT(docs/AGENTS.md) <변경 부위> 갱신 + 영향 SKILL.md N개 동기화.
 
 워크플로우 안의 단계 SKILL.md(`proposal/impact/preview/review/decision`)는 메모 종류에 따라 `skill-admin` 으로 위임할 수 있다.
 
-| 메모 성격                                                        | 처리         |
-| ---------------------------------------------------------------- | ------------ |
-| 룰(R#) 추가/수정/제거                                            | workflow-admin |
-| 단계 추가/삭제, 단계 책임/입출력 계약 변경                       | workflow-admin |
+| 메모 성격                                                         | 처리           |
+| ----------------------------------------------------------------- | -------------- |
+| 룰(R#) 추가/수정/제거                                             | workflow-admin |
+| 단계 추가/삭제, 단계 책임/입출력 계약 변경                        | workflow-admin |
 | `docs/AGENTS.md` 또는 `.claude/workflow/README.md` 표·스키마 변경 | workflow-admin |
 | 단계 SKILL.md 본문의 표현·옵션 라벨·예시 다듬기                   | skill-admin    |
 | 비-워크플로우 스킬(changeset/pr/commit 등) 본문 갱신              | skill-admin    |
