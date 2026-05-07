@@ -21,14 +21,14 @@ description: dnd-design-system 모노레포에서 5단계 디자인 변경 워�
 
 `proposal.json.changeType` 에 따라 분석 전략이 다르다.
 
-| changeType        | 주 분석                                                                  |
-| ----------------- | ------------------------------------------------------------------------ |
-| `token-value`     | 토큰 사용처 grep → 컴포넌트 임팩트 매핑                                  |
-| `token-add`       | 사용처 0 임을 확인 후, 도입 예정 위치를 사용자에게 질문                  |
-| `token-remove`    | 사용처 grep → 0 이 아니면 deprecation 경로 제안 (제거 차단)              |
-| `component-new`   | 의존하는 토큰 grep + 기존 컴포넌트와 토큰 일관성 비교                    |
-| `component-api`   | 컴포넌트 사용처 grep → 외부 호출자 영향 평가                             |
-| `bug`             | 증상 발생 컴포넌트 사용처 grep → 노출도 높은 화면 추정                   |
+| changeType      | 주 분석                                                     |
+| --------------- | ----------------------------------------------------------- |
+| `token-value`   | 토큰 사용처 grep → 컴포넌트 임팩트 매핑                     |
+| `token-add`     | 사용처 0 임을 확인 후, 도입 예정 위치를 사용자에게 질문     |
+| `token-remove`  | 사용처 grep → 0 이 아니면 deprecation 경로 제안 (제거 차단) |
+| `component-new` | 의존하는 토큰 grep + 기존 컴포넌트와 토큰 일관성 비교       |
+| `component-api` | 컴포넌트 사용처 grep → 외부 호출자 영향 평가                |
+| `bug`           | 증상 발생 컴포넌트 사용처 grep → 노출도 높은 화면 추정      |
 
 ## 스텝 3: 토큰 사용처 grep
 

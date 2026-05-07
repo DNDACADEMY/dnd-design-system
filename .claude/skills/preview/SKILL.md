@@ -34,7 +34,7 @@ description: dnd-design-system 모노레포에서 5단계 디자인 변경 워�
 ```jsonc
 {
   "component": "Button",
-  "scope": "component",  // v1 은 항상 "component"
+  "scope": "component", // v1 은 항상 "component"
   "storybookUrl": "<실제 URL>",
   "beforeAfterNote": "<token-value 면 값 비교, component-api 면 props 비교>"
 }

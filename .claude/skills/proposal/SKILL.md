@@ -32,13 +32,13 @@ description: dnd-design-system 모노레포에서 디자인 변경 워크플로�
 
 `references/change-types.md` 의 6 가지 타입 카탈로그를 읽고 자연어 원문과 매칭한다. 시그널이 명확하면 추천 타입을 1순위로 두고, 모호하면 `AskUserQuestion` 으로 확정한다.
 
-| 타입            | 한 줄 정의                              |
-| --------------- | --------------------------------------- |
-| `token-value`   | 기존 토큰의 값이 바뀜                   |
-| `token-add`     | 새 토큰 추가                            |
-| `token-remove`  | 토큰 제거                               |
-| `component-new` | 새 컴포넌트 추가                        |
-| `component-api` | 기존 컴포넌트 props/variant/타입 변경   |
+| 타입            | 한 줄 정의                               |
+| --------------- | ---------------------------------------- |
+| `token-value`   | 기존 토큰의 값이 바뀜                    |
+| `token-add`     | 새 토큰 추가                             |
+| `token-remove`  | 토큰 제거                                |
+| `component-new` | 새 컴포넌트 추가                         |
+| `component-api` | 기존 컴포넌트 props/variant/타입 변경    |
 | `bug`           | 의도된 동작과 실제 동작이 다른 것을 고침 |
 
 질문 형식 (모호할 때만):
@@ -106,11 +106,11 @@ ls packages/desktop/src/components/  # 존재한다면
   "changeType": "<token-value | token-add | token-remove | component-new | component-api | bug>",
   "targets": [
     { "kind": "token", "name": "<토큰 경로>" },
-    { "kind": "component", "name": "<PascalCase>" },
+    { "kind": "component", "name": "<PascalCase>" }
   ],
   "intent": "<한 문장>",
   "priority": "<low | medium | high>",
-  "raw": "<디자이너가 적은 자연어 원문>",
+  "raw": "<디자이너가 적은 자연어 원문>"
 }
 ```
 

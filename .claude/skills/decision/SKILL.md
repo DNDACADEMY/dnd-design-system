@@ -36,6 +36,7 @@ description: dnd-design-system 모노레포에서 5단계 디자인 변경 워�
 **미리보기 샘플**: <preview.md 의 샘플 컴포넌트 N개 + URL 1개>
 
 **리뷰 요약**:
+
 - WCAG AA: <review.auto[wcag-contrast-aa].status> — <note>
 - 토큰 일관성: <review.auto[token-consistency].status> — <note>
 - 디자인: <review.humanAsks[design].answer>
@@ -117,6 +118,7 @@ description: dnd-design-system 모노레포에서 5단계 디자인 변경 워�
 ✅ 진행 결정 — `<id>`
 
 다음 명령으로 이어가세요:
+
 1. `/changeset` — 패키지 변경 노트 작성
 2. `/pr` — PR 생성
 
