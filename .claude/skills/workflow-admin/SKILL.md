@@ -182,6 +182,20 @@ SSOT(docs/AGENTS.md) <변경 부위> 갱신 + 영향 SKILL.md N개 동기화.
 > 3. 카테고리별로 스텝 1~6 을 순서대로 적용 (룰 추가 → 단계 책임 변경 순)
 > 4. 마지막에 검증 한 번 + 변경 이력 묶음 한 줄
 
+## skill-admin 과의 경계
+
+워크플로우 안의 단계 SKILL.md(`proposal/impact/preview/review/decision`)는 메모 종류에 따라 `skill-admin` 으로 위임할 수 있다.
+
+| 메모 성격                                                        | 처리         |
+| ---------------------------------------------------------------- | ------------ |
+| 룰(R#) 추가/수정/제거                                            | workflow-admin |
+| 단계 추가/삭제, 단계 책임/입출력 계약 변경                       | workflow-admin |
+| `docs/AGENTS.md` 또는 `.claude/workflow/README.md` 표·스키마 변경 | workflow-admin |
+| 단계 SKILL.md 본문의 표현·옵션 라벨·예시 다듬기                   | skill-admin    |
+| 비-워크플로우 스킬(changeset/pr/commit 등) 본문 갱신              | skill-admin    |
+
+스텝 1 의 카테고리 분류 결과가 "본문 표현·옵션 다듬기" 면 사용자에게 `skill-admin` 으로 위임할지 묻고 진행한다.
+
 ## 자기 참조 회피
 
-`workflow-admin` 자신의 절차에 문제가 있을 때는 본 스킬을 호출하지 않고 사람이 직접 이 SKILL.md 를 수정한다 (`docs/AGENTS.md` §5-5).
+`workflow-admin` 자신의 절차에 문제가 있을 때는 본 스킬을 호출하지 않고 사람이 직접 이 SKILL.md 를 수정한다 (`docs/AGENTS.md` §5-5). `skill-admin` 도 마찬가지로 자기 자신은 사람이 직접 수정.

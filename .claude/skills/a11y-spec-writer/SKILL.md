@@ -124,3 +124,9 @@ const ComponentFixture = () => {
 
 - 적용한 WCAG 기준 목록 (예: 2.1.1 Keyboard, 3.3.1 Error Identification)
 - 생략한 항목과 이유
+
+## 절차 개선 — 막히는 지점이 있었다면
+
+이 스킬을 쓰다가 절차가 부족하거나 표현이 모호하다고 느낀 부분이 있으면 짧게 메모해두자. 흐름은 그대로 진행하고, 세션 종료 후 `skill-admin` 으로 본 스킬을 갱신한다 (참조 자료 `references/` 갱신 포함).
+
+메모 위치: 채팅 "메모: <내용>" 한 줄 또는 `.claude/skill-notes/<스킬명>.md` (gitignore 권장).

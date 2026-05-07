@@ -177,3 +177,9 @@ a11y-spec-writer 스킬 호출 → WCAG 패턴 분석 → spec.stories.tsx 생�
 - [ ] `src/primitives/index.tsx`에 export 추가
 - [ ] `.stories.tsx` 생성
 - [ ] `.spec.stories.tsx` 생성 (a11y-spec-writer 스킬)
+
+## 절차 개선 — 막히는 지점이 있었다면
+
+이 스킬을 쓰다가 절차가 부족하거나 표현이 모호하다고 느낀 부분이 있으면 짧게 메모해두자. 흐름은 그대로 진행하고, 세션 종료 후 `skill-admin` 으로 본 스킬을 갱신한다.
+
+메모 위치: 채팅 "메모: <내용>" 한 줄 또는 `.claude/skill-notes/<스킬명>.md` (gitignore 권장).

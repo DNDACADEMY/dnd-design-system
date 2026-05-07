@@ -43,3 +43,4 @@ CLAUDE.local.md
 .claude/settings.local.json
 .claude/workflow/*
 !.claude/workflow/README.md
+.claude/skill-notes/

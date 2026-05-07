@@ -144,6 +144,9 @@ ls packages/desktop/src/components/  # 존재한다면
 
 ## 절차 개선 — 막히는 지점이 있었다면
 
-이 스킬을 쓰다가 절차가 부족하거나 룰이 모호하다고 느낀 부분이 있으면 짧게 메모해두자. 흐름은 그대로 진행하고, 세션 종료 후 `workflow-admin` 으로 SSOT(`docs/AGENTS.md`)와 본 스킬을 함께 갱신한다 (§5-5).
+이 스킬을 쓰다가 절차가 부족하거나 룰이 모호하다고 느낀 부분이 있으면 짧게 메모해두자. 흐름은 그대로 진행하고, 세션 종료 후 라우팅:
+
+- 룰(R#)·단계 구조·SSOT(`docs/AGENTS.md`)에 영향 있는 변경 → `workflow-admin` (§5-5)
+- 본문 표현·옵션·예시 미세 조정 → `skill-admin`
 
 메모 위치: `.claude/workflow/<id>/notes.md` (gitignore) 또는 채팅 "메모:" 한 줄.

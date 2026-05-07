@@ -45,3 +45,9 @@ cat /tmp/pr-review-pending.json 2>/dev/null
 1. `comments` 배열의 각 항목에서 파일·라인을 읽고 코드 수정
 2. 각 코멘트에 수정 완료 답글 (`gh api .../replies`)
 3. 완료 후 `/tmp/pr-review-pending.json` 삭제
+
+## 절차 개선 — 막히는 지점이 있었다면
+
+이 스킬을 쓰다가 절차가 부족하거나 표현이 모호하다고 느낀 부분이 있으면 짧게 메모해두자. 흐름은 그대로 진행하고, 세션 종료 후 `skill-admin` 으로 본 스킬을 갱신한다.
+
+메모 위치: 채팅 "메모: <내용>" 한 줄 또는 `.claude/skill-notes/<스킬명>.md` (gitignore 권장).
