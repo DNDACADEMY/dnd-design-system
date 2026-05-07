@@ -5,11 +5,11 @@ description: dnd-design-system 모노레포에서 5단계 디자인 변경 워�
 
 # review
 
-5단계 워크플로우의 네 번째 단계. CLAUDE.local.md 4-4 에서 적었듯, 디자이너 본인이 챙기기 어려운 접근성·개발 비용 관점을 명시적으로 거치게 강제하는 단계다. 자동 점검은 명백한 케이스만 잡고, 나머지는 사람한테 명시적으로 패스한다.
+5단계 워크플로우의 네 번째 단계. 디자이너 본인이 챙기기 어려운 접근성·개발 비용 관점을 명시적으로 거치게 강제하는 단계다. 자동 점검은 명백한 케이스(R11 — WCAG AA, 토큰 일관성)만 잡고, 나머지는 사람한테 명시적으로 패스한다.
 
-> 단계 간 데이터 컨벤션은 `.claude/workflow/README.md` 참조.
+> 흐름·구성 요소·공통 룰 SSOT: `docs/AGENTS.md`. 단계별 산출 디렉터리·JSON 스키마: `.claude/workflow/README.md`.
 
-## 스텝 1: 가드 — 입력 존재 확인
+## 스텝 1: 가드 — 입력 존재 확인 (R5)
 
 `<id>` 받아 `.claude/workflow/<id>/` 의 `proposal.json`, `impact.json`, `preview.md` 가 모두 있는지 확인. 없으면 안내:
 

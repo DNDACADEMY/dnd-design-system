@@ -5,15 +5,13 @@ description: dnd-design-system 모노레포에서 5단계 디자인 변경 워�
 
 # impact
 
-5단계 워크플로우의 두 번째 단계. `/proposal` 결과를 입력으로 받아 변경의 실제 영향 범위를 정적 분석으로 산출한다. CLAUDE.local.md 4-2 에서 강조했듯이 **결과 포맷이 디자이너 가독성을 통과하지 못하면 이 단계는 의미가 없다** — 47곳 import 같은 raw count 는 본문에서 금지.
+5단계 워크플로우의 두 번째 단계. `/proposal` 결과를 입력으로 받아 변경의 실제 영향 범위를 정적 분석으로 산출한다. **결과 포맷이 디자이너 가독성을 통과하지 못하면 이 단계는 의미가 없다** — raw count 는 본문 금지 (R7).
 
-> 단계 간 데이터 컨벤션은 `.claude/workflow/README.md` 참조.
+> 흐름·구성 요소·공통 룰 SSOT: `docs/AGENTS.md`. 단계별 산출 디렉터리·JSON 스키마: `.claude/workflow/README.md`.
 
 ## 스텝 1: 가드 — 입력 존재 확인
 
-`<id>` 인자를 받아(없으면 `AskUserQuestion` 으로 워크플로우 디렉터리에서 고르게) `.claude/workflow/<id>/proposal.json` 을 로드한다.
-
-없으면 안내하고 종료:
+`<id>` 인자를 받아(없으면 워크플로우 디렉터리에서 고르게) `.claude/workflow/<id>/proposal.json` 을 로드한다. 없으면 안내하고 종료 (R5):
 
 > `<id>` 의 proposal.json 이 없어요. 먼저 `/proposal` 로 변경 의도를 정리해주세요.
 
@@ -75,7 +73,7 @@ grep -rn "<token-path>" packages/desktop/src --include='*.css.ts' --include='*.t
 ]
 ```
 
-## 스텝 5: 디자이너 가독 summary
+## 스텝 5: 디자이너 가독 summary (R7)
 
 raw count 를 그대로 노출하지 않고 다음 포맷을 따른다:
 
@@ -123,7 +121,7 @@ raw count 를 그대로 노출하지 않고 다음 포맷을 따른다:
   - `영향 범위가 너무 넓어 제안을 다시 좁힐게요 (/proposal 로 복귀)`
   - `중단하고 사람과 상의할게요`
 
-## 가드 — 이미 분석 결과가 있을 때
+## 가드 — 이미 분석 결과가 있을 때 (R6)
 
 `impact.json` 이 존재하면 덮어쓰기 전 확인:
 

@@ -7,15 +7,15 @@ description: dnd-design-system 모노레포에서 디자인 변경 워크플로�
 
 5단계 디자인 변경 워크플로우(`/proposal → /impact → /preview → /review → /decision`)의 첫 단계. 자연어 의도를 다음 단계가 입력으로 사용할 수 있는 구조화된 형태로 정규화하는 게 목적이다.
 
-> **사용자 확인은 항상 `AskUserQuestion` 도구를 사용한다.** 자유 텍스트 질문 대신 옵션을 제시하면 비개발자도 빠르게 응답할 수 있다. 자유 입력이 필요하면 도구가 자동 제공하는 "Other" 폴백을 활용한다.
+> 흐름·구성 요소·공통 룰 SSOT: `docs/AGENTS.md`. 단계별 산출 디렉터리·JSON 스키마: `.claude/workflow/README.md`.
 >
-> 단계 간 데이터 컨벤션·JSON 스키마는 `.claude/workflow/README.md` 를 참조한다.
+> 사용자 확인은 항상 `AskUserQuestion` (R1). 자유 입력은 도구가 제공하는 "Other" 폴백.
 
 ## 스텝 1: id 발급 및 state.json 작성
 
-자연어에서 1~3 단어 주제를 뽑아 `<kebab-주제>-<YYYY-MM-DD>` 형태로 `<id>` 를 만든다. 예: "버튼 모서리 좀 더 둥글게" → `button-radius-2026-05-07`.
+자연어에서 1~3 단어 주제를 뽑아 `<id>` 를 만든다 (R2). 예: "버튼 모서리 좀 더 둥글게" → `button-radius-2026-05-07`.
 
-이미 같은 날 같은 주제가 있으면 `-2`, `-3` 접미사. `.claude/workflow/<id>/` 디렉터리를 만들고 `state.json` 을 초기화한다.
+`.claude/workflow/<id>/` 디렉터리를 만들고 `state.json` 을 초기화한다.
 
 ```jsonc
 {
@@ -71,7 +71,7 @@ ls packages/desktop/src/components/  # 존재한다면
 
 이름이 정확히 일치하지 않으면 fuzzy 후보를 옵션으로 제시.
 
-복합 변경(예: 토큰 값 변경 + 컴포넌트 props 변경)은 한 `proposal.json` 에 묶지 않는다. 별도 `<id>` 두 개로 분리하라고 사용자에게 안내한다.
+복합 변경(예: 토큰 값 변경 + 컴포넌트 props 변경)은 한 `proposal.json` 에 묶지 않는다. 별도 `<id>` 두 개로 분리하라고 사용자에게 안내한다 (R9).
 
 ## 스텝 4: 의도 한 줄 정리
 
@@ -128,11 +128,11 @@ ls packages/desktop/src/components/  # 존재한다면
   - `targets 를 다시 잡고 싶어요`
   - `의도(intent) 문장만 다듬을게요`
 
-세부 수정은 "Other" 자유 입력으로 받는다. 사용자가 `/impact` 로 넘어가겠다고 하면 다음 명령을 안내만 하고 자동 호출하지는 않는다 — 단계 간 휴식 지점은 사용자 손에 둔다.
+세부 수정은 "Other" 자유 입력으로 받는다. 사용자가 `/impact` 로 넘어가겠다고 하면 다음 명령을 안내만 하고 자동 호출하지 않는다 (R4).
 
 ## 가드 — 같은 id 가 이미 있을 때
 
-`.claude/workflow/<id>/proposal.json` 이 이미 존재하면 덮어쓰기 전에 `AskUserQuestion` 으로 확인한다.
+`.claude/workflow/<id>/proposal.json` 이 이미 존재하면 덮어쓰기 전에 확인 (R6):
 
 - `question`: "<id> 에 이미 proposal 이 있어요. 어떻게 할까요?"
 - `header`: "기존 제안 처리"
