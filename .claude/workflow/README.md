@@ -83,9 +83,7 @@ Merged
   "tokenUsages": [
     {
       "token": "radius.button",
-      "files": [
-        { "path": "packages/desktop/src/primitives/Button/styles.css.ts", "lines": [12, 47] }
-      ]
+      "files": [{ "path": "packages/desktop/src/primitives/Button/styles.css.ts", "lines": [12, 47] }]
     }
   ],
   "componentImpact": [
@@ -110,6 +108,7 @@ Merged
 # Preview — <id>
 
 ## 샘플
+
 - **Button** (exposure: high) — http://localhost:6006/?path=/story/components-button--default
   - before: radius.button = 6
   - after: radius.button = 12
