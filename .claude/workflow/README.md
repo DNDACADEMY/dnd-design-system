@@ -37,7 +37,7 @@
   "status": "Draft | Analyzing | Previewing | Reviewing | Approved | OnHold | Rejected | Merged",
   "createdAt": "2026-05-07T09:30:00+09:00",
   "updatedAt": "2026-05-07T11:15:00+09:00",
-  "title": "버튼 모서리를 더 둥글게",
+  "title": "버튼 모서리를 더 둥글게"
 }
 ```
 
@@ -51,11 +51,11 @@
   "changeType": "token-value | token-add | token-remove | component-new | component-api | bug",
   "targets": [
     { "kind": "token", "name": "radius.button" },
-    { "kind": "component", "name": "Button" },
+    { "kind": "component", "name": "Button" }
   ],
   "intent": "버튼이 더 부드러운 인상을 갖도록 모서리를 한 단계 둥글게",
   "priority": "low | medium | high",
-  "raw": "디자이너가 적은 자연어 원문 (참고용)",
+  "raw": "디자이너가 적은 자연어 원문 (참고용)"
 }
 ```
 
@@ -67,18 +67,18 @@
   "tokenUsages": [
     {
       "token": "radius.button",
-      "files": [{ "path": "packages/desktop/src/primitives/Button/styles.css.ts", "lines": [12, 47] }],
-    },
+      "files": [{ "path": "packages/desktop/src/primitives/Button/styles.css.ts", "lines": [12, 47] }]
+    }
   ],
   "componentImpact": [
     {
       "component": "Button",
       "exposure": "high | medium | low",
-      "files": ["packages/desktop/src/primitives/Button/styles.css.ts"],
-    },
+      "files": ["packages/desktop/src/primitives/Button/styles.css.ts"]
+    }
   ],
   "summary": "주요 컴포넌트 N개 / 그중 노출도 높은 것: ...",
-  "rawCount": { "files": 0, "lines": 0 },
+  "rawCount": { "files": 0, "lines": 0 }
 }
 ```
 
@@ -106,13 +106,13 @@
   "id": "button-radius-2026-05-07",
   "auto": [
     { "rule": "wcag-contrast-aa", "status": "pass | warn | fail | n/a", "note": "..." },
-    { "rule": "token-consistency", "status": "pass | warn | fail | n/a", "note": "..." },
+    { "rule": "token-consistency", "status": "pass | warn | fail | n/a", "note": "..." }
   ],
   "humanAsks": [
     { "perspective": "design", "question": "...", "answer": null },
     { "perspective": "dev-cost", "question": "...", "answer": null },
-    { "perspective": "a11y", "question": "...", "answer": null },
-  ],
+    { "perspective": "a11y", "question": "...", "answer": null }
+  ]
 }
 ```
 
@@ -127,7 +127,7 @@
   "rationale": "근거 — 왜 진행/보류/반려인지",
   "decidedBy": "user|designer-name",
   "decidedAt": "2026-05-07T15:00:00+09:00",
-  "nextActions": ["run /changeset", "run /pr"],
+  "nextActions": ["run /changeset", "run /pr"]
 }
 ```
 

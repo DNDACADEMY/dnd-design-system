@@ -7,21 +7,21 @@ description: dnd-design-system 모노레포의 5단계 디자인 변경 워크�
 
 5단계 디자인 변경 워크플로우의 단일 진입점. SSOT 인 `docs/AGENTS.md` 가 정답이라는 원칙을 강제하고, 룰·흐름·구성 요소 변경이 영향받는 모든 파일에 빠짐없이 반영되게 한다.
 
-> 이 스킬은 워크플로우 자체의 거버넌스를 다룬다. 워크플로우 *안에서* 변경을 만드는 작업(예: 토큰 값 바꾸기)은 `/proposal` 부터 시작한다.
+> 이 스킬은 워크플로우 자체의 거버넌스를 다룬다. 워크플로우 _안에서_ 변경을 만드는 작업(예: 토큰 값 바꾸기)은 `/proposal` 부터 시작한다.
 
 ## 관리 대상 파일
 
 이 스킬이 동기화 책임을 지는 파일은 다음 7개다:
 
-| 파일                                            | 역할                                  |
-| ----------------------------------------------- | ------------------------------------- |
-| `docs/AGENTS.md`                                | SSOT (흐름·구성 요소·공통 룰)         |
-| `.claude/workflow/README.md`                    | 디렉터리 컨벤션·JSON 스키마           |
-| `.claude/skills/proposal/SKILL.md`              | /proposal 절차                        |
-| `.claude/skills/impact/SKILL.md`                | /impact 절차                          |
-| `.claude/skills/preview/SKILL.md`               | /preview 절차                         |
-| `.claude/skills/review/SKILL.md`                | /review 절차                          |
-| `.claude/skills/decision/SKILL.md`              | /decision 절차                        |
+| 파일                               | 역할                          |
+| ---------------------------------- | ----------------------------- |
+| `docs/AGENTS.md`                   | SSOT (흐름·구성 요소·공통 룰) |
+| `.claude/workflow/README.md`       | 디렉터리 컨벤션·JSON 스키마   |
+| `.claude/skills/proposal/SKILL.md` | /proposal 절차                |
+| `.claude/skills/impact/SKILL.md`   | /impact 절차                  |
+| `.claude/skills/preview/SKILL.md`  | /preview 절차                 |
+| `.claude/skills/review/SKILL.md`   | /review 절차                  |
+| `.claude/skills/decision/SKILL.md` | /decision 절차                |
 
 `proposal/references/change-types.md` 는 changeType enum 변경이 있을 때만 갱신 대상에 포함된다.
 
@@ -44,12 +44,12 @@ description: dnd-design-system 모노레포의 5단계 디자인 변경 워크�
 
 `docs/AGENTS.md` 를 먼저 고친다. 이 단계가 끝나기 전에는 다른 파일을 손대지 않는다 — SSOT 가 정답이라는 원칙을 코드 흐름에서도 강제하기 위함이다.
 
-| 카테고리           | 수정 위치                                                                            |
-| ------------------ | ------------------------------------------------------------------------------------ |
-| 룰                 | §3 (R# 추가/갱신, deprecated 표시 시 본문에 ~~취소선~~ 또는 명시 비고)               |
-| 단계 추가/삭제     | §1 흐름도 + §2-1 표 + §2-2/2-3 보조 자료 표 + §3 R8 상태 머신 + §5 거버넌스         |
-| 단계 책임 변경     | §2-1 표의 책임 컬럼 + 영향 룰(있다면) §3                                             |
-| 네이밍/경로 변경   | §2 표 전체와 §4 데이터 계약                                                          |
+| 카테고리         | 수정 위치                                                                   |
+| ---------------- | --------------------------------------------------------------------------- |
+| 룰               | §3 (R# 추가/갱신, deprecated 표시 시 본문에 ~~취소선~~ 또는 명시 비고)      |
+| 단계 추가/삭제   | §1 흐름도 + §2-1 표 + §2-2/2-3 보조 자료 표 + §3 R8 상태 머신 + §5 거버넌스 |
+| 단계 책임 변경   | §2-1 표의 책임 컬럼 + 영향 룰(있다면) §3                                    |
+| 네이밍/경로 변경 | §2 표 전체와 §4 데이터 계약                                                 |
 
 수정 후 변경 이력(§7)에 한 줄 추가:
 
@@ -150,6 +150,7 @@ SSOT(docs/AGENTS.md) <변경 부위> 갱신 + 영향 SKILL.md N개 동기화.
 > 사용자: "리뷰 자동 점검에 토큰 네이밍 컨벤션도 추가하고 싶어요"
 >
 > 스킬:
+>
 > 1. 카테고리 = 룰 추가
 > 2. SSOT 의 §3 에 R12 추가, R11 본문도 갱신 (자동 점검 영역이 늘어남)
 > 3. grep — `.claude/skills/review/SKILL.md` 가 R11 인용
@@ -162,6 +163,7 @@ SSOT(docs/AGENTS.md) <변경 부위> 갱신 + 영향 SKILL.md N개 동기화.
 > 사용자: "/preview 가 페이지 컨텍스트도 다루도록 하자"
 >
 > 스킬:
+>
 > 1. 카테고리 = 단계 책임 변경
 > 2. SSOT §2-1 의 preview 책임 + R10 (v1 범위) 갱신
 > 3. grep — preview/SKILL.md, AGENTS.md, workflow/README.md

@@ -42,27 +42,27 @@
 
 ### 2-1. 단계별 스킬
 
-| 스킬         | 입력                              | 핵심 출력 (`<id>` 디렉터리 내)            | 책임                                                                |
-| ------------ | --------------------------------- | ----------------------------------------- | ------------------------------------------------------------------- |
-| `/proposal`  | 자연어 + (선택) 컨텍스트          | `state.json`, `proposal.json`             | 의도 정규화. `changeType` 6 분류. `targets[]` 검증                  |
-| `/impact`    | `proposal.json`                   | `impact.json`                             | 토큰/컴포넌트 사용처 grep. 디자이너 가독 summary 작성               |
-| `/preview`   | `impact.json`, `proposal.json`    | `preview.md`                              | 노출도 상위 3~5 컴포넌트의 Storybook URL + before/after 노트        |
-| `/review`    | 위 3개                            | `review.json`                             | 자동(WCAG AA, 토큰 일관성) + 사람(디자인/개발 비용/접근성 3관점)    |
-| `/decision`  | 위 4개                            | `decision.json`, `state.status` 갱신      | proceed/hold/reject + 근거. 후속 `/changeset` `/pr` 안내            |
+| 스킬        | 입력                           | 핵심 출력 (`<id>` 디렉터리 내)       | 책임                                                             |
+| ----------- | ------------------------------ | ------------------------------------ | ---------------------------------------------------------------- |
+| `/proposal` | 자연어 + (선택) 컨텍스트       | `state.json`, `proposal.json`        | 의도 정규화. `changeType` 6 분류. `targets[]` 검증               |
+| `/impact`   | `proposal.json`                | `impact.json`                        | 토큰/컴포넌트 사용처 grep. 디자이너 가독 summary 작성            |
+| `/preview`  | `impact.json`, `proposal.json` | `preview.md`                         | 노출도 상위 3~5 컴포넌트의 Storybook URL + before/after 노트     |
+| `/review`   | 위 3개                         | `review.json`                        | 자동(WCAG AA, 토큰 일관성) + 사람(디자인/개발 비용/접근성 3관점) |
+| `/decision` | 위 4개                         | `decision.json`, `state.status` 갱신 | proceed/hold/reject + 근거. 후속 `/changeset` `/pr` 안내         |
 
 ### 2-2. 메타 스킬
 
-| 스킬              | 책임                                                                                                |
-| ----------------- | --------------------------------------------------------------------------------------------------- |
-| `workflow-admin`  | 이 문서(SSOT)와 5개 단계 스킬·`workflow/README.md` 간 동기화. 룰/단계/스킬 수정의 단일 진입점       |
+| 스킬             | 책임                                                                                          |
+| ---------------- | --------------------------------------------------------------------------------------------- |
+| `workflow-admin` | 이 문서(SSOT)와 5개 단계 스킬·`workflow/README.md` 간 동기화. 룰/단계/스킬 수정의 단일 진입점 |
 
 ### 2-3. 보조 자료
 
-| 경로                                              | 역할                                                            |
-| ------------------------------------------------- | --------------------------------------------------------------- |
-| `.claude/workflow/README.md`                      | `<id>` 디렉터리 컨벤션 + JSON 스키마 (디렉터리 내부 설명)       |
-| `.claude/workflow/<id>/`                          | 단계별 산출물 캐시 (gitignore. README.md 만 추적)               |
-| `.claude/skills/proposal/references/change-types.md` | `proposal` 의 6 가지 `changeType` 카탈로그                   |
+| 경로                                                 | 역할                                                      |
+| ---------------------------------------------------- | --------------------------------------------------------- |
+| `.claude/workflow/README.md`                         | `<id>` 디렉터리 컨벤션 + JSON 스키마 (디렉터리 내부 설명) |
+| `.claude/workflow/<id>/`                             | 단계별 산출물 캐시 (gitignore. README.md 만 추적)         |
+| `.claude/skills/proposal/references/change-types.md` | `proposal` 의 6 가지 `changeType` 카탈로그                |
 
 ---
 
@@ -134,14 +134,14 @@ Draft (proposal 직후)
 
 전체 JSON 스키마는 `.claude/workflow/README.md` 에 있다. 여기는 단계 간 입출력 계약 요약만.
 
-| 산출물            | 핵심 필드                                                              |
-| ----------------- | ---------------------------------------------------------------------- |
-| `state.json`      | `id`, `stage`, `status`, `createdAt`, `updatedAt`, `title`             |
-| `proposal.json`   | `changeType`, `targets[]`, `intent`, `priority`, `raw`                 |
-| `impact.json`     | `tokenUsages[]`, `componentImpact[]`, `summary`, `rawCount`            |
-| `preview.md`      | (Markdown) 샘플별 Storybook URL + before/after 노트                    |
-| `review.json`     | `auto[]` (rule, status, note), `humanAsks[]` (perspective, q, a)       |
-| `decision.json`   | `choice`, `rationale`, `decidedBy`, `decidedAt`, `nextActions[]`       |
+| 산출물          | 핵심 필드                                                        |
+| --------------- | ---------------------------------------------------------------- |
+| `state.json`    | `id`, `stage`, `status`, `createdAt`, `updatedAt`, `title`       |
+| `proposal.json` | `changeType`, `targets[]`, `intent`, `priority`, `raw`           |
+| `impact.json`   | `tokenUsages[]`, `componentImpact[]`, `summary`, `rawCount`      |
+| `preview.md`    | (Markdown) 샘플별 Storybook URL + before/after 노트              |
+| `review.json`   | `auto[]` (rule, status, note), `humanAsks[]` (perspective, q, a) |
+| `decision.json` | `choice`, `rationale`, `decidedBy`, `decidedAt`, `nextActions[]` |
 
 ---
 
