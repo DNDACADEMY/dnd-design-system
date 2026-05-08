@@ -1,4 +1,4 @@
-import { typography } from '@dnd-lab/token'
+import { color, typography } from '@dnd-lab/token'
 import { globalFontFace, StyleRule } from '@vanilla-extract/css'
 import { createVar } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
@@ -25,7 +25,8 @@ globalFontFace(pretendard, [
   }
 ])
 
-const TYPOGRAPHY_VARIANTS = {
+export const TYPOGRAPHY_VARIANTS = {
+  color: createVar(),
   size: createVar(),
   lineHeight: createVar(),
   fontWeight: createVar(),
@@ -35,10 +36,14 @@ const TYPOGRAPHY_VARIANTS = {
 export const typographyCss = recipe({
   base: {
     fontFamily: `${pretendard}, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif`,
+    color: TYPOGRAPHY_VARIANTS.color,
     fontSize: TYPOGRAPHY_VARIANTS.size,
     lineHeight: TYPOGRAPHY_VARIANTS.lineHeight,
     fontWeight: TYPOGRAPHY_VARIANTS.fontWeight,
-    letterSpacing: TYPOGRAPHY_VARIANTS.letterSpacing
+    letterSpacing: TYPOGRAPHY_VARIANTS.letterSpacing,
+    vars: {
+      [TYPOGRAPHY_VARIANTS.color]: color.semantic.text.neutral.primary
+    }
   },
   variants: {
     typography: {
