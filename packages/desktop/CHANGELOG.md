@@ -1,5 +1,87 @@
 # @dnd-lab/desktop
 
+## 0.4.0
+
+### Minor Changes
+
+- [#34](https://github.com/DNDACADEMY/dnd-design-system/pull/34) [`4707e66`](https://github.com/DNDACADEMY/dnd-design-system/commit/4707e66df6039b08d24eb13c2fbac60b0d1cb1a9) Thanks [@Zero-1016](https://github.com/Zero-1016)! - **Fieldbox / Textfield / Textarea / Sidebar**
+
+  primitive 네이밍과 API 이름을 가이드라인에 맞게 통일했어요. `Fieldbox.BottomTxt` 를 `Fieldbox.BottomText` 로 바꾸고, `readonly` 를 `readOnly`, `isActive` 를 `active` 로 맞춰서 컴포넌트 간 사용 패턴을 일관되게 정리했어요.
+
+  | 항목                     | Before                   | After                  |
+  | ------------------------ | ------------------------ | ---------------------- |
+  | Fieldbox compound        | `Fieldbox.BottomTxt`     | `Fieldbox.BottomText`  |
+  | read-only prop           | `readonly`               | `readOnly`             |
+  | Sidebar item active prop | `isActive`               | `active`               |
+  | 파일명 규칙              | `styles.css.ts/types.ts` | `style.css.ts/type.ts` |
+
+  마이그레이션: `Fieldbox.BottomTxt` 사용부를 `Fieldbox.BottomText` 로, `readonly` 를 `readOnly` 로, `isActive` 를 `active` 로 바꿔주세요.
+
+- [#22](https://github.com/DNDACADEMY/dnd-design-system/pull/22) [`cea861c`](https://github.com/DNDACADEMY/dnd-design-system/commit/cea861c8d905cd4f14f5825ce6671c1d5eb33756) Thanks [@Zero-1016](https://github.com/Zero-1016)! - **Txt**
+
+  신규 typography 토큰을 적용해 `typography` variant 를 의미 중심 14종으로 재정비하고, 굵기 조절 방식을 `emphasized` boolean 으로 단순화했어요.
+
+  |              | Before                                                                   | After                                                                                        |
+  | ------------ | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
+  | `typography` | `"h4"`, `"h5"`, `"h6"`, `"body1"`, `"body2"`, `"caption1"`, `"caption2"` | `"display1"`~`"display4"`, `"title1"`~`"title4"`, `"body1"`~`"body3"`, `"label1"`~`"label3"` |
+  | `fontWeight` | `"regular"`, `"medium"`, `"bold"`                                        | (제거)                                                                                       |
+  | `emphasized` | (없음)                                                                   | `boolean` — 각 typography 의 강조 굵기로 토글                                                |
+
+  마이그레이션:
+
+  ```tsx
+  // Before
+  <Txt typography="h5" fontWeight="bold">제목</Txt>
+  <Txt typography="caption1">설명</Txt>
+  <Txt typography="body2" fontWeight="medium">라벨</Txt>
+
+  // After
+  <Txt typography="title1" emphasized>제목</Txt>
+  <Txt typography="body3">설명</Txt>
+  <Txt typography="label1">라벨</Txt>
+  ```
+
+  내부에서 `Txt` 를 사용하던 `Button`, `Chip`, `Sidebar`, `Fieldbox`, `Textfield`, `Textarea` 도 새 토큰에 맞춰 업데이트 했어요. 굵기는 컴포넌트별 의도에 맞게 `emphasized` 또는 `label` 계열로 옮겼고, 보조 텍스트(caption) 는 `body3` / `label2` 로 매핑했어요.
+
+### Patch Changes
+
+- [#33](https://github.com/DNDACADEMY/dnd-design-system/pull/33) [`4352e3e`](https://github.com/DNDACADEMY/dnd-design-system/commit/4352e3e690909b0ee9d8d87ebf3d9dbca1ba8085) Thanks [@Zero-1016](https://github.com/Zero-1016)! - **Txt**
+
+  Txt 기본 색상 주입 방식을 컴포넌트 외부 스타일과 자연스럽게 합쳐지도록 조정했어요.
+
+  | 항목               | Before                             | After                                      |
+  | ------------------ | ---------------------------------- | ------------------------------------------ |
+  | 기본 색상 처리     | 컴포넌트 prop 기본값에서 직접 지정 | typography 스타일 레이어의 기본 var로 지정 |
+  | 색상 override 방식 | prop 우선 지정 중심                | 스타일 var + prop override 병행            |
+
+  영향: Txt를 기반으로 한 입력/라벨 컴포넌트에서 색상 커스터마이징 충돌이 줄어들어요.
+
+- [#31](https://github.com/DNDACADEMY/dnd-design-system/pull/31) [`63dca37`](https://github.com/DNDACADEMY/dnd-design-system/commit/63dca37170d587ddfe57c541866cf7e007d23544) Thanks [@Zero-1016](https://github.com/Zero-1016)! - **Textfield**
+
+  Textfield 입력 영역의 높이와 타이포그래피를 새 디자인에 맞춰 조정했어요.
+
+  | 항목              | Before                       | After                              |
+  | ----------------- | ---------------------------- | ---------------------------------- |
+  | 입력 높이         | size별 텍스트 최소 높이 중심 | size별 컨테이너 높이 기준으로 정렬 |
+  | 기본 타이포그래피 | `body2`(medium/large)        | `body3`(medium/large)              |
+
+  영향: Textfield의 시각 밀도와 입력 텍스트 균형이 일관되게 보여요.
+
+- [#32](https://github.com/DNDACADEMY/dnd-design-system/pull/32) [`f272577`](https://github.com/DNDACADEMY/dnd-design-system/commit/f272577a5c98501ddfac697cbda80ba1ae2c3489) Thanks [@Zero-1016](https://github.com/Zero-1016)! - **Fieldbox**
+
+  Fieldbox의 상태별 배경/보더/보조 텍스트 표현을 새 디자인 규칙에 맞춰 정리했어요.
+
+  | 항목                  | Before                 | After                                |
+  | --------------------- | ---------------------- | ------------------------------------ |
+  | 기본/hover/focus 보더 | primitive 중심 매핑    | semantic 토큰 중심 상태 매핑         |
+  | 보조 텍스트 색상      | 컴포넌트에서 직접 주입 | `error` variant 기반으로 스타일 제어 |
+  | 라벨 타이포그래피     | `label1`               | `title4` + emphasized                |
+
+  영향: Fieldbox가 포함된 입력 계열 컴포넌트의 상태 표현이 더 일관되게 보여요.
+
+- Updated dependencies [[`cea861c`](https://github.com/DNDACADEMY/dnd-design-system/commit/cea861c8d905cd4f14f5825ce6671c1d5eb33756), [`346e83f`](https://github.com/DNDACADEMY/dnd-design-system/commit/346e83f2ae8c729fd9614678d26824fd66e4a059)]:
+  - @dnd-lab/token@0.3.0
+
 ## 0.3.0
 
 ### Minor Changes

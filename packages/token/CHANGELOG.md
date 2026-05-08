@@ -1,5 +1,65 @@
 # @dnd-lab/token
 
+## 0.3.0
+
+### Minor Changes
+
+- [#22](https://github.com/DNDACADEMY/dnd-design-system/pull/22) [`cea861c`](https://github.com/DNDACADEMY/dnd-design-system/commit/cea861c8d905cd4f14f5825ce6671c1d5eb33756) Thanks [@Zero-1016](https://github.com/Zero-1016)! - **@dnd-lab/token**
+
+  color, typography 토큰을 더 의미 중심으로 정리했어요. 새로 만든 의미 키(`primary`/`secondary`/...)와 일관된 kebab-case primitive 키를 따라가도록 참조 경로가 바뀌었어요.
+
+  🎨 토큰 변경
+
+  `color.semantic` 의 배경 키를 숫자에서 의미 키로 재구성했어요.
+
+  | 토큰                          | Before                  | After                                                                                   |
+  | ----------------------------- | ----------------------- | --------------------------------------------------------------------------------------- |
+  | `color.semantic.background.*` | `50`, `100`, `200`, ... | `primary`, `secondary`, `tertiary`, `subtle`, `inverse`, `hover`, `pressed`, `disabled` |
+  | `color.semantic.brand.*`      | (없음)                  | 새로 추가 — 브랜드 컬러 묶음                                                            |
+
+  값도 raw hex 가 아니라 `{primitive.slate.50}` 같은 reference 로 통일했어요.
+
+  typography primitive 키를 모두 kebab-case 로 통일하고 단계를 더 추가했어요.
+
+  | 토큰                                  | Before                                     | After                                                                                          |
+  | ------------------------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+  | `primitive.font-weight.*`             | `Thin`, `Light`, `Medium`, `Semibold`, ... | `thin`, `extra-light`, `light`, `regular`, `medium`, `semibold`, `bold`, `extra-bold`, `black` |
+  | `primitive.letter-spacing.*`          | `Tight`                                    | `tight`, `none` 추가                                                                           |
+  | `semantic.body.*`, `semantic.title.*` | `1` / `2` / `3`                            | `4` 단계 추가                                                                                  |
+
+  🔧 API 변경
+
+  기존 토큰 키를 그대로 참조하던 코드는 새 키로 교체해주세요.
+
+  마이그레이션:
+
+  ```ts
+  // Before
+  color.semantic.background[50]
+  typography.primitive['font-weight'].Medium
+  typography.primitive['letter-spacing'].Tight
+
+  // After
+  color.semantic.background.primary
+  typography.primitive['font-weight'].medium
+  typography.primitive['letter-spacing'].tight
+  ```
+
+  영향: `@dnd-lab/desktop` 의 `.css.ts` 에서 위 키를 참조하던 곳도 함께 업데이트가 필요해요.
+
+- [#27](https://github.com/DNDACADEMY/dnd-design-system/pull/27) [`346e83f`](https://github.com/DNDACADEMY/dnd-design-system/commit/346e83f2ae8c729fd9614678d26824fd66e4a059) Thanks [@Zero-1016](https://github.com/Zero-1016)! - **@dnd-lab/token**
+
+  `alert-dialog`, `checkbox`, `radio` 컴포넌트용 의미 색상 토큰을 새로 추가했어요. 디자인이 확정된 슬롯을 미리 풀어둬서 컴포넌트 구현 시 바로 참조할 수 있어요.
+
+  추가된 토큰 그룹:
+  - `checkbox` — `border` / `checked` / `label` (상태·색상 변형 포함)
+  - `alert-dialog` — `background` 와 `button` (`primary`·`secondary`·`tertiary`·`quarternary` × `enabled`·`hovered`·`pressed`·`disabled`·`focused`)
+  - 공용 슬롯 추가 — `fill`, `group`, `description.default`·`description.error`, `unselected`, `focused`, `inverse`, `medium`, `disabled-deep`
+
+  함께 `typography.primitive.size` 일부 단계 값을 디자인 가이드에 맞춰 한 단계 조정했어요. 동일한 단계명을 참조하던 컴포넌트는 새 값으로 자동 갱신돼요.
+
+  영향: `Checkbox`, `Radio`, `AlertDialog` 구현 시 새 색상 키를 바로 참조할 수 있고, `Txt` 등 `primitive.size` 단계를 사용하던 곳은 시각적으로 한 단계 차이가 나요.
+
 ## 0.2.0
 
 ### Minor Changes
