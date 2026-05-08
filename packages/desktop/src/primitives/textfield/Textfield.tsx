@@ -1,10 +1,9 @@
-import { color } from '@dnd-lab/token'
 import { ChangeEventHandler, ComponentPropsWithRef, ReactNode } from 'react'
 
 import { Fieldbox } from '../fieldbox'
 import { TextfieldBottomText, TextfieldIcon, TextfieldLabel } from './compound'
 import { TextfieldContextProvider } from './context'
-import { TextfieldCss } from './style.css'
+import { textfieldContentCss, textfieldCss } from './style.css'
 import { TextfieldSize } from './type'
 import { useControllableState } from '../../hooks/useControllableState'
 import { useId } from '../../hooks/useId'
@@ -128,7 +127,8 @@ export const TextfieldImpl = (props: TextfieldProps) => {
         readonly={readOnly}>
         <Fieldbox.Content
           leftAddon={leftAddon}
-          rightAddon={rightAddon}>
+          rightAddon={rightAddon}
+          className={cx(textfieldContentCss({ size }), classNameFromProps)}>
           <Txt
             as='input'
             ref={ref}
@@ -136,9 +136,8 @@ export const TextfieldImpl = (props: TextfieldProps) => {
             aria-describedby={`${id}-description`}
             required={required}
             disabled={disabled}
-            className={cx(TextfieldCss({ size }), classNameFromProps)}
+            className={textfieldCss}
             typography={typographyBySize[size]}
-            color={color.semantic.text.neutral.primary}
             value={value}
             onChange={onChange}
             {...restProps}
@@ -151,9 +150,9 @@ export const TextfieldImpl = (props: TextfieldProps) => {
 
 const typographyBySize: Record<TextfieldSize, Typography> = {
   small: 'body3',
-  medium: 'body2',
-  large: 'body2'
-}
+  medium: 'body3',
+  large: 'body3'
+} as const
 
 export const Textfield = Object.assign(TextfieldImpl, {
   Label: TextfieldLabel,
