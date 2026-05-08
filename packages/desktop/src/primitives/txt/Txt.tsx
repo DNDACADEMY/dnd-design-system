@@ -1,4 +1,3 @@
-import { color } from '@dnd-lab/token'
 import { CSSProperties, ElementType, HTMLAttributes } from 'react'
 
 import { typographyCss } from './styles.css'
@@ -36,7 +35,7 @@ export const Txt = forwardRefWithAs<ElementType, TxtProps>((props, ref) => {
     typography = 'body2',
     children,
     emphasized = false,
-    color: colorFromProps = color.semantic.text.neutral.primary,
+    color: colorFromProps,
     className: classNameFromProps,
     style: styleFromProps,
     ...restProps
