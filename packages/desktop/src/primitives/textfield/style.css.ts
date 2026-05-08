@@ -1,34 +1,52 @@
 import { color } from '@dnd-lab/token'
+import { createVar, style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
-import { CSSProperties } from 'react'
 
-import { TextfieldSize } from './type'
+const TEXTFIELD_VARIANTS = {
+  height: createVar(),
+  color: createVar()
+} as const
 
-export const TextfieldCss = recipe({
+export const textfieldContentCss = recipe({
   base: {
-    flex: 1,
-    padding: 0,
-    backgroundColor: 'transparent',
-    border: 'none',
-    outline: 'none',
-
-    selectors: {
-      '&::placeholder': {
-        color: color.semantic.text.neutral.secondary
-      }
-    }
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px'
   },
   variants: {
     size: {
       small: {
-        minHeight: '17px'
+        vars: {
+          [TEXTFIELD_VARIANTS.height]: '32px'
+        }
       },
       medium: {
-        minHeight: '22px'
+        vars: {
+          [TEXTFIELD_VARIANTS.height]: '40px'
+        }
       },
       large: {
-        minHeight: '22px'
+        vars: {
+          [TEXTFIELD_VARIANTS.height]: '48px'
+        }
       }
-    } satisfies Record<TextfieldSize, CSSProperties>
+    }
+  }
+})
+
+export const textfieldCss = style({
+  flex: 1,
+  padding: 0,
+  backgroundColor: 'transparent',
+  border: 'none',
+  outline: 'none',
+  height: TEXTFIELD_VARIANTS.height,
+  vars: {
+    [TEXTFIELD_VARIANTS.color]: color.semantic.text.neutral.primary
+  },
+  selectors: {
+    '&::placeholder': {
+      color: color.semantic.text.neutral.secondary
+    }
   }
 })
