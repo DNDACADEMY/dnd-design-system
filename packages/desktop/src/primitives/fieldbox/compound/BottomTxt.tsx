@@ -1,4 +1,3 @@
-import { color } from '@dnd-lab/token'
 import { HTMLAttributes, ReactNode } from 'react'
 
 import { cx } from '../../../utils/cx'
@@ -21,8 +20,7 @@ export const FieldboxBottomTxt = (props: FieldboxBottomTxtProps) => {
     <Txt
       as='p'
       typography='body3'
-      color={error ? color.semantic.text.error.primary : color.semantic.text.neutral.secondary}
-      className={cx(bottomTxtCss, classNameFromProps)}
+      className={cx(bottomTxtCss({ error }), classNameFromProps)}
       {...restProps}>
       {children}
     </Txt>

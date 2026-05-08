@@ -28,7 +28,8 @@ export const FieldboxLabel = (props: FieldboxLabelProps) => {
     <Txt
       as='label'
       htmlFor={id}
-      typography='label1'
+      typography='title4'
+      emphasized
       color={color.semantic.text.neutral.primary}
       {...restProps}>
       {children}
