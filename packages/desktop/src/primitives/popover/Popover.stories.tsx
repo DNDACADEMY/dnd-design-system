@@ -37,7 +37,7 @@ const meta = {
 export default meta
 type Story = StoryObj<PopoverProps>
 
-const contentStyle = {
+const contentCss = {
   padding: '16px',
   background: 'white',
   border: '1px solid #e0e0e0',
@@ -51,7 +51,7 @@ export const Default: Story = {
     return (
       <Popover {...args}>
         <Popover.Trigger asChild={false}>팝오버 열기</Popover.Trigger>
-        <Popover.Content style={contentStyle}>팝오버 내용입니다</Popover.Content>
+        <Popover.Content style={contentCss}>팝오버 내용입니다</Popover.Content>
       </Popover>
     )
   }
@@ -67,7 +67,7 @@ export const Controlled: Story = {
           open={open}
           onOpenChange={setOpen}>
           <Popover.Trigger asChild={false}>제어 팝오버</Popover.Trigger>
-          <Popover.Content style={contentStyle}>제어 컴포넌트 예시입니다</Popover.Content>
+          <Popover.Content style={contentCss}>제어 컴포넌트 예시입니다</Popover.Content>
         </Popover>
         <button onClick={() => setOpen(!open)}>외부에서 토글 ({open ? '열림' : '닫힘'})</button>
       </div>
@@ -91,7 +91,7 @@ export const WithAnchor: Story = {
             }}>
             앵커 위치 (팝오버가 여기를 기준으로 표시됩니다)
           </Popover.Anchor>
-          <Popover.Content style={contentStyle}>
+          <Popover.Content style={contentCss}>
             <div style={{ fontWeight: 'bold', marginBottom: '8px' }}>팝오버 제목</div>
             <div>앵커를 사용한 팝오버 예시입니다. 스크롤해도 앵커를 따라다닙니다.</div>
           </Popover.Content>
@@ -109,7 +109,7 @@ export const Positioning: Story = {
           <Popover.Trigger asChild={false}>Top</Popover.Trigger>
           <Popover.Content
             side='top'
-            style={contentStyle}>
+            style={contentCss}>
             상단 팝오버
           </Popover.Content>
         </Popover>
@@ -118,7 +118,7 @@ export const Positioning: Story = {
           <Popover.Trigger asChild={false}>Right</Popover.Trigger>
           <Popover.Content
             side='right'
-            style={contentStyle}>
+            style={contentCss}>
             우측 팝오버
           </Popover.Content>
         </Popover>
@@ -127,7 +127,7 @@ export const Positioning: Story = {
           <Popover.Trigger asChild={false}>Bottom</Popover.Trigger>
           <Popover.Content
             side='bottom'
-            style={contentStyle}>
+            style={contentCss}>
             하단 팝오버
           </Popover.Content>
         </Popover>
@@ -136,7 +136,7 @@ export const Positioning: Story = {
           <Popover.Trigger asChild={false}>Left</Popover.Trigger>
           <Popover.Content
             side='left'
-            style={contentStyle}>
+            style={contentCss}>
             좌측 팝오버
           </Popover.Content>
         </Popover>
@@ -153,7 +153,7 @@ export const Alignment: Story = {
           <Popover.Trigger asChild={false}>Start Align</Popover.Trigger>
           <Popover.Content
             align='start'
-            style={contentStyle}>
+            style={contentCss}>
             시작 정렬
           </Popover.Content>
         </Popover>
@@ -162,7 +162,7 @@ export const Alignment: Story = {
           <Popover.Trigger asChild={false}>Center Align</Popover.Trigger>
           <Popover.Content
             align='center'
-            style={contentStyle}>
+            style={contentCss}>
             중앙 정렬
           </Popover.Content>
         </Popover>
@@ -171,7 +171,7 @@ export const Alignment: Story = {
           <Popover.Trigger asChild={false}>End Align</Popover.Trigger>
           <Popover.Content
             align='end'
-            style={contentStyle}>
+            style={contentCss}>
             끝 정렬
           </Popover.Content>
         </Popover>
@@ -191,7 +191,7 @@ export const HoverTrigger: Story = {
           closeDelay={100}>
           마우스를 올려보세요
         </Popover.Trigger>
-        <Popover.Content style={contentStyle}>Hover 트리거 팝오버</Popover.Content>
+        <Popover.Content style={contentCss}>Hover 트리거 팝오버</Popover.Content>
       </Popover>
     )
   }
@@ -212,7 +212,7 @@ export const CustomContent: Story = {
 
         <Popover.Content
           style={{
-            ...contentStyle,
+            ...contentCss,
             padding: '8px'
           }}>
           <div
@@ -265,7 +265,7 @@ export const WithFocusableContent: Story = {
     return (
       <Popover {...args}>
         <Popover.Trigger asChild={false}>포커스 가능한 콘텐츠</Popover.Trigger>
-        <Popover.Content style={contentStyle}>
+        <Popover.Content style={contentCss}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 'bold' }}>사용자 정보 입력</h3>
             <Textfield placeholder='이름을 입력하세요' />

@@ -3,7 +3,7 @@ import { HTMLAttributes } from 'react'
 
 import { Txt } from '../../txt'
 import { useFieldboxContext } from '../context'
-import { requiredStyleCss } from '../styles.css'
+import { requiredStyleCss } from '../style.css'
 
 export interface FieldboxLabelProps extends HTMLAttributes<HTMLLabelElement> {
   /**

@@ -9,7 +9,7 @@ const containerVariants = {
   verticalPadding: createVar()
 } as const
 
-export const containerStyle = recipe({
+export const containerCss = recipe({
   base: {
     display: 'flex',
     flexDirection: 'column',
@@ -39,7 +39,7 @@ const affixVariants = {
   paddingRight: createVar()
 } as const
 
-export const affixStyle = recipe({
+export const affixCss = recipe({
   base: {
     paddingLeft: affixVariants.paddingLeft,
     paddingRight: affixVariants.paddingRight
@@ -75,42 +75,42 @@ export const affixStyle = recipe({
   ]
 })
 
-export const contentStyle = style({
+export const contentCss = style({
   display: 'flex',
   flexDirection: 'column',
   flex: 1,
   minHeight: 0
 })
 
-export const scrollAreaRootStyle = style({
+export const scrollAreaRootCss = style({
   position: 'relative',
   flex: 1,
   minHeight: 0
 })
 
-export const scrollAreaViewportStyle = style({
+export const scrollAreaViewportCss = style({
   width: '100%',
   height: '100%'
 })
 
-export const scrollAreaScrollbarStyle = style({
+export const scrollAreaScrollbarCss = style({
   display: 'flex',
   width: 8,
   paddingTop: 4,
   paddingBottom: 4
 })
 
-export const scrollAreaThumbStyle = style({
+export const scrollAreaThumbCss = style({
   flex: 1,
   borderRadius: 9999,
   backgroundColor: color.semantic.border.neutral.medium
 })
 
-export const collapsedHiddenStyle = style({
+export const collapsedHiddenCss = style({
   display: 'none'
 })
 
-export const visuallyHiddenStyle = style({
+export const visuallyHiddenCss = style({
   border: 0,
   clip: 'rect(0 0 0 0)',
   clipPath: 'inset(50%)',
@@ -131,7 +131,7 @@ const itemVariants = {
   flexDirection: createVar()
 } as const
 
-export const itemStyle = recipe({
+export const itemCss = recipe({
   base: {
     listStyle: 'none',
     cursor: 'pointer',
@@ -139,7 +139,7 @@ export const itemStyle = recipe({
     padding: `${DEFAULT_ITEM_HORIZONTAL_PADDING}px ${itemVariants.paddingHorizontal}`
   },
   variants: {
-    isActive: {
+    active: {
       true: {
         color: color.semantic.text.brand.primary
       },
@@ -171,25 +171,25 @@ export const itemStyle = recipe({
   }
 })
 
-export const groupLabelContainerStyle = style({
+export const groupLabelContainerCss = style({
   padding: `${DEFAULT_ITEM_HORIZONTAL_PADDING}px ${DEFAULT_HORIZONTAL_PADDING}px`,
   color: color.semantic.text.neutral.disabled
 })
 
-export const groupListStyle = style({
+export const groupListCss = style({
   listStyle: 'none',
   padding: 0,
   margin: 0
 })
 
-export const itemTextStyle = style({
+export const itemTextCss = style({
   textAlign: 'center',
   whiteSpace: 'normal',
   wordBreak: 'keep-all',
   overflowWrap: 'normal'
 })
 
-export const triggerStyle = style({
+export const triggerCss = style({
   border: 'none',
   backgroundColor: 'transparent',
   cursor: 'pointer'
@@ -197,7 +197,7 @@ export const triggerStyle = style({
 
 const DEFAULT_LOGO_SIZE = 40
 
-export const logoStyle = recipe({
+export const logoCss = recipe({
   base: {
     width: DEFAULT_LOGO_SIZE,
     aspectRatio: 1

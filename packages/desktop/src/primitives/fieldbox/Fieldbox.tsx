@@ -1,8 +1,8 @@
 import { HTMLAttributes, ReactNode } from 'react'
 
-import { FieldboxBottomTxt, FieldboxLabel } from './compound'
+import { FieldboxBottomText, FieldboxLabel } from './compound'
 import { FieldboxContextProvider, useFieldboxContext } from './context'
-import { fieldboxContainerCss, fieldboxContentCss } from './styles.css'
+import { fieldboxContainerCss, fieldboxContentCss } from './style.css'
 import { FieldBoxSize } from './type'
 import { cx } from '../../utils/cx'
 
@@ -14,7 +14,7 @@ export interface FieldboxProps extends HTMLAttributes<HTMLDivElement> {
   topAddon?: ReactNode
   /**
    * 하단에 배치할 컴포넌트 영역이에요.
-   * 주로 `Fieldbox.BottomTxt`처럼 검증 메시지나 보조 설명을 노출할 때 사용해요.
+   * 주로 `Fieldbox.BottomText`처럼 검증 메시지나 보조 설명을 노출할 때 사용해요.
    */
   bottomAddon?: ReactNode
   /**
@@ -51,7 +51,7 @@ export interface FieldboxProps extends HTMLAttributes<HTMLDivElement> {
    *
    * @default false
    */
-  readonly?: boolean
+  readOnly?: boolean
 }
 
 const FieldboxImpl = (props: FieldboxProps) => {
@@ -64,7 +64,7 @@ const FieldboxImpl = (props: FieldboxProps) => {
     disabled = false,
     error = false,
     required = false,
-    readonly = false,
+    readOnly = false,
     ...restProps
   } = props
   return (
@@ -73,7 +73,7 @@ const FieldboxImpl = (props: FieldboxProps) => {
       required={required}
       error={error}
       disabled={disabled}
-      readonly={readonly}>
+      readOnly={readOnly}>
       <div
         className={cx(fieldboxContainerCss, classNameFromProps)}
         {...restProps}>
@@ -100,11 +100,11 @@ export interface FieldboxContentProps extends HTMLAttributes<HTMLDivElement> {
 
 const FieldboxContent = (props: FieldboxContentProps) => {
   const { leftAddon, rightAddon, children, className: classNameFromProps, ...restProps } = props
-  const { size, error, disabled, readonly } = useFieldboxContext('Fieldbox.Content')
+  const { size, error, disabled, readOnly } = useFieldboxContext('Fieldbox.Content')
 
   return (
     <div
-      className={cx(fieldboxContentCss({ size, error, disabled, readonly }), classNameFromProps)}
+      className={cx(fieldboxContentCss({ size, error, disabled, readOnly }), classNameFromProps)}
       {...restProps}>
       {leftAddon}
       {children}
@@ -118,5 +118,5 @@ FieldboxContent.displayName = 'Fieldbox.Content'
 export const Fieldbox = Object.assign(FieldboxImpl, {
   Content: FieldboxContent,
   Label: FieldboxLabel,
-  BottomTxt: FieldboxBottomTxt
+  BottomText: FieldboxBottomText
 })

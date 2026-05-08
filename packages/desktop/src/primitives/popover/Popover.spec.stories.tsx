@@ -18,7 +18,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const contentStyle = {
+const contentCss = {
   padding: '16px',
   background: 'white',
   border: '1px solid #e0e0e0',
@@ -38,7 +38,7 @@ export const ClickTriggerTest: Story = {
         </Popover.Trigger>
         <Popover.Content
           data-testid='popover-content'
-          style={contentStyle}>
+          style={contentCss}>
           팝오버 내용입니다
         </Popover.Content>
       </Popover>
@@ -71,7 +71,7 @@ export const EscapeKeyTest: Story = {
         </Popover.Trigger>
         <Popover.Content
           data-testid='popover-content'
-          style={contentStyle}>
+          style={contentCss}>
           팝오버 내용입니다
         </Popover.Content>
       </Popover>
@@ -104,7 +104,7 @@ export const FocusableContentTest: Story = {
         </Popover.Trigger>
         <Popover.Content
           data-testid='popover-content'
-          style={contentStyle}>
+          style={contentCss}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '300px' }}>
             <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 'bold' }}>사용자 정보 입력</h3>
             <Textfield
@@ -170,7 +170,7 @@ export const OutsideClickTest: Story = {
           </Popover.Trigger>
           <Popover.Content
             data-testid='popover-content'
-            style={contentStyle}>
+            style={contentCss}>
             팝오버 내용입니다
           </Popover.Content>
         </Popover>
@@ -222,7 +222,7 @@ export const AnchorPositioningTest: Story = {
           </Popover.Anchor>
           <Popover.Content
             data-testid='popover-content'
-            style={contentStyle}>
+            style={contentCss}>
             앵커를 사용한 팝오버
           </Popover.Content>
         </Popover>

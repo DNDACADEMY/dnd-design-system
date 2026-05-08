@@ -5,7 +5,7 @@ import { forwardRefWithAs } from '../../../utils/forwardRefWithAs'
 import { Icon, IconName } from '../../icon'
 import { Txt } from '../../txt'
 import { useSidebarContext, useSidebarGroupContext } from '../context'
-import { itemStyle, itemTextStyle } from '../style.css'
+import { itemCss, itemTextCss } from '../style.css'
 
 export interface SidebarItemProps extends HTMLAttributes<HTMLElement> {
   /**
@@ -19,7 +19,7 @@ export interface SidebarItemProps extends HTMLAttributes<HTMLElement> {
    * 아이템의 활성 상태를 설정해요.
    * 활성 상태일 때 아이템의 스타일을 변경해요.
    */
-  isActive?: boolean
+  active?: boolean
 }
 
 /**
@@ -28,7 +28,7 @@ export interface SidebarItemProps extends HTMLAttributes<HTMLElement> {
  * 이 방식은 `ul` + `li` 구조를 보장해 스크린 리더 및 키보드 탐색 접근성을 유지해요.
  */
 export const SidebarItem = forwardRefWithAs<ElementType, SidebarItemProps>((props, ref) => {
-  const { children, iconName, isActive, as, className: classNameFromProps, onClick, onKeyDown, tabIndex, role, ...restProps } = props
+  const { children, iconName, active, as, className: classNameFromProps, onClick, onKeyDown, tabIndex, role, ...restProps } = props
 
   const { open } = useSidebarContext('Sidebar.Item')
   const { isIncluded } = useSidebarGroupContext('Sidebar.Item')
@@ -55,7 +55,7 @@ export const SidebarItem = forwardRefWithAs<ElementType, SidebarItemProps>((prop
     <Component
       role='menuitem'
       ref={ref}
-      className={cx(itemStyle({ isActive, open, hasIcon }), classNameFromProps)}
+      className={cx(itemCss({ active, open, hasIcon }), classNameFromProps)}
       onClick={onClick}
       onKeyDown={handleKeyDown}
       tabIndex={enableKeyboardActivation ? (tabIndex ?? 0) : tabIndex}
@@ -69,7 +69,7 @@ export const SidebarItem = forwardRefWithAs<ElementType, SidebarItemProps>((prop
       <Txt
         color='inherit'
         typography={open ? 'label1' : 'label2'}
-        className={itemTextStyle}>
+        className={itemTextCss}>
         {children}
       </Txt>
     </Component>

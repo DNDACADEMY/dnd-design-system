@@ -4,7 +4,7 @@ import { ComponentPropsWithRef, useCallback } from 'react'
 import { composeHandler } from '../../../utils/composeHandler'
 import { cx } from '../../../utils/cx'
 import { useSidebarContext } from '../context'
-import { triggerStyle } from '../style.css'
+import { triggerCss } from '../style.css'
 
 export interface SidebarTriggerProps extends Omit<ComponentPropsWithRef<'button'>, 'type'> {
   /**
@@ -30,7 +30,7 @@ export const SidebarTrigger = (props: SidebarTriggerProps) => {
       aria-expanded={open}
       type={asChild ? undefined : 'button'}
       onClick={composeHandler(onClick, handleClick)}
-      className={cx(triggerStyle, classNameFromProps)}
+      className={cx(triggerCss, classNameFromProps)}
       {...restProps}
     />
   )

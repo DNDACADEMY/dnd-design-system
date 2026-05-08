@@ -1,2 +1,2 @@
 export { FieldboxLabel, type FieldboxLabelProps } from './Label'
-export { FieldboxBottomTxt, type FieldboxBottomTxtProps } from './BottomTxt'
+export { FieldboxBottomText, type FieldboxBottomTextProps } from './BottomText'

@@ -2,7 +2,7 @@ import { HTMLAttributes } from 'react'
 
 import { cx } from '../../../utils/cx'
 import { useSidebarContext } from '../context'
-import { affixStyle } from '../style.css'
+import { affixCss } from '../style.css'
 
 export interface SidebarAffixProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -19,7 +19,7 @@ export const SidebarAffix = (props: SidebarAffixProps) => {
 
   return (
     <div
-      className={cx(affixStyle({ padded, open }), classNameFromProps)}
+      className={cx(affixCss({ padded, open }), classNameFromProps)}
       {...restProps}
     />
   )

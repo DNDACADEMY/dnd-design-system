@@ -4,7 +4,7 @@ import { SidebarCollapsible } from './Collapsible'
 import { cx } from '../../../utils/cx'
 import { Txt } from '../../txt'
 import { SidebarGroupContextProvider } from '../context'
-import { groupLabelContainerStyle, groupListStyle } from '../style.css'
+import { groupLabelContainerCss, groupListCss } from '../style.css'
 
 export interface SidebarGroupProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -21,7 +21,7 @@ export const SidebarGroup = (props: SidebarGroupProps) => {
     <div role='group'>
       <SidebarCollapsible>
         <div
-          className={cx(groupLabelContainerStyle, classNameFromProps)}
+          className={cx(groupLabelContainerCss, classNameFromProps)}
           {...restProps}>
           {hasLabel ? (
             <Txt
@@ -35,7 +35,7 @@ export const SidebarGroup = (props: SidebarGroupProps) => {
       <SidebarGroupContextProvider isIncluded={true}>
         <ul
           role='menu'
-          className={groupListStyle}>
+          className={groupListCss}>
           {children}
         </ul>
       </SidebarGroupContextProvider>

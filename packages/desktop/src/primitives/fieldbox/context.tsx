@@ -6,7 +6,7 @@ type FieldboxContextType = {
   required: boolean
   error: boolean
   disabled: boolean
-  readonly: boolean
+  readOnly: boolean
 }
 
 const [FieldboxContextProvider, useFieldboxContext] = createCtxProvider<FieldboxContextType>('Fieldbox', {
@@ -14,7 +14,7 @@ const [FieldboxContextProvider, useFieldboxContext] = createCtxProvider<Fieldbox
   required: false,
   error: false,
   disabled: false,
-  readonly: false
+  readOnly: false
 })
 
 export { FieldboxContextProvider, useFieldboxContext }

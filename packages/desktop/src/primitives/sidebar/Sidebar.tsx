@@ -3,7 +3,7 @@ import { ComponentPropsWithRef, useEffect, useId, useState } from 'react'
 
 import { SidebarAffix, SidebarCollapsible, SidebarContent, SidebarGroup, SidebarItem, SidebarTrigger } from './compound'
 import { SidebarContextProvider } from './context'
-import { containerStyle } from './style.css'
+import { containerCss } from './style.css'
 import { cx } from '../../utils/cx'
 
 type CombinedSidebarProps = Omit<ComponentPropsWithRef<'div'>, keyof MotionProps> & MotionProps
@@ -55,7 +55,7 @@ const SidebarImpl = (props: SidebarProps) => {
         initial={false}
         animate={open ? { width: '280px' } : { width: '64px' }}
         transition={{ duration: 0.3 }}
-        className={cx(containerStyle({ open }), classNameFromProps)}
+        className={cx(containerCss({ open }), classNameFromProps)}
         data-state={open ? 'open' : 'closed'}
         {...restProps}>
         {children}
