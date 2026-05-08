@@ -22,16 +22,16 @@ ref·restProps·type export 같은 일반 컴포넌트 작성 규칙은 [`COMPON
 
 primitive 디렉토리 안의 파일명은 **단수형**으로 통일한다.
 
-| 역할              | 표준 파일명     | 비고                                          |
-| ----------------- | --------------- | --------------------------------------------- |
-| 메인 컴포넌트     | `{Name}.tsx`    | PascalCase                                    |
-| 스타일            | `style.css.ts`  | **단수형**                                    |
-| 타입 정의         | `type.ts`       | **단수형**. inline 으로 두지 말고 분리한다    |
-| Context           | `context.tsx`   | 상태 공유가 필요할 때만                       |
-| Re-export         | `index.tsx`     | -                                             |
-| Storybook 문서    | `{Name}.stories.tsx`      | -                                  |
-| 접근성 스펙       | `{Name}.spec.stories.tsx` | 신규 컴포넌트 필수                 |
-| 서브컴포넌트      | `compound/`     | 디렉토리                                      |
+| 역할           | 표준 파일명               | 비고                                       |
+| -------------- | ------------------------- | ------------------------------------------ |
+| 메인 컴포넌트  | `{Name}.tsx`              | PascalCase                                 |
+| 스타일         | `style.css.ts`            | **단수형**                                 |
+| 타입 정의      | `type.ts`                 | **단수형**. inline 으로 두지 말고 분리한다 |
+| Context        | `context.tsx`             | 상태 공유가 필요할 때만                    |
+| Re-export      | `index.tsx`               | -                                          |
+| Storybook 문서 | `{Name}.stories.tsx`      | -                                          |
+| 접근성 스펙    | `{Name}.spec.stories.tsx` | 신규 컴포넌트 필수                         |
+| 서브컴포넌트   | `compound/`               | 디렉토리                                   |
 
 > [!IMPORTANT]
 > `styles.css.ts`, `types.ts` (복수형) 은 금지. 새 컴포넌트도, 기존 컴포넌트 마이그레이션도 단수형으로 맞춘다.
@@ -48,7 +48,7 @@ primitive 디렉토리 안의 파일명은 **단수형**으로 통일한다.
 
 ```tsx
 type ButtonVariant = 'primary' | 'secondary' | 'assistive' | 'outline'
-type ChipVariant   = 'default' | 'selected'   // ❌ 'status' 금지 → 'variant' 로 마이그레이션
+type ChipVariant = 'default' | 'selected' // ❌ 'status' 금지 → 'variant' 로 마이그레이션
 ```
 
 - `variant` 값은 **semantic 이름** (의미) 으로 짓는다: `primary`, `secondary`, `outline`, `assistive`, `selected`, `default` 등.
@@ -73,11 +73,11 @@ type ButtonSize = 'small' | 'medium' | 'large' | 'xlarge'
 
 ### 3.1 size 값
 
-| ✅ 허용                                     | ❌ 금지                              |
-| ------------------------------------------- | ------------------------------------ |
-| `'small' \| 'medium' \| 'large' \| 'xlarge'` | `'sm' \| 'md' \| 'lg'`               |
-|                                             | `'S' \| 'M' \| 'L'`                  |
-|                                             | `1 \| 2 \| 3` (숫자)                |
+| ✅ 허용                                      | ❌ 금지                |
+| -------------------------------------------- | ---------------------- |
+| `'small' \| 'medium' \| 'large' \| 'xlarge'` | `'sm' \| 'md' \| 'lg'` |
+|                                              | `'S' \| 'M' \| 'L'`    |
+|                                              | `1 \| 2 \| 3` (숫자)   |
 
 - **소문자 + 영어 단어 전체** 만 허용.
 - 단계 수는 컴포넌트가 선택. 다만 신규 컴포넌트는 3단계 (`small` / `medium` / `large`) 부터 시작하는 것을 권장.
@@ -108,13 +108,13 @@ variants: {
 
 상태를 boolean 으로 받는 props 는 **접두사 없이** 이름을 짓는다.
 
-| ✅ 권장      | ❌ 금지         |
-| ------------ | --------------- |
-| `disabled`   | `isDisabled`    |
-| `error`      | `hasError`      |
-| `required`   | `isRequired`    |
-| `readOnly`   | `readonly` (소문자), `isReadOnly` |
-| `selected`   | `isSelected`    |
+| ✅ 권장    | ❌ 금지                           |
+| ---------- | --------------------------------- |
+| `disabled` | `isDisabled`                      |
+| `error`    | `hasError`                        |
+| `required` | `isRequired`                      |
+| `readOnly` | `readonly` (소문자), `isReadOnly` |
+| `selected` | `isSelected`                      |
 
 > [!IMPORTANT]
 > `readOnly` 는 React/HTML DOM 표준 camelCase 로 통일한다. HTML attribute 의 `readonly` (전부 소문자) 는 React JSX 에서 쓰지 않는다.
@@ -143,11 +143,11 @@ export const containerCss = style({ display: 'flex' })
 - camelCase + **`Css` 접미사**.
 - 컴포넌트별 prefix 는 명확성을 위해 권장하지만 강제는 아님 (`fieldboxContentCss`, `bottomTxtCss` 처럼).
 
-| ✅ 권장               | ❌ 금지                           |
-| --------------------- | --------------------------------- |
-| `buttonCss`           | `ButtonCss` (PascalCase)          |
-| `fieldboxContentCss`  | `containerStyle` (`*Style` 접미사) |
-| `typographyCss`       | `TypographyCSS` / `typography_css` |
+| ✅ 권장              | ❌ 금지                            |
+| -------------------- | ---------------------------------- |
+| `buttonCss`          | `ButtonCss` (PascalCase)           |
+| `fieldboxContentCss` | `containerStyle` (`*Style` 접미사) |
+| `typographyCss`      | `TypographyCSS` / `typography_css` |
 
 > [!NOTE]
 > Sidebar 의 `*Style` 접미사는 마이그레이션 대상이다 ([§8](#8-현재-마이그레이션-대상-스냅샷) 참고).
@@ -180,16 +180,16 @@ function Button(props: ButtonProps) {
 
 같은 역할의 서브컴포넌트는 컴포넌트가 달라도 **같은 이름**을 쓴다.
 
-| 역할                          | 표준 이름     | 사용 예                          |
-| ----------------------------- | ------------- | -------------------------------- |
-| 보조 텍스트(헬퍼/에러)        | `BottomText`  | Fieldbox, Textfield              |
-| 라벨                          | `Label`       | Fieldbox, Textfield              |
-| 아이콘                        | `Icon`        | Button, Chip, Textfield, Textarea |
-| 트리거                        | `Trigger`     | Popover, Sidebar                 |
-| 컨텐츠 컨테이너               | `Content`     | Popover, Sidebar, Fieldbox       |
-| 위치 기준점                   | `Anchor`      | Popover                          |
-| 그룹                          | `Group`       | Sidebar                          |
-| 항목                          | `Item`        | Sidebar                          |
+| 역할                   | 표준 이름    | 사용 예                           |
+| ---------------------- | ------------ | --------------------------------- |
+| 보조 텍스트(헬퍼/에러) | `BottomText` | Fieldbox, Textfield               |
+| 라벨                   | `Label`      | Fieldbox, Textfield               |
+| 아이콘                 | `Icon`       | Button, Chip, Textfield, Textarea |
+| 트리거                 | `Trigger`    | Popover, Sidebar                  |
+| 컨텐츠 컨테이너        | `Content`    | Popover, Sidebar, Fieldbox        |
+| 위치 기준점            | `Anchor`     | Popover                           |
+| 그룹                   | `Group`      | Sidebar                           |
+| 항목                   | `Item`       | Sidebar                           |
 
 > [!IMPORTANT]
 > `BottomTxt` 는 금지. `BottomText` 로 통일한다 (Fieldbox 마이그레이션 대상).
@@ -229,22 +229,26 @@ type ButtonContextType = {
 새 컴포넌트를 만들거나 기존 컴포넌트를 손볼 때 확인한다. 자동 검사는 [`/check-variants`](../../../.claude/skills/check-variants/SKILL.md) 로 돌릴 수 있다.
 
 **파일/디렉토리**
+
 - [ ] `style.css.ts`, `type.ts` 단수형
 - [ ] `{Name}.tsx`, `{Name}.stories.tsx`, `{Name}.spec.stories.tsx` PascalCase
 
 **Props**
+
 - [ ] 시각 변형은 `variant`, 크기 변형은 `size`
 - [ ] size 값은 `small | medium | large | xlarge` 중에서만
 - [ ] boolean prop 은 접두사 없음 (`disabled`, `error`, `required`)
 - [ ] `readOnly` (camelCase)
 
 **스타일**
+
 - [ ] 변형이 있으면 `recipe()`, 없으면 `style()`
 - [ ] export 이름 camelCase + `Css` 접미사
 - [ ] variant 기본값은 컴포넌트 props 기본값에서 관리
 - [ ] (선택) recipe 직접 재사용 시 `defaultVariants` 사용
 
 **Compound**
+
 - [ ] 표준 카탈로그 이름 사용 (`BottomText`, `Label`, `Icon` 등)
 - [ ] `Object.assign` 패턴
 - [ ] `*ContextType` 네이밍
@@ -255,16 +259,16 @@ type ButtonContextType = {
 
 작성 시점(2026-05-08) 기준으로 가이드라인 위반인 항목. 점진적으로 정리한다.
 
-| primitive | 위반                                          | 마이그레이션         |
-| --------- | --------------------------------------------- | -------------------- |
-| fieldbox  | `styles.css.ts` (복수)                        | → `style.css.ts`     |
-| txt       | `styles.css.ts` (복수)                        | → `style.css.ts`     |
-| txt       | `types.ts` (복수)                             | → `type.ts`          |
-| fieldbox  | `BottomTxt.tsx`, `bottomTxtCss`               | → `BottomText.tsx`, `bottomTextCss` |
-| fieldbox  | `readonly` prop                               | → `readOnly`         |
-| chip      | `status` prop                                 | → `variant`          |
-| sidebar   | `*Style` 접미사 (`containerStyle` 등 다수)    | → `*Css`             |
-| popover   | inline 타입 정의 (별도 `type.ts` 없음)        | → `type.ts` 분리     |
-| -         | variant 기본값 위치 혼재 가능성               | → props 기본값으로 통일 |
+| primitive | 위반                                       | 마이그레이션                        |
+| --------- | ------------------------------------------ | ----------------------------------- |
+| fieldbox  | `styles.css.ts` (복수)                     | → `style.css.ts`                    |
+| txt       | `styles.css.ts` (복수)                     | → `style.css.ts`                    |
+| txt       | `types.ts` (복수)                          | → `type.ts`                         |
+| fieldbox  | `BottomTxt.tsx`, `bottomTxtCss`            | → `BottomText.tsx`, `bottomTextCss` |
+| fieldbox  | `readonly` prop                            | → `readOnly`                        |
+| chip      | `status` prop                              | → `variant`                         |
+| sidebar   | `*Style` 접미사 (`containerStyle` 등 다수) | → `*Css`                            |
+| popover   | inline 타입 정의 (별도 `type.ts` 없음)     | → `type.ts` 분리                    |
+| -         | variant 기본값 위치 혼재 가능성            | → props 기본값으로 통일             |
 
 이 표는 `/check-variants` 가 동적으로 갱신할 수 있는 영역이라 수동으로 매번 맞추지 않아도 된다 (스킬이 검사 결과를 그때그때 출력함).

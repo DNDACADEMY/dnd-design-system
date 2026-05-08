@@ -1,6 +1,6 @@
 ---
 name: check-variants
-description: "@dnd-lab/desktop primitive 컴포넌트가 docs/VARIANT_GUIDELINES.md 의 변형·네이밍 표준을 따르는지 검사하고, 안전하게 자동 수정할 수 있는 위반은 사용자 승인 후 일괄 수정한다. \"variant 검사해줘\", \"check-variants\", \"네이밍 통일 검사\", \"가이드라인 위반 찾아줘\", \"BottomTxt 같은 거 잡아줘\", \"primitive 컨벤션 점검\" 같은 요청이나 새 컴포넌트 추가/수정 직후 셀프 점검이 필요할 때 반드시 이 스킬을 사용하라. 단순 위반(파일명, prop 케이싱, CSS export 접미사)은 사용자 승인 후 자동 Edit 까지 책임지고, API breaking change(compound 이름, variant prop 이름) 는 보고만 하고 사용자 결정에 맡긴다."
+description: '@dnd-lab/desktop primitive 컴포넌트가 docs/VARIANT_GUIDELINES.md 의 변형·네이밍 표준을 따르는지 검사하고, 안전하게 자동 수정할 수 있는 위반은 사용자 승인 후 일괄 수정한다. "variant 검사해줘", "check-variants", "네이밍 통일 검사", "가이드라인 위반 찾아줘", "BottomTxt 같은 거 잡아줘", "primitive 컨벤션 점검" 같은 요청이나 새 컴포넌트 추가/수정 직후 셀프 점검이 필요할 때 반드시 이 스킬을 사용하라. 단순 위반(파일명, prop 케이싱, CSS export 접미사)은 사용자 승인 후 자동 Edit 까지 책임지고, API breaking change(compound 이름, variant prop 이름) 는 보고만 하고 사용자 결정에 맡긴다.'
 ---
 
 # check-variants
