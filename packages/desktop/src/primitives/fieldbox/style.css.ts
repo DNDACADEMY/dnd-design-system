@@ -93,7 +93,7 @@ export const fieldboxContentCss = recipe({
         }
       }
     },
-    readonly: {
+    readOnly: {
       true: {
         vars: {
           [fieldBoxContentVariants.backgroundColor]: color.semantic.background.neutral.tertiary,
@@ -116,7 +116,7 @@ const bottomTxtVariants = {
   color: createVar()
 } as const
 
-export const bottomTxtCss = recipe({
+export const bottomTextCss = recipe({
   base: {
     margin: 0,
     color: bottomTxtVariants.color,

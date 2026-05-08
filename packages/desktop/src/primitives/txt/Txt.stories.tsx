@@ -1,7 +1,7 @@
 import { color } from '@dnd-lab/token'
 
 import { Txt } from './Txt'
-import { TYPOGRAPHY_OPTIONS } from './types'
+import { TYPOGRAPHY_OPTIONS } from './type'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 

@@ -26,7 +26,7 @@ const meta = {
   subcomponents: {
     Content: Fieldbox.Content,
     Label: Fieldbox.Label,
-    BottomTxt: Fieldbox.BottomTxt
+    BottomText: Fieldbox.BottomText
   }
 } satisfies Meta<typeof Fieldbox>
 
@@ -35,14 +35,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const CustomInput = ({ fieldboxProps, id, placeholder }: { fieldboxProps: FieldboxProps; id?: string; placeholder?: string }) => {
-  const { size = 'medium', disabled, readonly } = fieldboxProps
+  const { size = 'medium', disabled, readOnly } = fieldboxProps
 
   return (
     <Txt
       as='input'
       id={id}
       typography='body2'
-      readOnly={readonly}
+      readOnly={readOnly}
       disabled={disabled}
       color={color.semantic.text.neutral.secondary}
       placeholder={placeholder ?? 'example@dnd.com'}
@@ -64,7 +64,7 @@ export const Playground: Story = {
     disabled: false,
     error: false,
     required: true,
-    readonly: false
+    readOnly: false
   },
   render: (args) => {
     const { size = 'medium', ...fieldboxProps } = args
@@ -77,7 +77,7 @@ export const Playground: Story = {
         {...fieldboxProps}
         size={size}
         topAddon={<Fieldbox.Label id={inputId}>이메일 주소</Fieldbox.Label>}
-        bottomAddon={<Fieldbox.BottomTxt>{bottomText}</Fieldbox.BottomTxt>}>
+        bottomAddon={<Fieldbox.BottomText>{bottomText}</Fieldbox.BottomText>}>
         <Fieldbox.Content
           leftAddon={
             <Icon
@@ -141,7 +141,7 @@ export const ErrorState: Story = {
   args: {
     error: true,
     required: true,
-    readonly: false
+    readOnly: false
   },
   render: (fieldboxProps) => {
     const id = 'fieldbox-error'
@@ -149,7 +149,7 @@ export const ErrorState: Story = {
       <Fieldbox
         {...fieldboxProps}
         topAddon={<Fieldbox.Label id={id}>이메일 주소</Fieldbox.Label>}
-        bottomAddon={<Fieldbox.BottomTxt>이메일 형식이 올바르지 않아요.</Fieldbox.BottomTxt>}>
+        bottomAddon={<Fieldbox.BottomText>이메일 형식이 올바르지 않아요.</Fieldbox.BottomText>}>
         <Fieldbox.Content
           leftAddon={
             <Icon
@@ -172,7 +172,7 @@ export const ErrorState: Story = {
 export const DisabledState: Story = {
   args: {
     disabled: true,
-    readonly: false
+    readOnly: false
   },
   render: (fieldboxProps) => {
     const id = 'fieldbox-disabled'
@@ -180,7 +180,7 @@ export const DisabledState: Story = {
       <Fieldbox
         {...fieldboxProps}
         topAddon={<Fieldbox.Label id={id}>이메일 주소</Fieldbox.Label>}
-        bottomAddon={<Fieldbox.BottomTxt>현재 입력이 비활성화된 상태예요.</Fieldbox.BottomTxt>}>
+        bottomAddon={<Fieldbox.BottomText>현재 입력이 비활성화된 상태예요.</Fieldbox.BottomText>}>
         <Fieldbox.Content
           leftAddon={
             <Icon

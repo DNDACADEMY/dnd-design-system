@@ -38,7 +38,8 @@ src/
 
 ## 컴포넌트 작성 규칙
 
-전체 규칙은 `docs/COMPONENT_GUIDELINES.md` 참고. 핵심만 요약:
+전체 규칙은 `docs/COMPONENT_GUIDELINES.md` (ref·props 출처 등 일반 작성 규칙) 와
+`docs/VARIANT_GUIDELINES.md` (변형·네이밍 표준) 참고. 핵심만 요약:
 
 **1. ref 지원** — `forwardRefWithAs` 사용 필수
 
@@ -119,14 +120,17 @@ pnpm test-storybook     # headless 실행
 
 이 패키지에서 유용한 스킬 두 가지가 `.claude/skills/`에 등록되어 있다.
 
-| 스킬                | 용도                                 | 사용 시점                        |
-| ------------------- | ------------------------------------ | -------------------------------- |
-| `/dds-component`    | 컴포넌트 전체 생성 (구현 + spec)     | 새 컴포넌트 추가할 때            |
-| `/a11y-spec-writer` | 접근성 스펙(`spec.stories.tsx`) 생성 | 기존 컴포넌트에 테스트 추가할 때 |
+| 스킬                | 용도                                      | 사용 시점                            |
+| ------------------- | ----------------------------------------- | ------------------------------------ |
+| `/dds-component`    | 컴포넌트 전체 생성 (구현 + spec)          | 새 컴포넌트 추가할 때                |
+| `/a11y-spec-writer` | 접근성 스펙(`spec.stories.tsx`) 생성      | 기존 컴포넌트에 테스트 추가할 때     |
+| `/check-variants`   | 변형·네이밍 가이드라인 검사 (+ 자동 수정) | 컴포넌트 추가/수정 후 셀프 점검할 때 |
 
 **`/dds-component`**: 파일 구조, 구현 규칙, index export, spec 생성까지 전체 워크플로우를 가이드한다.
 
 **`/a11y-spec-writer`**: 컴포넌트 코드를 읽고 WCAG 기준에 맞는 `spec.stories.tsx`를 자동 생성한다. ARIA, 키보드, 폼 접근성 규칙 레퍼런스(`references/rules/`)도 포함되어 있다.
+
+**`/check-variants`**: `docs/VARIANT_GUIDELINES.md` 를 SSOT 로 primitive 들의 파일명·prop 케이싱·CSS export 접미사 등을 검사한다. 안전한 위반(파일명, `readonly` → `readOnly`, `*Style` → `*Css`)은 사용자 승인 후 자동 Edit, API breaking 위반(`BottomTxt` 같은 compound 이름, variant prop 이름)은 보고만.
 
 ## 유틸리티 / 훅
 

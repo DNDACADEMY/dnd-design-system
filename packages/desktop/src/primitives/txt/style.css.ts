@@ -3,7 +3,7 @@ import { globalFontFace, StyleRule } from '@vanilla-extract/css'
 import { createVar } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 
-import { Typography } from './types'
+import { Typography } from './type'
 
 const pretendard = 'pretendard'
 

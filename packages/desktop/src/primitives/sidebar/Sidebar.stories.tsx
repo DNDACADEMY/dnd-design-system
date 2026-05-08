@@ -79,7 +79,7 @@ export const Playground: Story = {
         <Sidebar.Content>
           <Sidebar.Group label='관리'>
             <Sidebar.Item
-              isActive
+              active
               iconName='file-text'>
               프로젝트 관리
             </Sidebar.Item>
@@ -176,7 +176,7 @@ export const InteractiveItems: Story = {
         <Sidebar.Content>
           <Sidebar.Group label='키보드 접근성'>
             <Sidebar.Item
-              isActive={activeMenu === 'project'}
+              active={activeMenu === 'project'}
               iconName='file-text'
               onClick={() => {
                 setActiveMenu('project')
@@ -184,7 +184,7 @@ export const InteractiveItems: Story = {
               프로젝트 관리
             </Sidebar.Item>
             <Sidebar.Item
-              isActive={activeMenu === 'operator'}
+              active={activeMenu === 'operator'}
               iconName='users'
               onClick={() => {
                 setActiveMenu('operator')

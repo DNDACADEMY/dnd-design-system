@@ -2,7 +2,7 @@ import { HTMLAttributes } from 'react'
 
 import { cx } from '../../../utils/cx'
 import { useSidebarContext } from '../context'
-import { collapsedHiddenStyle, visuallyHiddenStyle } from '../style.css'
+import { collapsedHiddenCss, visuallyHiddenCss } from '../style.css'
 
 export interface SidebarCollapsibleProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -19,7 +19,7 @@ export const SidebarCollapsible = (props: SidebarCollapsibleProps) => {
 
   return (
     <div
-      className={cx(classNameFromProps, !open && (keepAccessibleWhenCollapsed ? visuallyHiddenStyle : collapsedHiddenStyle))}
+      className={cx(classNameFromProps, !open && (keepAccessibleWhenCollapsed ? visuallyHiddenCss : collapsedHiddenCss))}
       data-state={open ? 'open' : 'closed'}
       {...restProps}
     />

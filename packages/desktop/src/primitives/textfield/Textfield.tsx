@@ -9,7 +9,7 @@ import { useControllableState } from '../../hooks/useControllableState'
 import { useId } from '../../hooks/useId'
 import { cx } from '../../utils/cx'
 import { Txt } from '../txt'
-import { Typography } from '../txt/types'
+import { Typography } from '../txt/type'
 
 export interface TextfieldProps extends Omit<ComponentPropsWithRef<'input'>, 'size'> {
   /**
@@ -124,7 +124,7 @@ export const TextfieldImpl = (props: TextfieldProps) => {
         disabled={disabled}
         error={error}
         required={required}
-        readonly={readOnly}>
+        readOnly={readOnly}>
         <Fieldbox.Content
           leftAddon={leftAddon}
           rightAddon={rightAddon}

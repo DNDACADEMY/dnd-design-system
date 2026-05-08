@@ -1,10 +1,11 @@
 import { CSSProperties, ElementType, HTMLAttributes } from 'react'
 
-import { typographyCss } from './styles.css'
-import { Typography } from './types'
+import { typographyCss } from './style.css'
 import { withLineBreaks } from './utils/formatTxt'
 import { cx } from '../../utils/cx'
 import { forwardRefWithAs } from '../../utils/forwardRefWithAs'
+
+import type { Typography } from './type'
 
 export interface TxtProps extends HTMLAttributes<HTMLSpanElement> {
   /**

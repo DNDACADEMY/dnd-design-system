@@ -1,7 +1,7 @@
 import * as ScrollArea from '@radix-ui/react-scroll-area'
 import { HTMLAttributes, ReactNode } from 'react'
 
-import { contentStyle, scrollAreaRootStyle, scrollAreaScrollbarStyle, scrollAreaThumbStyle, scrollAreaViewportStyle } from '../style.css'
+import { contentCss, scrollAreaRootCss, scrollAreaScrollbarCss, scrollAreaThumbCss, scrollAreaViewportCss } from '../style.css'
 
 export interface SidebarContentProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -13,7 +13,7 @@ export interface SidebarContentProps extends HTMLAttributes<HTMLDivElement> {
    * 콘텐츠의 활성 상태를 설정해요.
    * 활성 상태일 때 콘텐츠의 스타일을 변경해요.
    */
-  isActive?: boolean
+  active?: boolean
 }
 
 export const SidebarContent = (props: SidebarContentProps) => {
@@ -22,14 +22,14 @@ export const SidebarContent = (props: SidebarContentProps) => {
   return (
     <nav
       aria-label='Sidebar Content'
-      className={contentStyle}
+      className={contentCss}
       {...restProps}>
-      <ScrollArea.Root className={scrollAreaRootStyle}>
-        <ScrollArea.Viewport className={scrollAreaViewportStyle}>{children}</ScrollArea.Viewport>
+      <ScrollArea.Root className={scrollAreaRootCss}>
+        <ScrollArea.Viewport className={scrollAreaViewportCss}>{children}</ScrollArea.Viewport>
         <ScrollArea.Scrollbar
-          className={scrollAreaScrollbarStyle}
+          className={scrollAreaScrollbarCss}
           orientation='vertical'>
-          <ScrollArea.Thumb className={scrollAreaThumbStyle} />
+          <ScrollArea.Thumb className={scrollAreaThumbCss} />
         </ScrollArea.Scrollbar>
       </ScrollArea.Root>
     </nav>

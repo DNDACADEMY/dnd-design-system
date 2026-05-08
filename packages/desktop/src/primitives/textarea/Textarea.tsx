@@ -4,12 +4,12 @@ import { ChangeEventHandler, HTMLAttributes, ReactNode } from 'react'
 import { Fieldbox } from '../fieldbox'
 import { TextareaIcon } from './compound'
 import { TextareaContextProvider } from './context'
-import { contentCss, TextareaCss } from './style.css'
+import { contentCss, textareaCss } from './style.css'
 import { TextareaSize } from './type'
 import { useControllableState } from '../../hooks/useControllableState'
 import { cx } from '../../utils/cx'
 import { Txt } from '../txt'
-import { Typography } from '../txt/types'
+import { Typography } from '../txt/type'
 
 export interface TextareaProps extends HTMLAttributes<HTMLTextAreaElement> {
   /**
@@ -125,14 +125,14 @@ const TextareaImpl = (props: TextareaProps) => {
         disabled={disabled}
         error={error}
         required={required}
-        readonly={readOnly}>
+        readOnly={readOnly}>
         <Fieldbox.Content
           leftAddon={leftAddon}
           rightAddon={rightAddon}
           className={contentCss}>
           <Txt
             as='textarea'
-            className={cx(TextareaCss, classNameFromProps)}
+            className={cx(textareaCss, classNameFromProps)}
             typography={typographyBySize[size]}
             color={color.semantic.text.neutral.primary}
             value={value}
@@ -153,6 +153,6 @@ const typographyBySize: Record<TextareaSize, Typography> = {
 
 export const Textarea = Object.assign(TextareaImpl, {
   Label: Fieldbox.Label,
-  BottomText: Fieldbox.BottomTxt,
+  BottomText: Fieldbox.BottomText,
   Icon: TextareaIcon
 })
